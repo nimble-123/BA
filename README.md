@@ -1,0 +1,4 @@
+BA
+==
+
+Bachelor Arbeit @abatAG
