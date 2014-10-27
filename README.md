@@ -66,3 +66,13 @@ Bachelor Arbeit @abatAG
 
 ### OData und SAP Gateway
 - Carsten Bönnen, Volker Drees, André Fischer, Ludwig Heinz, Karsten Strothmann: OData und SAP Gateway. SAP-Press, 2014, ISBN 978-3-8362-2538-0fdhhdf.
+
+### Web Dynpro for ABAP
+- Ganz, Gürtler, Lakner: Praxisbuch Web Dynpro for Java. SAP Press, ISBN 3-89842-689-0.
+- Dominik Ofenloch, Roland Schwaiger: Einstieg in Web Dynpro ABAP SAP Press, ISBN 978-3-8362-1315-8.
+
+### Business Server Pages
+- Frédéric Heinemann, Christian Rau: Webentwicklung in ABAP mit dem SAP Web Application Server, Galileo Press, 2005, ISBN 978-3-89842-523-0.
+
+### SAP UI5
+- Miroslav Antolovic: Einführung in SAPUI5, SAP Press, 2014, ISBN 978-3-8362-2753-7
