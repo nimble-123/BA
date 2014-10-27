@@ -1,6 +1,9 @@
 Bachelor Arbeit @abatAG
 ==
 
+[https://github.com/nlsltz/BA/blob/master/Abschlussarbeit.tex](Main LaTeX File)
+[https://github.com/nlsltz/BA/raw/master/Abschlussarbeit.pdf](Generated PDF File)
+
 ## Literaturvorschlag
 ### Software Ergonomie
 - Markus Dahm: Grundlagen der Mensch-Computer-Interaktion. Verlag Pearson Studium. 2005, ISBN 3-8273-7175-9.
