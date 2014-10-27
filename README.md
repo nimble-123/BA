@@ -44,7 +44,7 @@ Bachelor Arbeit @abatAG
 - Rainer Dorau (2011): Emotionales Interaktionsdesign: Gesten und Mimik interaktiver Systeme, Springer 2011, ISBN 978-3-642-03100-7.
 - Christian Moser (2012): User Experience Design: Mit erlebniszentrierter Softwareentwicklung zu Produkten, die begeistern, ISBN 978-3642133626.
 
-### HTML5
+### HTML5 und CSS3
 - Clemens Gull, Stefan Münz: HTML5 Handbuch. 2., akt. und erw. Auflage, Franzis Verlag, Haar bei München 2011, ISBN 978-3-645-60151-1.
 - Peter Kröner: HTML5 – Webseiten innovativ und zukunftssicher. 2. erw. Auflage, Open Source Press, München 2011, ISBN 978-3-941841-34-5.
 - Mark Pilgrim: Durchstarten mit HTML5. O’Reilly Verlag, 2010, ISBN 978-3-89721-571-9.
@@ -65,7 +65,7 @@ Bachelor Arbeit @abatAG
 - Erich Gamma, Richard Helm, Ralph Johnson: Entwurfsmuster . Elemente wiederverwendbarer objektorientierter Software, Addison-Wesley; 2. Aufl. ISBN 978-3-8273-1862-6.
 
 ### OData und SAP Gateway
-- Carsten Bönnen, Volker Drees, André Fischer, Ludwig Heinz, Karsten Strothmann: OData und SAP Gateway. SAP-Press, 2014, ISBN 978-3-8362-2538-0fdhhdf.
+- Carsten Bönnen, Volker Drees, André Fischer, Ludwig Heinz, Karsten Strothmann: OData und SAP Gateway. SAP-Press, 2014, ISBN 978-3-8362-2538-0.
 
 ### Web Dynpro for ABAP
 - Ganz, Gürtler, Lakner: Praxisbuch Web Dynpro for Java. SAP Press, ISBN 3-89842-689-0.
