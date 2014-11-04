@@ -1,8 +1,8 @@
 Bachelor Arbeit @abatAG
 ==
 
-[https://github.com/nlsltz/BA/blob/master/Abschlussarbeit.tex](Main LaTeX File)
-[https://github.com/nlsltz/BA/raw/master/Abschlussarbeit.pdf](Generated PDF File)
+- [LaTeX File](https://github.com/nlsltz/BA/blob/master/Abschlussarbeit.tex)
+- [Generated PDF File](https://github.com/nlsltz/BA/raw/master/Abschlussarbeit.pdf)
 
 ## Literaturvorschlag
 ### Software Ergonomie
