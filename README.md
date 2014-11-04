@@ -1,7 +1,7 @@
 Bachelor Arbeit @abatAG
 ==
 
-- [LaTeX File](https://github.com/nlsltz/BA/blob/master/Abschlussarbeit.tex)
+- [LaTeX File(s)](https://github.com/nlsltz/BA/archive/master.zip)
 - [Generated PDF File](https://github.com/nlsltz/BA/raw/master/Abschlussarbeit.pdf)
 
 ## Literaturvorschlag
