@@ -278,17 +278,148 @@ Lorem ipsum dolor sit amet.
 
 \subsection{HTML5 und CSS3}
 // Entstehung - Von Dez '97 bis Okt '14\\
+// Abbildung \ref{fig:html5specs}\\
+	\vspace{1em}
+	\begin{minipage}{\linewidth}
+		\centering
+		\includegraphics[width=1\linewidth]{tmp/HTML5-Spezifikationen.png}
+		\captionof{figure}[HTML5 Spezifikation Übersicht]{HTML5 Spezifikation Übersicht\footnotemark }
+		\label{fig:html5specs}
+	\end{minipage}
+	\footnotetext{Quelle: \url{https://github.com/SirPepe/SpecGraph/blob/master/graph_w.png}}
+	
 // Ziele - Kompatibilität, Verwendbarkeit, Sicherheit, Konsistenz, Vereinfachung, Universalität, Barrierefreiheit\\
-// Aufbau - Syntax, Start Tag, End Tag, Attributes, DOM\\
+// Aufbau - Syntax, Start Tag, End Tag, Attributes\\
+// Listing \ref{lst:html5basicdoc}
+	\vspace{1em}
+	\begin{lstlisting}[caption=HTML5 Basis Dokument, label=lst:html5basicdoc]
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Beispiel Seite</title>
+ </head>
+ <body>
+  <h1>Beispiel Seite</h1>
+  <p>Dies ist ein <a href="demo.html">einfaches</a> Beispiel.</p>
+  <!-- dies ist ein Kommentar -->
+ </body>
+</html>
+	\end{lstlisting}
+	
+// DOM - Schnittstelle zum HTML Aufbau, W3C Spezifikation unterschieldich implementiert, Knoten Beziehungen, Verarbeitung des DOM, Generierung von HTML durch Serialisierung, Listing \ref{lst:html5beispieltable} beschreiben und zur Baumstruktur hinleiten\\
+// Listing \ref{lst:html5beispieltable}
+	\vspace{1em}
+	\begin{lstlisting}[caption=HTML5 Beispiel Definition, label=lst:html5beispieltable]
+<table>
+  <thead>
+    <tr>
+      <th>Vorname</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Donald</td>
+      <td>Duck</td>
+    </tr>
+  </tbody>
+</table>
+	\end{lstlisting}
+
+// Abbildung \ref{fig:dombeispielbaum}\\
+	\vspace{1em}
+	\begin{minipage}{\linewidth}
+		\centering
+		\includegraphics[width=0.5\linewidth]{tmp/DOM_Beispielbaum.png}
+		\captionof{figure}[DOM Beispielbaum]{DOM Beispielbaum}
+		\label{fig:dombeispielbaum}
+	\end{minipage}
+
 // Wichtige neue Sprachelemente - Microdata (meta tags), 2D Canvas (canvas tag), Media (audio/video tags), Struktur (section, article, nav, aside, header, footer), Formular (input, ...), geänderte Elemente (b, i, hr, small, ...)\\
 
 // CSS3\\
 // Allgemeiner Aufbau - Gestaltungssprache, Kern Element des WWW, Darstellung und Inhalt getrennt, Unterschiedliche Optik je nach Ausgabe Gerät\\
 // Syntax - Selektoren, Eigenschaften, Werte, Pseudoklassen\\
+// Listing \ref{lst:css3syntax}
+	\vspace{1em}
+	\begin{lstlisting}[caption=CSS3 Syntax Beispiel, label=lst:css3syntax]
+Selektor [, Selektor2, ...]
+  {
+    Eigenschaft-1: Wert-1;
+    ...
+    Eigenschaft-N: Wert-N[;]
+  }
+  /* Kommentar - In eckigen Klammern stehen optionale Angaben */
+	\end{lstlisting}
+
 // CSS-Box-Modell - marging, border, padding\\
+// Abbildung \ref{fig:cssboxmodell}\\
+	\vspace{1em}
+	\begin{minipage}{\linewidth}
+		\centering
+		\includegraphics[width=0.7\linewidth]{tmp/CSS-Boxmodell.png}
+		\captionof{figure}[CSS-Boxmodell]{CSS-Boxmodell\footnotemark }
+		\label{fig:cssboxmodell}
+	\end{minipage}
+	\footnotetext{Quelle: \url{http://commons.wikimedia.org/wiki/File:Boxmodell-detail.png}}
+	
 // Medienspezifische Stylesheets (@media print, screen, ...)\\
+// Listing \ref{lst:css3media}
+	\vspace{1em}
+	\begin{lstlisting}[caption=CSS3 medienspezifisches Stylesheet, label=lst:css3media]
+@media print {
+	body {
+		color: black;
+		background-color: white;
+	}
+	.navigation {
+		display: none;
+	}
+}
+	\end{lstlisting}
+
 // Eigenschaftsspezifische Stylesheets (@media screen and (max-width:1024px))\\
-// Verzahnung mit HTML5 - link tag, inline style, @import innerhalb Stylesheet\\
+// Listing \ref{lst:css3mediaquery}
+	\vspace{1em}
+	\begin{lstlisting}[caption=CSS3 eigenschaftsspezifisches Stylesheet, label=lst:css3mediaquery]
+#inhalt {
+	width: 800px;
+}
+ 
+@media screen and (max-width: 1024px) {
+	#inhalt {
+		width: 600px;
+	}
+ 
+	aside {
+		display: none;
+	}
+}
+	\end{lstlisting}
+	
+// Verzahnung mit HTML5 - link tag, style tag, html tag, @import innerhalb Stylesheet\\
+// Listing \ref{lst:css3einbindunglink} - Einbindung über Link Tag
+	\vspace{1em}
+	\begin{lstlisting}[caption=Stylesheet Einbindung über Link Tag, label=lst:css3einbindunglink]
+<link rel="stylesheet" type="text/css" href="beispiel.css" />
+	\end{lstlisting}
+	
+// Listing \ref{lst:css3einbindungstyle} - Einbindung über Style Tag
+	\vspace{1em}
+	\begin{lstlisting}[caption=Stylesheet Einbindung über Style Tag, label=lst:css3einbindungstyle]
+<head>
+	<title>Dokument mit Formatierungen</title>
+	<style type="text/css">
+		body { color: purple; background-color: #d8da3d; }
+	</style>
+</head>
+	\end{lstlisting}
+	
+// Listing \ref{lst:css3einbindunghtml} - Einbindung in HTML Tag
+	\vspace{1em}
+	\begin{lstlisting}[caption=Stylesheet Einbindung in HTML Tag, label=lst:css3einbindunghtml]
+<span style="font-size: small;">Text</span>
+	\end{lstlisting}
 
 \subsection{JavaScript}
 // Grundlagen\\
@@ -348,10 +479,9 @@ Lorem ipsum dolor sit amet.
 \subsection{Umsetzung}
 \subsubsection{View}
 // Auszugsweise Coding bringen um bestimmte Elemente aus der Theorie zu zeigen\\
-// Listings lassen sich im Text referenzieren: Listing \ref{lst:app.view.js}\\
-
-\vspace{1em}
-\begin{lstlisting}[caption=Root View der Applikation, label=lst:app.view.js]
+// Listings lassen sich im Text referenzieren: Listing \ref{lst:app.view.js}
+	\vspace{1em}
+	\begin{lstlisting}[caption=Root View der Applikation, label=lst:app.view.js]
 sap.ui.jsview("abat.Mockup.view.App", {
 
 	getControllerName: function () {
@@ -383,7 +513,7 @@ sap.ui.jsview("abat.Mockup.view.App", {
 		});
 	}
 });
-\end{lstlisting}
+	\end{lstlisting}
 
 \subsubsection{Model und Controller}
 // die Verbindung von beiden Anhand von Coding zeigen\\
