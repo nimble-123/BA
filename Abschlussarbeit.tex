@@ -305,35 +305,6 @@ Lorem ipsum dolor sit amet.
  </body>
 </html>
 	\end{lstlisting}
-	
-// DOM - Schnittstelle zum HTML Aufbau, W3C Spezifikation unterschieldich implementiert, Knoten Beziehungen, Verarbeitung des DOM, Generierung von HTML durch Serialisierung, Listing \ref{lst:html5beispieltable} beschreiben und zur Baumstruktur hinleiten\\
-// Listing \ref{lst:html5beispieltable}
-	\vspace{1em}
-	\begin{lstlisting}[caption=HTML5 Beispiel Definition, label=lst:html5beispieltable]
-<table>
-  <thead>
-    <tr>
-      <th>Vorname</th>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Donald</td>
-      <td>Duck</td>
-    </tr>
-  </tbody>
-</table>
-	\end{lstlisting}
-
-// Abbildung \ref{fig:dombeispielbaum}\\
-	\vspace{1em}
-	\begin{minipage}{\linewidth}
-		\centering
-		\includegraphics[width=0.5\linewidth]{images/dom_sampletree.png}
-		\captionof{figure}[DOM Beispielbaum]{DOM Beispielbaum}
-		\label{fig:dombeispielbaum}
-	\end{minipage}
 
 // Wichtige neue Sprachelemente - Microdata (meta tags), 2D Canvas (canvas tag), Media (audio/video tags), Struktur (section, article, nav, aside, header, footer), Formular (input, ...), geänderte Elemente (b, i, hr, small, ...)\\
 
@@ -352,7 +323,7 @@ Selektor [, Selektor2, ...]
   /* Kommentar - In eckigen Klammern stehen optionale Angaben */
 	\end{lstlisting}
 
-// CSS-Box-Modell - marging, border, padding\\
+// CSS-Box-Modell - margin, border, padding\\
 // Abbildung \ref{fig:cssboxmodell}\\
 	\vspace{1em}
 	\begin{minipage}{\linewidth}
@@ -423,17 +394,104 @@ Selektor [, Selektor2, ...]
 
 \subsection{JavaScript}
 // Grundlagen - Geschichte, Sicherheit, aktueller Stand\\
-// Sprachelemente\\
-// Variablen\\
-// Operatoren\\
-// Kontrollstrukturen\\
-// Document Object Model\\
-// Ereignisse\\
+// Listing \ref{lst:jseinbindunghead} - Einbindung als separate Datei im Head
+	\vspace{1em}
+	\begin{lstlisting}[caption=JavaScript Einbindung als separate Datei im Head, label=lst:jseinbindunghead]
+<script src="script.js" type="text/javascript"></script>
+	\end{lstlisting}
 
-// jQuery\\
-// Selektoren\\
+// Listing \ref{lst:jseinbindungscript} - Einbindung in Skript Tag im Head und Body
+	\vspace{1em}
+	\begin{lstlisting}[caption=JavaScript Einbindung in Skript Tag im Head und Body, label=lst:jseinbindungscript]
+<script type="text/javascript"></script>
+	\end{lstlisting}
+
+// Sprachelemente - Kommentare, Funktionen, Objekte\\
+
+// Variablen - Dynamische Typisierung(Loose Typing), Case-Sensitive, ungarische Nomenklatur, spezielle Werte(\textit{undefined, null, true, false, NaN}\\
+
+// Operatoren - \textit{+,-,*,/}, zusätzlich \textit{+} als Zeichenverkettung, In- und Dekrement, Zuweisung, Vergleich, typeof, Logisch\\
+
+// Kontrollstrukturen - \textit{if, switch, for, while} Anweisungen inklusive ihrer Varianten\\
+
+// Document Object Model - Schnittstelle zum HTML Aufbau, W3C Spezifikation unterschieldich implementiert, Knoten Beziehungen, Verarbeitung des DOM, Generierung von HTML durch Serialisierung, Listing \ref{lst:html5beispieltable} beschreiben und zur Baumstruktur hinleiten\\
+// Listing \ref{lst:html5beispieltable}
+	\vspace{1em}
+	\begin{lstlisting}[caption=HTML5 Beispiel Definition, label=lst:html5beispieltable]
+<table>
+  <thead>
+    <tr>
+      <th>Vorname</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Donald</td>
+      <td>Duck</td>
+    </tr>
+  </tbody>
+</table>
+	\end{lstlisting}
+
+// Abbildung \ref{fig:dombeispielbaum}\\
+	\vspace{1em}
+	\begin{minipage}{\linewidth}
+		\centering
+		\includegraphics[width=0.5\linewidth]{images/dom_sampletree.png}
+		\captionof{figure}[DOM Beispielbaum]{DOM Beispielbaum}
+		\label{fig:dombeispielbaum}
+	\end{minipage}
+
 // Ereignisse\\
+// Übersicht einiger wichtiger Events
+    \begin{compactitem}
+	    \item onabort (bei Abbruch)
+	    \item onblur (beim Verlassen)
+	    \item onchange (bei erfolgter Änderung)
+	    \item onclick (beim Anklicken)
+	    \item ondblclick (bei doppeltem Anklicken)
+	    \item onerror (im Fehlerfall)
+	    \item onfocus (beim Aktivieren)
+	    \item onkeydown (bei gedrückter Taste)
+	    \item onkeypress (bei gedrückt gehaltener Taste)
+	    \item onkeyup (bei losgelassener Taste)
+	    \item onload (beim Laden einer Datei)
+	    \item onmousedown (bei gedrückter Maustaste)
+	    \item onmousemove (bei weiterbewegter Maus)
+	    \item onmouseout (beim Verlassen des Elements mit der Maus)
+	    \item onmouseover (beim Überfahren des Elements mit der Maus)
+	    \item onmouseup (bei losgelassener Maustaste)
+	    \item onreset (beim Zurücksetzen des Formulars)
+	    \item onselect (beim Selektieren von Text)
+	    \item onsubmit (beim Absenden des Formulars)
+	    \item onunload (beim Verlassen der Datei)
+    \end{compactitem}
+
+\paragraph{jQuery}
+$\;$ \\
+// jQuery Bibliothek beinhaltet Elementselektion, Funktionen zum DOM, Animationen und Effekte, AJAX Funktionalitäten\\
+
+// Selektoren\\
+
+// Ereignisse - unterschiede zum JS Standard bei der Definierung, Einfachheit\\
+
+// Übersicht der wichtigsten Funktionen zu Events
+    \begin{compactitem}
+	    \item .bind – Handler an Event binden
+	    \item .on – Handler an Event binden
+	    \item .blur – Ereignis, wenn ein Element den Fokus verliert
+	    \item .click – Klick mit der Maustaste
+	    \item .dbclick – Doppelklick mit der Maustaste
+	    \item .hover – Mauszeiger bewegt sich über ein Element
+	    \item .mousemove – Mauszeiger bewegt sich in einem Element
+	    \item .keypress – eine Taste der Tastatur wird gedrückt
+	    \item .keyup – eine Taste der Tastatur wird losgelassen
+	    \item .change – ein Formularfeld wird verändert
+    \end{compactitem}
+    
 // DOM-Manipulation\\
+
 // AJAX\\
 
 \subsection{ABAP}
@@ -447,7 +505,14 @@ Selektor [, Selektor2, ...]
 
 \subsubsection{Architektur}
 // Einführung in SAPUI5 S. 123 \cite{AntoEinf2014}\\
-// Abbildung\\
+// Abbildung \ref{fig:mvcarch}\\
+	\vspace{1em}
+	\begin{minipage}{\linewidth}
+		\centering
+		\includegraphics[width=0.5\linewidth]{images/mvc_arch.png}
+		\captionof{figure}[Model-View-Controller-Architekturmuster]{Model-View-Controller-Architekturmuster\cite{AntoEinf2014}}
+		\label{fig:mvcarch}
+	\end{minipage}
 
 \subsubsection{OData Protokoll}
 // Einführung in SAPUI5 S. 168 \\
