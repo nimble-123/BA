@@ -30,7 +30,7 @@
 \def\l@lstlisting#1#2{\@dottedtocline{1}{0em}{1em}{\hspace{1,5em} Lst. #1}{#2}}
 \makeatother
 
-\geometry{a4paper, top=27mm, left=30mm, right=25mm, bottom=35mm, headsep=10mm, footskip=12mm}
+\geometry{a4paper, top=30mm, left=30mm, right=25mm, bottom=30mm, headsep=10mm, footskip=12mm}
 
 \hypersetup{unicode=false, pdftoolbar=true, pdfmenubar=true, pdffitwindow=false, pdfstartview={FitH},
 	pdftitle={Bachelorarbeit},
@@ -231,8 +231,8 @@ Das ganze auf Englisch.
 $\;$ \\
 // Erweiterung der ISO 9241\\
 
-\subsection{Wirtschaftlicher Faktor}
-// Kosteneinsparungspotenzial finden und begründen\\
+%\subsection{Wirtschaftlicher Faktor}
+%// Kosteneinsparungspotenzial finden und begründen\\
 
 \subsection{Analyse Methoden}
 \subsubsection{Eye Tracking}
@@ -509,7 +509,7 @@ $\;$ \\
 	\vspace{1em}
 	\begin{minipage}{\linewidth}
 		\centering
-		\includegraphics[width=0.5\linewidth]{images/mvc_arch.png}
+		\includegraphics[width=0.6\linewidth]{images/mvc_arch.png}
 		\captionof{figure}[Model-View-Controller-Architekturmuster]{Model-View-Controller-Architekturmuster\cite{AntoEinf2014}}
 		\label{fig:mvcarch}
 	\end{minipage}
@@ -526,19 +526,19 @@ $\;$ \\
 Lorem ipsum dolor sit amet.
 
 \subsection{Beschreibung}
-// Frontend\\
-// Backend\\
+// Frontend - Browser, Elemente\\
+// Backend - JSON, OData Model\\
 // Analyse der wichtigen Arbeitsschritte\\
-// Anbindung von \ac{SPP} als Datenquelle ansprechen\\
 
 \subsection{Hilfsmittel}
 \subsubsection{Entwicklungsumgebung}
 // Kurze Beschreibung der Entwicklungsumgebung\\
-// Sprich Eclipse, SE80, Chrome Dev-tools\\
+// Sprich Eclipse, SE80, Chrome Dev-tools, Debugger\\
 // Neptune Application Designer\\
 
 \subsubsection{UI Design und Prototyping}
 // Wireframing als Prototyping\\
+// Abbildung Wireframesketcher\\
 
 \subsubsection{PLATZHALTER}
 // HIER KÖNNTE IHRE WERBUNG STEHEN \cite{NilsBlog2014}\\
@@ -548,44 +548,102 @@ Lorem ipsum dolor sit amet.
 // Auszugsweise Coding bringen um bestimmte Elemente aus der Theorie zu zeigen\\
 // Generellen Aufbau der Views erklären\\
 // Kapselung wird dadurch verdeutlicht\\
-// Listings lassen sich im Text referenzieren: Listing \ref{lst:app.view.js}
+// Listing \ref{lst:app.view.js}
 	\vspace{1em}
 	\begin{lstlisting}[caption=Root View der Applikation, label=lst:app.view.js]
 sap.ui.jsview("abat.Mockup.view.App", {
 
-	getControllerName: function () {
-		return "abat.Mockup.view.App";
-	},
-	
-	createContent: function (oController) {
-		
-		// to avoid scroll bars on desktop the root view must be set to block display
-		this.setDisplayBlock(true);
-		
-		// create app
-		this.app = new sap.m.SplitApp();
-
-		// load the master page
-		var master = sap.ui.xmlview("Master", "abat.Mockup.view.Master");
-		master.getController().nav = this.getController();
-		this.app.addPage(master, true);
-		
-		// load the empty page
-		var empty = sap.ui.xmlview("Empty", "abat.Mockup.view.Empty");
-		this.app.addPage(empty, false);
-		
-		// wrap app with shell
-		return new sap.m.Shell("Shell", {
-			title : "{i18n>ShellTitle}",
-			showLogout : false,
-			app : this.app
-		});
-	}
+  getControllerName: function () {
+    return "abat.Mockup.view.App";
+  },
+  
+  createContent: function (oController) {
+    // to avoid scroll bars on desktop
+    this.setDisplayBlock(true);
+    
+    // create app
+    this.app = new sap.m.SplitApp();
+    
+    // load the master page
+    var master = sap.ui.xmlview("Master", "abat.Mockup.view.Master");
+    master.getController().nav = this.getController();
+    this.app.addPage(master, true);
+    
+    // load the empty page
+    var empty = sap.ui.xmlview("Empty", "abat.Mockup.view.Empty");
+    this.app.addPage(empty, false);
+    
+    // wrap app with shell
+    return new sap.m.Shell("Shell", {
+      title : "{i18n>ShellTitle}",
+      showLogout : false,
+      app : this.app
+    });
+  }
 });
 	\end{lstlisting}
 
+// Master/Detail Applikation mit Fragment und Chart View Aufbau\\
+// TODO: Visio Diagramm oder vergleichbares erstellen\\
+// sap.ui.view\\
+//   |- sap.m.Shell\\
+//   |  |- sap.m.SplitApp\\
+//   |  |  |- sap.m.Page\\
+//   |  |  |  |- sap.m.Bar\\
+//   |  |  |  |- sap.m.Bar\\
+//   |  |  |  |- sap.m.List\\
+//   |  |  |  |  |- sap.m.ObjectListItem\\
+//   |  |  |  |- sap.m.Bar\\
+//   |  |  |- sap.m.Page\\
+//   |  |  |  |- sap.m.ObjectHeader\\
+//   |  |  |  |  |- sap.m.ObjectAttribute\\
+//   |  |  |  |  |- sap.m.ObjectAttribute\\
+//   |  |  |  |  |- sap.m.ObjectAttribute\\
+//   |  |  |  |  |- sap.m.ObjectAttribute\\
+//   |  |  |  |  |- sap.m.ObjectStatus\\
+//   |  |  |  |- sap.IconTabBar\\
+//   |  |  |  |  |- sap.IconTabFilter\\
+//   |  |  |  |  |  |- sap.ui.core.Fragment\\
+//   |  |  |  |  |  |  |- sap.ui.core.FragmentDefinition\\
+//   |  |  |  |  |  |  |  |- sap.viz.ui5.Bar\\
+//   |  |  |  |  |- sap.IconTabFilter\\
+//   |  |  |  |  |  |- sap.ui.core.Fragment\\
+//   |  |  |  |  |  |  |- sap.ui.core.FragmentDefinition\\
+//   |  |  |  |  |  |  |  |- sap.viz.ui5.Bar\\
+//   |  |  |  |- sap.m.Bar\\
+
+
 \subsubsection{Model und Controller}
 // die Verbindung von beiden Anhand von Coding zeigen\\
+// TODO: OData Modell einbinden\\
+// Listing \ref{lst:Component.js}
+	\vspace{1em}
+	\begin{lstlisting}[caption=Component.js - Datenmodell an die Root View binden, label=lst:Component.js]
+...
+// JSON Modell an die Root View binden
+var oModel = new sap.ui.model.json.JSONModel("model/mock.json");
+oView.setModel(oModel);
+
+// OData Modell
+var oModel = new sap.ui.model.odata.ODataModel(<URL>);
+oView.setModel(oModel);
+
+// I18N(Lokalisierung) Modell
+var i18nModel = new sap.ui.model.resource.ResourceModel({
+  bundleUrl : "i18n/messageBundle.properties"
+});
+oView.setModel(i18nModel, "i18n");
+
+// Geraetespezifisches Modell
+var deviceModel = new sap.ui.model.json.JSONModel({
+  isPhone : jQuery.device.is.phone,
+  listMode : (jQuery.device.is.phone) ? "None" : "SingleSelectMaster",
+  listItemType : (jQuery.device.is.phone) ? "Active" : "Inactive"
+});
+deviceModel.setDefaultBindingMode("OneWay");
+oView.setModel(deviceModel, "device");
+...
+	\end{lstlisting}
 
 \subsubsection{Backend}
 // ABAP Stack der den RESTful Service bereitstellt zeigen\\
