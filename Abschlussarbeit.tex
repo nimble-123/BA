@@ -54,7 +54,7 @@
 \lhead{}
 \chead{}
 \rhead{\thesection\space\contentsname}
-\lfoot{Analyse und Realisierung einer prototypischen\newline Portal Applikation im SAP Kontext/Umfeld}
+\lfoot{Prototypische Implementierung einer SAP UI5 Applikation\newline und Analyse des Einsatz von effizienten UI-Objekten}
 \cfoot{}
 \rfoot{\ \linebreak Seite \thepage}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -83,17 +83,16 @@
 	\large
 	über das Thema\\
 	\vspace*{1cm}
-	\textbf{Analyse und Realisierung einer prototypischen Portal Applikation im SAP Kontext/Umfeld}\\
+	\textbf{Prototypische Implementierung einer SAP UI5 Applikation und Analyse des Einsatz von effizienten UI-Objekten}\\
 	\vspace*{2cm}
 	
 	\vfill
 	\normalsize
 	\newcolumntype{x}[1]{>{\raggedleft\arraybackslash\hspace{0pt}}p{#1}}
 	\begin{tabular}{x{6cm}p{7.5cm}}
-		\rule{0mm}{5ex}\textbf{Autor:} & Nils Lutz\newline info@nilslutz.de \\ 
-		\rule{0mm}{5ex}\textbf{Erstprüfer:} & Prof. Dr.-Ing. Hergen Pargmann \\ 
-		\textbf{Zweitprüfer:} & Prof. Dr. Harald Schallner \\ 
-		\rule{0mm}{5ex}\textbf{Abgabedatum:} & 25.01.2015  \\ 
+		\rule{0mm}{5ex}\textbf{eingereicht von:} & Nils Lutz\\ 
+		\rule{0mm}{5ex}\textbf{bei:} & Prof. Dr. Hergen Pargmann \\ 
+        & Prof. Dr. Harald Schallner \\  
 	\end{tabular} 
 \end{center}
 \pagebreak
@@ -180,89 +179,23 @@ Das ganze auf Englisch.
 % Einleitung
 % ----------------------------------------------------------------------------------------------------------
 \section{Einleitung}
-\subsection{Motivation}
+\paragraph{Motivation}
 // wieso weshalb warum wo\\
 // Beschreibung abatAG\\
 // Enstehung des Projekts\\
 
-\subsection{Problemstellung}
+\paragraph{Problemstellung}
 // aktuelle situationsbeschreibung\\
 // was soll besser laufen\\
 
-\pagebreak
-\subsection{Zielsetzung}
+%\pagebreak
+\paragraph{Zielsetzung}
 // Das Produkt - Template Programmierung für SAP Frontends mit SAP UI5
 
-\subsection{Struktur}
+\paragraph{Struktur}
 // der weg über die software ergonomie und ihre wichtigkeit, gezeigt über die Marktanalyse, hin zur praktischen Umsetzung durch Grundlagen und Beschreibung des Lösungsweges\\
-
 \pagebreak
-% ----------------------------------------------------------------------------------------------------------
-% Kapitel
-% ----------------------------------------------------------------------------------------------------------
-\section{Software Ergonomie}
-// Beleg für die Wichtigkeit von Software Ergonomie\\
-// Kurze Übersicht über das Themenfeld Software Ergonomie\\
-// Wichtigsten Aspekte nennen und näher erläutern\\
 
-\subsection{Definition}
-\subsubsection{Kognitionspsychologie}
-// Modellierung und Simulation von menschlichen Denk- und Wahrnehmungsprozessen\\
-
-\subsubsection{Arbeitsphysiologie, Industrieanthropologie}
-// Beschäftigung mit grundlegenden menschlichen Fähigkeiten zur Informationsaufnahme und Informationsverarbeitung\\
-
-\subsubsection{Arbeitspsychologie}
-// Untersuchung der Wechselbeziehungen zwischen Arbeit, deren Schnittstellen und psychischen Faktoren (unter anderem Arbeitszufriedenheit und -unlust)\\
-
-\subsection{DIN EN ISO 9241}
-// DIN Norm zur Software Ergonomie\\
-// Die 7 Grundsätze der Dialoggestaltung:
-\begin{compactitem}
-	\item Aufgabenangemessenheit
-	\item Selbstbeschreibungsfähigkeit
-	\item Erwartungskonformität
-	\item Fehlertoleranz
-	\item Steuerbarkeit
-	\item Individualisierbarkeit
-	\item Lernförderlichkeit
-\end{compactitem}
-\paragraph{DIN EN ISO 14915}
-$\;$ \\
-// Erweiterung der ISO 9241\\
-
-%\subsection{Wirtschaftlicher Faktor}
-%// Kosteneinsparungspotenzial finden und begründen\\
-
-\subsection{Analyse Methoden}
-\subsubsection{Eye Tracking}
-// Funktionsweise und Ergebnis\\
-
-\subsubsection{Mouse Clicking}
-// Funktionsweise und Ergebnis\\
-
-\subsection{SAP Technologien in Bezug auf Software Ergonomie}
-\subsubsection{Business Server Pages}
-// \ac{BSP} ist old school Technik\\
-// geklaut von \ac{JSP}\\
-
-\subsubsection{Web Dynpro for ABAP}
-// Aktuelle Technik\\
-// ABAP Code generiert HTML\\
-// statischer und dynamischer Teil\\
-
-\subsubsection{SAP Fiori / SAP UI5 / SAP Screen Personas}
-// cutting edge\\
-// aktuelle SAP UI Strategie\\
-// SAP Präsi Chart Fiori/SP renew, etc. pp\\
-// SAP Fiori einerseits Name des Themes/Guideline\\
-// andererseits Bündel der gängigsten TAs/GPs als fertige\\
-// Mobile First/Responsive Design Applikationen\\
-// SAP UI5 - SAPs Framework zur Entwicklung von eigenen Applikationen im Fiori Style\\
-// Nicht zu tief auf JS, HTML etc eingehen, dass kommt im nächsten Kapitel\\
-// SAP SP - Zusätzliche Schicht um Standard Dynpro zu Personalisieren und so\\
-
-\pagebreak
 % ----------------------------------------------------------------------------------------------------------
 % Kapitel
 % ----------------------------------------------------------------------------------------------------------
@@ -517,8 +450,71 @@ $\;$ \\
 \subsubsection{OData Protokoll}
 // Einführung in SAPUI5 S. 168 \\
 // SAP Netweaver Gateway OData Services\\
-
 \pagebreak
+
+% ----------------------------------------------------------------------------------------------------------
+% Kapitel
+% ----------------------------------------------------------------------------------------------------------
+\section{Software Ergonomie}
+// Beleg für die Wichtigkeit von Software Ergonomie\\
+// Kurze Übersicht über das Themenfeld Software Ergonomie\\
+// Wichtigsten Aspekte nennen und näher erläutern\\
+
+\subsection{Definition}
+\paragraph{Kognitionspsychologie}
+// Modellierung und Simulation von menschlichen Denk- und Wahrnehmungsprozessen\\
+
+\paragraph{Arbeitsphysiologie, Industrieanthropologie}
+// Beschäftigung mit grundlegenden menschlichen Fähigkeiten zur Informationsaufnahme und Informationsverarbeitung\\
+
+\paragraph{Arbeitspsychologie}
+// Untersuchung der Wechselbeziehungen zwischen Arbeit, deren Schnittstellen und psychischen Faktoren (unter anderem Arbeitszufriedenheit und -unlust)\\
+
+\subsection{DIN EN ISO 9241}
+// DIN Norm zur Software Ergonomie\\
+// Die 7 Grundsätze der Dialoggestaltung:
+\begin{compactitem}
+	\item Aufgabenangemessenheit
+	\item Selbstbeschreibungsfähigkeit
+	\item Erwartungskonformität
+	\item Fehlertoleranz
+	\item Steuerbarkeit
+	\item Individualisierbarkeit
+	\item Lernförderlichkeit
+\end{compactitem}
+\paragraph{DIN EN ISO 14915}
+$\;$ \\
+// Erweiterung der ISO 9241\\
+
+\subsection{Analyse Methoden}
+\paragraph{Eye Tracking}
+// Funktionsweise und Ergebnis\\
+
+\paragraph{Mouse Clicking}
+// Funktionsweise und Ergebnis\\
+
+\subsection{SAP Technologien in Bezug auf Software Ergonomie}
+\subsubsection{Business Server Pages}
+// \ac{BSP} ist old school Technik\\
+// geklaut von \ac{JSP}\\
+
+\subsubsection{Web Dynpro for ABAP}
+// Aktuelle Technik\\
+// ABAP Code generiert HTML\\
+// statischer und dynamischer Teil\\
+
+\subsubsection{SAP Fiori / SAP UI5 / SAP Screen Personas}
+// cutting edge\\
+// aktuelle SAP UI Strategie\\
+// SAP Präsi Chart Fiori/SP renew, etc. pp\\
+// SAP Fiori einerseits Name des Themes/Guideline\\
+// andererseits Bündel der gängigsten TAs/GPs als fertige\\
+// Mobile First/Responsive Design Applikationen\\
+// SAP UI5 - SAPs Framework zur Entwicklung von eigenen Applikationen im Fiori Style\\
+// Nicht zu tief auf JS, HTML etc eingehen, dass kommt im nächsten Kapitel\\
+// SAP SP - Zusätzliche Schicht um Standard Dynpro zu Personalisieren und so\\
+\pagebreak
+
 % ----------------------------------------------------------------------------------------------------------
 % Kapitel
 % ----------------------------------------------------------------------------------------------------------
@@ -540,10 +536,7 @@ Lorem ipsum dolor sit amet.
 // Wireframing als Prototyping\\
 // Abbildung Wireframesketcher\\
 
-\subsubsection{PLATZHALTER}
-// HIER KÖNNTE IHRE WERBUNG STEHEN \cite{NilsBlog2014}\\
-
-\subsection{Umsetzung}
+\subsection{Implementierung}
 \subsubsection{View}
 // Auszugsweise Coding bringen um bestimmte Elemente aus der Theorie zu zeigen\\
 // Generellen Aufbau der Views erklären\\
@@ -648,11 +641,20 @@ oView.setModel(deviceModel, "device");
 \subsubsection{Backend}
 // ABAP Stack der den RESTful Service bereitstellt zeigen\\
 // Beispielhafte Implementation des HTTP Responses\\
+\pagebreak
 
-\subsubsection{Analyse}
+% ----------------------------------------------------------------------------------------------------------
+% Kapitel
+% ----------------------------------------------------------------------------------------------------------
+\section{Analyse}
+\subsection{Heatmap}
 // Angewandte Analyse mit Heatmap\\
+
+\subsection{UI-Objekte}
 // Mobile First/Responsive Design\\
 
+\subsection{PLATZHALTER}
+// PLATZHALTER\\
 \pagebreak
 
 % ----------------------------------------------------------------------------------------------------------
@@ -661,7 +663,7 @@ oView.setModel(deviceModel, "device");
 \section{Schluss}
 Lorem ipsum dolor sit amet.
 
-\subsection{Zusammenfassung}
+\paragraph{Zusammenfassung}
 // Arbeitsgebiete, Produktions \& Dienstleistungsbereiche\\
 // Arbeitsergebnisse\\
 // Projektziele, Projektergebnisse, Projekttermine\\
@@ -674,7 +676,7 @@ Lorem ipsum dolor sit amet.
 // Auswertung relevanter Literatur\\
 // Themen aus Lehrveranstaltungen\\
 
-\subsection{Bewertung}
+\paragraph{Bewertung}
 // Wesentliche Erkenntnisse und Erfahrungen\\
 // Folgerungen und Konsequenzen\\
 // Vorschläge für Verbesserung und Veränderung\\
@@ -684,8 +686,7 @@ Lorem ipsum dolor sit amet.
 // neu gewonnenes Interesse\\
 \pagebreak
 
-%
-----------------------------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------------------------
 % Literatur
 % ----------------------------------------------------------------------------------------------------------
 \renewcommand\refname{Quellenverzeichnis}
