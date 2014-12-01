@@ -54,7 +54,7 @@
 \lhead{}
 \chead{}
 \rhead{\thesection\space\contentsname}
-\lfoot{Prototypische Implementierung einer SAP UI5 Applikation\newline und Analyse des Einsatz von effizienten UI-Objekten}
+\lfoot{Prototypische Implementierung einer SAP UI5 Applikation\newline im SAP Umfeld und Analyse eines effizienten Einsatz von UI-Objekten}
 \cfoot{}
 \rfoot{\ \linebreak Seite \thepage}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -83,7 +83,7 @@
 	\large
 	über das Thema\\
 	\vspace*{1cm}
-	\textbf{Prototypische Implementierung einer SAP UI5 Applikation und Analyse des Einsatz von effizienten UI-Objekten}\\
+	\textbf{Prototypische Implementierung einer SAP UI5 Applikation im SAP Umfeld und Analyse eines effizienten Einsatz von UI-Objekten}\\
 	\vspace*{2cm}
 	
 	\vfill
@@ -144,12 +144,22 @@ Das ganze auf Englisch.
 % Abkürzungen
 % ----------------------------------------------------------------------------------------------------------
 \section{Abkürzungsverzeichnis}
-\begin{acronym}[OSGi] % längste Abkürzung steht in eckigen Klammern
+\begin{acronym}[WHATWG] % längste Abkürzung steht in eckigen Klammern
 	\setlength{\itemsep}{-\parsep} % geringerer Zeilenabstand
 	\acro{OSGi}{Open Service Gateway initiative}
 	\acro{JSP}{Java Server Pages}
 	\acro{BSP}{Business Server Pages}
 	\acro{SPP}{Spare Parts Planning}
+	\acro{HTML}{Hypertext Markup Language}
+	\acro{CSS}{Cascading Style Sheets}
+	\acro{JS}{JavaScript}
+	\acro{WWW}{World Wide Web}
+	\acro{W3C}{World Wide Web Consortium}
+	\acro{XHTML}{Extensible Hypertext Markup Language}
+	\acro{XML}{Extensible Markup Language}
+	\acro{SGML}{Standard Generalized Markup Language}
+	\acro{DOM}{Dokument-Objekt-Modell}
+	\acro{WHATWG}{Web Hypertext Application Technology Working Group}
 \end{acronym}
 \newpage
 
@@ -200,26 +210,18 @@ Das ganze auf Englisch.
 % Kapitel
 % ----------------------------------------------------------------------------------------------------------
 \section{Technologien}
-Lorem ipsum dolor sit amet.
-%\subsection{Marktanalyse}
-%\subsubsection{Nicht-SAP Lösung}
-%// Oracle oder andere ERP Anbieter\\
-%// jedoch müssen auch die Anforderungen von Claas abgedeckt sein\\
-%
-%\subsubsection{SAP Standard Lösung}
-%// kann der SAP Standard das Abbilden was Claas haben will\\
+Zum besseren Verständnis der gesamten Thematik werden in den folgenden Kapiteln Technologien erläutert. Die Grundlagen und besonderen Merkmale der einzelnen Technologien helfen dabei die spätere Analyse nach vollziehen zu können. Zu den Kernsprachen, mit denen im Browser visuelle Informationen angezeigt und verändert werden können, zählen unter anderem die Auszeichnungssprache \ac{HTML}, die Gestaltungssprache \ac{CSS} und die Skriptsprache \ac{JS}. Aufbauend auf den drei genannten Sprachen setzen sich in der Regel Frameworks. Frameworks sind in sich konsistente Bibliotheken die gewisse Sprachkonstrukte, welche häufig benötigt werdem in der Entwicklung, zur Verfügung stellen. Mit dem Einsatz eines Frameworks verfolgt man das ziel oft geschriebenen Programm code in eine Art \glqq Bausatz-Konstruktion-Set\grqq{} auszulagern. So lässt sich ein einmal durch geführter Entwicklungsprozess beliebig oft und mit weit weniger Aufwand bewerkstelligen, als wenn man jedes mal den Programm Code von neuem entwickeln müsste.
 
-\subsection{HTML5 und CSS3}
-// Entstehung - Von Dez '97 bis Okt '14\\
-// Abbildung \ref{fig:html5specs}\\
+\subsection{HTML5}
+\ac{HTML}5 ist die aktuell empfohlene Spezifikation des \ac{W3C} und sie stellt eine der Kernsprachen des World Wide Web dar. Angefangen hat es am 13. März 1989, als Tim Berners-Lee am CERN in Genf das \ac{WWW} ins Leben gerufen und damit zusammen \ac{HTML} festgelegt hat. So entstand ab 1990 eine Spezifikation seitens des \ac{W3C} zur Festlegung und Vereinheitlichung der Kommunikation über das Internet. Im November 1995 erklärte das \ac{W3C} \ac{HTML} 2.0 zum offiziellen Sprachstandard. Grundlegende Unterschiede zwischen Version 1.0 und 2.0 existieren nicht. Version 3.0 der \ac{HTML} Spezifikation ist gänzlich am Browser Markt vorbei definiert worden. Aus diesem Grund wurde \ac{HTML} 3.2 ab Januar 1997 zum Nachfolger von Version 2.0 gemacht. Die folgende Entwicklung der Spezifikation brachte 1999 die überarbeitete Version 4.01 hervor. Im selben Zug wurde \ac{CSS}, als Gestaltungssprache für \ac{HTML}, immer mehr fokussiert. So Begann die Fragmentierung der \ac{HTML} Spezifikation und es existierten drei Version zur selben Zeit. Nämlich \ac{HTML} 4.01 strict, die dem eigentlich definiertem HTML am nächsten kam. \ac{HTML} 4.01 transitional, nach welcher auch einige übliche physische Textauszeichnungen vorgesehen waren. \glqq Physische Textauszeichnungen haben Bedeutungen wie \glqq fett\grqq{} oder \glqq kursiv\grqq{}, stellen also direkte Angaben zur gewünschten Schriftformatierung dar. Bei physischen Elementen sollte der Web-Browser eine Möglichkeit finden, den so ausgezeichneten Text entsprechend darzustellen.\grqq{}\cite{SelfHTML2014}. Sie wurde als Übergangslösung entwickelt. Neben \ac{HTML} wurde ab Januar 2000 auch eine \ac{XHTML} genannte Spezifikation entwickelt, die \ac{HTML} mit dem \ac{XML} Standard vereinen sollte. \ac{XHTML} ist allerdings nicht als eigenständige Sprache zu verstehen, sondern als eine Serialisierungsform für \ac{HTML} unter Verwendung von \ac{XML}. Mit \ac{HTML}5 wurde die Spezifikation nicht mehr durch die \ac{SGML} - eine Metasprache zur Definition von Auszeichnungssprachen - sondern durch ein \ac{DOM} beschrieben. Die in dieser Version neu eingeführten Elemente sollten es erlauben \ac{HTML} Dokumente semantisch vernünftiger zu strukturieren.(vgl. \cite{MunzHTML2012} S.20ff) Im Oktober 2014 wurde \ac{HTML}5 dann vom \ac{W3C} zum De-facto Standard des \ac{WWW} erklärt. Heute existiert neben der Spezifikation des \ac{W3C} auch noch ein sogenannter \glqq lebender Standard\grqq{} der \ac{WHATWG}. Die \ac{WHATWG} ist ein Zusammenschluss von Unternehmen wie zum Beispiel Mozilla Foundation, Opera Software und Apple. Der allgemeine Sprachgebrauch von \ac{HTML} ist dadurch nicht an die \ac{W3C} Spezifikation gebunden. Er erstreckt sich über den \glqq lebenden Standard\grqq{} der\ac{WHATWG} hinaus und beinhaltet zahlreiche Schnittstellen zu anderen Technologien. Abbildung \ref{fig:html5specs} verdeutlicht die Situation.
+
 	\vspace{1em}
 	\begin{minipage}{\linewidth}
 		\centering
-		\includegraphics[width=1\linewidth]{images/html5_specs.png}
-		\captionof{figure}[HTML5 Spezifikation Übersicht]{HTML5 Spezifikation Übersicht\footnotemark }
+		\includegraphics[width=0.98\linewidth]{images/html5_specs.png}
+		\captionof{figure}[HTML5 Spezifikation Übersicht]{HTML5 Spezifikation Übersicht}
 		\label{fig:html5specs}
 	\end{minipage}
-	\footnotetext{Quelle: \url{https://github.com/SirPepe/SpecGraph/blob/master/graph_w.png}}
 	
 // Ziele - Kompatibilität, Verwendbarkeit, Sicherheit, Konsistenz, Vereinfachung, Universalität, Barrierefreiheit\\
 // Aufbau - Syntax, Start Tag, End Tag, Attributes\\
@@ -241,7 +243,7 @@ Lorem ipsum dolor sit amet.
 
 // Wichtige neue Sprachelemente - Microdata (meta tags), 2D Canvas (canvas tag), Media (audio/video tags), Struktur (section, article, nav, aside, header, footer), Formular (input, ...), geänderte Elemente (b, i, hr, small, ...)\\
 
-// CSS3\\
+\subsection{CSS3}
 // Allgemeiner Aufbau - Gestaltungssprache, Kern Element des WWW, Darstellung und Inhalt getrennt, Unterschiedliche Optik je nach Ausgabe Gerät\\
 // Syntax - Selektoren, Eigenschaften, Werte, Pseudoklassen\\
 // Listing \ref{lst:css3syntax}
