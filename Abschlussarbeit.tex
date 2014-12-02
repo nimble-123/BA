@@ -213,18 +213,102 @@ Das ganze auf Englisch.
 Zum besseren Verständnis der gesamten Thematik werden in den folgenden Kapiteln Technologien erläutert. Die Grundlagen und besonderen Merkmale der einzelnen Technologien helfen dabei die spätere Analyse nach vollziehen zu können. Zu den Kernsprachen, mit denen im Browser visuelle Informationen angezeigt und verändert werden können, zählen unter anderem die Auszeichnungssprache \ac{HTML}, die Gestaltungssprache \ac{CSS} und die Skriptsprache \ac{JS}. Aufbauend auf den drei genannten Sprachen setzen sich in der Regel Frameworks. Frameworks sind in sich konsistente Bibliotheken die gewisse Sprachkonstrukte, welche häufig benötigt werdem in der Entwicklung, zur Verfügung stellen. Mit dem Einsatz eines Frameworks verfolgt man das ziel oft geschriebenen Programm code in eine Art \glqq Bausatz-Konstruktion-Set\grqq{} auszulagern. So lässt sich ein einmal durch geführter Entwicklungsprozess beliebig oft und mit weit weniger Aufwand bewerkstelligen, als wenn man jedes mal den Programm Code von neuem entwickeln müsste.
 
 \subsection{HTML5}
-\ac{HTML}5 ist die aktuell empfohlene Spezifikation des \ac{W3C} und sie stellt eine der Kernsprachen des World Wide Web dar. Angefangen hat es am 13. März 1989, als Tim Berners-Lee am CERN in Genf das \ac{WWW} ins Leben gerufen und damit zusammen \ac{HTML} festgelegt hat. So entstand ab 1990 eine Spezifikation seitens des \ac{W3C} zur Festlegung und Vereinheitlichung der Kommunikation über das Internet. Im November 1995 erklärte das \ac{W3C} \ac{HTML} 2.0 zum offiziellen Sprachstandard. Grundlegende Unterschiede zwischen Version 1.0 und 2.0 existieren nicht. Version 3.0 der \ac{HTML} Spezifikation ist gänzlich am Browser Markt vorbei definiert worden. Aus diesem Grund wurde \ac{HTML} 3.2 ab Januar 1997 zum Nachfolger von Version 2.0 gemacht. Die folgende Entwicklung der Spezifikation brachte 1999 die überarbeitete Version 4.01 hervor. Im selben Zug wurde \ac{CSS}, als Gestaltungssprache für \ac{HTML}, immer mehr fokussiert. So Begann die Fragmentierung der \ac{HTML} Spezifikation und es existierten drei Version zur selben Zeit. Nämlich \ac{HTML} 4.01 strict, die dem eigentlich definiertem HTML am nächsten kam. \ac{HTML} 4.01 transitional, nach welcher auch einige übliche physische Textauszeichnungen vorgesehen waren. \glqq Physische Textauszeichnungen haben Bedeutungen wie \glqq fett\grqq{} oder \glqq kursiv\grqq{}, stellen also direkte Angaben zur gewünschten Schriftformatierung dar. Bei physischen Elementen sollte der Web-Browser eine Möglichkeit finden, den so ausgezeichneten Text entsprechend darzustellen.\grqq{}\cite{SelfHTML2014}. Sie wurde als Übergangslösung entwickelt. Neben \ac{HTML} wurde ab Januar 2000 auch eine \ac{XHTML} genannte Spezifikation entwickelt, die \ac{HTML} mit dem \ac{XML} Standard vereinen sollte. \ac{XHTML} ist allerdings nicht als eigenständige Sprache zu verstehen, sondern als eine Serialisierungsform für \ac{HTML} unter Verwendung von \ac{XML}. Mit \ac{HTML}5 wurde die Spezifikation nicht mehr durch die \ac{SGML} - eine Metasprache zur Definition von Auszeichnungssprachen - sondern durch ein \ac{DOM} beschrieben. Die in dieser Version neu eingeführten Elemente sollten es erlauben \ac{HTML} Dokumente semantisch vernünftiger zu strukturieren.(vgl. \cite{MunzHTML2012} S.20ff) Im Oktober 2014 wurde \ac{HTML}5 dann vom \ac{W3C} zum De-facto Standard des \ac{WWW} erklärt. Heute existiert neben der Spezifikation des \ac{W3C} auch noch ein sogenannter \glqq lebender Standard\grqq{} der \ac{WHATWG}. Die \ac{WHATWG} ist ein Zusammenschluss von Unternehmen wie zum Beispiel Mozilla Foundation, Opera Software und Apple. Der allgemeine Sprachgebrauch von \ac{HTML} ist dadurch nicht an die \ac{W3C} Spezifikation gebunden. Er erstreckt sich über den \glqq lebenden Standard\grqq{} der\ac{WHATWG} hinaus und beinhaltet zahlreiche Schnittstellen zu anderen Technologien. Abbildung \ref{fig:html5specs} verdeutlicht die Situation.
+\paragraph{Historie} \ac{HTML}5 ist die aktuell empfohlene Spezifikation des \ac{W3C} und sie stellt eine der Kernsprachen des World Wide Web dar. Angefangen hat es am 13. März 1989, als Tim Berners-Lee am CERN in Genf das \ac{WWW} ins Leben gerufen und damit zusammen \ac{HTML} festgelegt hat. So entstand ab 1990 eine Spezifikation seitens des \ac{W3C} zur Festlegung und Vereinheitlichung der Kommunikation über das Internet. Im November 1995 erklärte das \ac{W3C} \ac{HTML} 2.0 zum offiziellen Sprachstandard. Grundlegende Unterschiede zwischen Version 1.0 und 2.0 existieren nicht. Version 3.0 der \ac{HTML} Spezifikation ist gänzlich am Browser Markt vorbei definiert worden. Aus diesem Grund wurde \ac{HTML} 3.2 ab Januar 1997 zum Nachfolger von Version 2.0 gemacht. Die folgende Entwicklung der Spezifikation brachte 1999 die überarbeitete Version 4.01 hervor. Im selben Zug wurde \ac{CSS}, als Gestaltungssprache für \ac{HTML}, immer mehr fokussiert. So Begann die Fragmentierung der \ac{HTML} Spezifikation und es existierten drei Version zur selben Zeit. Nämlich \ac{HTML} 4.01 strict, die dem eigentlich definiertem HTML am nächsten kam. \ac{HTML} 4.01 transitional, nach welcher auch einige übliche physische Textauszeichnungen vorgesehen waren. \glqq Physische Textauszeichnungen haben Bedeutungen wie \glqq fett\grqq{} oder \glqq kursiv\grqq{}, stellen also direkte Angaben zur gewünschten Schriftformatierung dar. Bei physischen Elementen sollte der Web-Browser eine Möglichkeit finden, den so ausgezeichneten Text entsprechend darzustellen.\grqq{}\cite{SelfHTML2014}. Sie wurde als Übergangslösung entwickelt. Neben \ac{HTML} wurde ab Januar 2000 auch eine \ac{XHTML} genannte Spezifikation entwickelt, die \ac{HTML} mit dem \ac{XML} Standard vereinen sollte. \ac{XHTML} ist allerdings nicht als eigenständige Sprache zu verstehen, sondern als eine Serialisierungsform für \ac{HTML} unter Verwendung von \ac{XML}. Mit \ac{HTML}5 wurde die Spezifikation nicht mehr durch die \ac{SGML} - eine Metasprache zur Definition von Auszeichnungssprachen - sondern durch ein \ac{DOM} beschrieben. Die in dieser Version neu eingeführten Elemente sollten es erlauben \ac{HTML} Dokumente semantisch vernünftiger zu strukturieren.(vgl. \cite{MunzHTML2012} S.20ff) Im Oktober 2014 wurde \ac{HTML}5 dann vom \ac{W3C} zum De-facto Standard des \ac{WWW} erklärt. Heute existiert neben der Spezifikation des \ac{W3C} auch noch ein sogenannter \glqq lebender Standard\grqq{} der \ac{WHATWG}. Die \ac{WHATWG} ist ein Zusammenschluss von Unternehmen wie zum Beispiel Mozilla Foundation, Opera Software und Apple. Der allgemeine Sprachgebrauch von \ac{HTML} ist dadurch nicht an die \ac{W3C} Spezifikation gebunden. Er erstreckt sich über den \glqq lebenden Standard\grqq{} der\ac{WHATWG} hinaus und beinhaltet zahlreiche Schnittstellen zu anderen Technologien. Abbildung \ref{fig:html5specs} verdeutlicht diese Situation.
 
 	\vspace{1em}
 	\begin{minipage}{\linewidth}
 		\centering
 		\includegraphics[width=0.98\linewidth]{images/html5_specs.png}
-		\captionof{figure}[HTML5 Spezifikation Übersicht]{HTML5 Spezifikation Übersicht}
+		\captionof{figure}[HTML5 Spezifikationen Übersicht]{HTML5 Spezifikationen Übersicht}
 		\label{fig:html5specs}
 	\end{minipage}
+
+\paragraph{Ziele} \ac{HTML}5 wurde mit besonderem Augenmerk auf die Kompatibilität entwickelt. Vorhandene Spezifikationen wie \ac{HTML}4.01, \ac{XHTML}1.0 und \ac{DOM}2 sollten unter einem Dach gebündelt werden. Hierdurch wird der vorangegangenen Fragmentierung entgegen gewirkt. Schon vorhandene Inhalte müssen weitestgehend unterstützt werden auch wenn sie nicht zur \ac{HTML}5 Spezifikation gehören. Beispielsweise werden fehlerhaft verschachtelte Elemente trotzdem akzeptiert. \textit{Graceful degradation} ist als ein weiteres Ziel für HTML5 definiert worden und bedeutet soviel wie \glqq Schrittweise Abstufung\grqq{}. Es stellt sicher, dass ein HTML Dokument auch dann verarbeitet wird sollte der verwendete Browser ein bestimmtes benutztes Element nicht unterstützen. Weiter galt für die Spezifikation, dass schon vorhandene Techniken, die weitläufig verbreitet sind, nicht neu entwickelt werden sollten. Stattdessen sollten sie übernommen werden. Dies beruht auf dem Umstand, dass die Browser Hersteller jeweils ihre eigenen Techniken bevorzugen und weiter entwickeln und dadurch auch für ihre Verbreitung sorgen. Evolution statt Revolution stand über den Zielen von HTML5. (X)HTML wurde weiter entwickelt und nicht von Grund auf neu definiert. So ist in Tabelle \ref{tab:html5deskbrowserkomp} und Tabelle \ref{tab:html5mobbrowserkomp} die zum aktuellen Zeitpunkt verfügbare Unterstützung von HTML5 in den gängigsten Browsern abzulesen.
+
+\vspace{1em}
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Desktop Browser} & \textbf{HTML5-Support}\\
+		\hline
+		Mozilla - Firefox & Teilweise seit 3.6\\
+		\hline
+		 & Umfassend seit 4.0\\
+		\hline
+		Microsoft - Internet Explorer & Teilweise seit 9\\
+		\hline
+		 & Umfassend seit 10\\
+		\hline
+		Google - Chrome & Teilweise seit 6\\
+		\hline
+		 & Umfassend seit 10\\
+		\hline
+		Apple - Safari & Teilweise seit 5.0\\
+		\hline
+		 & Umfassend seit 5.1\\
+		\hline
+		Opera Software - Opera & Teilweise seit 11.10\\
+		\hline
+		 & Umfassend seit 11.64\\
+		\hline
+	\end{tabular}
+	\caption{HTML5 Desktop Browserkompatibilität}
+	\label{tab:html5deskbrowserkomp}
+\end{table}
+
+\vspace{1em}
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Mobile Browser} & \textbf{HTML5-Support}\\
+		\hline
+		Android & Teilweise seit 2.1\\
+		\hline
+		 & Umfassend seit 4.0\\
+		\hline
+		Blackberry & Teilweise seit 6\\
+		\hline
+		 & Umfassend seit 10\\
+		\hline
+		Google - Chrome Mobile & Teilweise seit 18\\
+		\hline
+		 & Umfassend seit 25\\
+		\hline
+		Apple - Safari iOS & Teilweise seit 3.1\\
+		\hline
+		 & Umfassend seit 5.1\\
+		\hline
+		Mozilla - Firefox Mobile & Teilweise seit 10\\
+		\hline
+		 & Umfassend seit 16\\
+		\hline
+		Microsoft - Windows Phone & Teilweise seit 7.5\\
+		\hline
+		 & Umfassend seit 8\\
+		\hline
+	\end{tabular}
+	\caption{HTML5 Mobile Browserkompatibilität}
+	\label{tab:html5mobbrowserkomp}
+\end{table}
+
+\paragraph{Aufbau} - Syntax, Start Tag, End Tag, Attributes\\
+// Listing \ref{lst:html401doctype}    
+    \vspace{1em}
+	\begin{lstlisting}[caption=(X)HTML4.01 Doctype, label=lst:html401doctype]
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	\end{lstlisting}
 	
-// Ziele - Kompatibilität, Verwendbarkeit, Sicherheit, Konsistenz, Vereinfachung, Universalität, Barrierefreiheit\\
-// Aufbau - Syntax, Start Tag, End Tag, Attributes\\
+// Listing \ref{lst:html5doctype}	
+    \vspace{1em}
+	\begin{lstlisting}[caption=HTML5 Doctype, label=lst:html5doctype]
+<!DOCTYPE html>
+	\end{lstlisting}		
+	
 // Listing \ref{lst:html5basicdoc}
 	\vspace{1em}
 	\begin{lstlisting}[caption=HTML5 Basis Dokument, label=lst:html5basicdoc]
@@ -236,13 +320,96 @@ Zum besseren Verständnis der gesamten Thematik werden in den folgenden Kapiteln
  <body>
   <h1>Beispiel Seite</h1>
   <p>Dies ist ein <a href="demo.html">einfaches</a> Beispiel.</p>
-  <!-- dies ist ein Kommentar -->
+  <!-- Dies ist ein Kommentar -->
  </body>
 </html>
 	\end{lstlisting}
 
-// Wichtige neue Sprachelemente - Microdata (meta tags), 2D Canvas (canvas tag), Media (audio/video tags), Struktur (section, article, nav, aside, header, footer), Formular (input, ...), geänderte Elemente (b, i, hr, small, ...)\\
+\paragraph{Wichtige neue Sprachelemente} 2D Canvas (canvas tag), Media (audio/video tags), geänderte Elemente (b, i, hr, small, ...)\\
 
+// Listing \ref{lst:html5meta}	
+    \vspace{1em}
+	\begin{lstlisting}[caption=HTML5 Microdata, label=lst:html5meta]
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width;" />
+  <meta name="keywords" content="Lorem ipsum">
+  <meta name="author"   content="dolor sem it">
+</head>
+	\end{lstlisting}
+	
+// Listing \ref{lst:html5header}	
+    \vspace{1em}
+	\begin{lstlisting}[caption=HTML5 Header und Footer, label=lst:html5header]
+<body>
+  <header>
+    <img src="logo.gif" alt="logo">
+    <h1>Ueberschrift</h1>
+  </header>
+
+  <footer>
+     <a href="kontakt.html">Kontakt</a>
+  </footer>
+</body>
+	\end{lstlisting}
+	
+// Listing \ref{lst:html5struct}	
+    \vspace{1em}
+	\begin{lstlisting}[caption=HTML5 Struktur Elemente, label=lst:html5struct]
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#link_1.html">Wiki</a></li>
+        ...
+      </ul>
+    </nav>
+  </header>
+  <main>
+  <article>
+    <h1>Ueberschrift</h1>
+    <p>Dies ist eine Beispiel HTML5-Seite</p>
+  </article>
+
+  <aside>
+    <section>
+      <h2>Kontakt</h2>
+      <ul>
+        <li><a href="link_1.html">Wiki</a></li>
+        ...
+      </ul>
+    </section>
+  </aside>
+  </main>
+
+  <footer>
+  </footer>
+</body>
+	\end{lstlisting}
+	
+// Listing \ref{lst:html5fallback}	
+    \vspace{1em}
+	\begin{lstlisting}[caption=HTML5 Internet Explorer Fallback, label=lst:html5fallback]
+<head>
+  <meta charset="utf-8">
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <title>HTML5-Seite mit Grundstruktur</title>
+</head>
+	\end{lstlisting}
+	
+	// Listing \ref{lst:html5input}	
+    \vspace{1em}
+	\begin{lstlisting}[caption=HTML5 Formular Eingabe, label=lst:html5input]
+<body>
+  <input type="email" name="addr"> 
+  <input type="date"  name="start">
+  <input type="time"  min="09:00" max="17:00>
+  <input type="date"  required="required" name="start">
+</body>
+	\end{lstlisting}
+	
 \subsection{CSS3}
 // Allgemeiner Aufbau - Gestaltungssprache, Kern Element des WWW, Darstellung und Inhalt getrennt, Unterschiedliche Optik je nach Ausgabe Gerät\\
 // Syntax - Selektoren, Eigenschaften, Werte, Pseudoklassen\\
