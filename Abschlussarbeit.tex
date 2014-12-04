@@ -160,6 +160,7 @@ Das ganze auf Englisch.
 	\acro{SGML}{Standard Generalized Markup Language}
 	\acro{DOM}{Dokument-Objekt-Modell}
 	\acro{WHATWG}{Web Hypertext Application Technology Working Group}
+	\acro{API}{Application-Programming-Interface}	
 \end{acronym}
 \newpage
 
@@ -213,12 +214,12 @@ Das ganze auf Englisch.
 Zum besseren Verständnis der gesamten Thematik werden in den folgenden Kapiteln Technologien erläutert. Die Grundlagen und besonderen Merkmale der einzelnen Technologien helfen dabei die spätere Analyse nach vollziehen zu können. Zu den Kernsprachen, mit denen im Browser visuelle Informationen angezeigt und verändert werden können, zählen unter anderem die Auszeichnungssprache \ac{HTML}, die Gestaltungssprache \ac{CSS} und die Skriptsprache \ac{JS}. Aufbauend auf den drei genannten Sprachen setzen sich in der Regel Frameworks. Frameworks sind in sich konsistente Bibliotheken die gewisse Sprachkonstrukte, welche häufig benötigt werdem in der Entwicklung, zur Verfügung stellen. Mit dem Einsatz eines Frameworks verfolgt man das ziel oft geschriebenen Programm code in eine Art \glqq Bausatz-Konstruktion-Set\grqq{} auszulagern. So lässt sich ein einmal durch geführter Entwicklungsprozess beliebig oft und mit weit weniger Aufwand bewerkstelligen, als wenn man jedes mal den Programm Code von neuem entwickeln müsste.
 
 \subsection{HTML5}
-\paragraph{Historie} \ac{HTML}5 ist die aktuell empfohlene Spezifikation des \ac{W3C} und sie stellt eine der Kernsprachen des World Wide Web dar. Angefangen hat es am 13. März 1989, als Tim Berners-Lee am CERN in Genf das \ac{WWW} ins Leben gerufen und damit zusammen \ac{HTML} festgelegt hat. So entstand ab 1990 eine Spezifikation seitens des \ac{W3C} zur Festlegung und Vereinheitlichung der Kommunikation über das Internet. Im November 1995 erklärte das \ac{W3C} \ac{HTML} 2.0 zum offiziellen Sprachstandard. Grundlegende Unterschiede zwischen Version 1.0 und 2.0 existieren nicht. Version 3.0 der \ac{HTML} Spezifikation ist gänzlich am Browser Markt vorbei definiert worden. Aus diesem Grund wurde \ac{HTML} 3.2 ab Januar 1997 zum Nachfolger von Version 2.0 gemacht. Die folgende Entwicklung der Spezifikation brachte 1999 die überarbeitete Version 4.01 hervor. Im selben Zug wurde \ac{CSS}, als Gestaltungssprache für \ac{HTML}, immer mehr fokussiert. So Begann die Fragmentierung der \ac{HTML} Spezifikation und es existierten drei Version zur selben Zeit. Nämlich \ac{HTML} 4.01 strict, die dem eigentlich definiertem HTML am nächsten kam. \ac{HTML} 4.01 transitional, nach welcher auch einige übliche physische Textauszeichnungen vorgesehen waren. \glqq Physische Textauszeichnungen haben Bedeutungen wie \glqq fett\grqq{} oder \glqq kursiv\grqq{}, stellen also direkte Angaben zur gewünschten Schriftformatierung dar. Bei physischen Elementen sollte der Web-Browser eine Möglichkeit finden, den so ausgezeichneten Text entsprechend darzustellen.\grqq{}\cite{SelfHTML2014}. Sie wurde als Übergangslösung entwickelt. Neben \ac{HTML} wurde ab Januar 2000 auch eine \ac{XHTML} genannte Spezifikation entwickelt, die \ac{HTML} mit dem \ac{XML} Standard vereinen sollte. \ac{XHTML} ist allerdings nicht als eigenständige Sprache zu verstehen, sondern als eine Serialisierungsform für \ac{HTML} unter Verwendung von \ac{XML}. Mit \ac{HTML}5 wurde die Spezifikation nicht mehr durch die \ac{SGML} - eine Metasprache zur Definition von Auszeichnungssprachen - sondern durch ein \ac{DOM} beschrieben. Die in dieser Version neu eingeführten Elemente sollten es erlauben \ac{HTML} Dokumente semantisch vernünftiger zu strukturieren.(vgl. \cite{MunzHTML2012} S.20ff) Im Oktober 2014 wurde \ac{HTML}5 dann vom \ac{W3C} zum De-facto Standard des \ac{WWW} erklärt. Heute existiert neben der Spezifikation des \ac{W3C} auch noch ein sogenannter \glqq lebender Standard\grqq{} der \ac{WHATWG}. Die \ac{WHATWG} ist ein Zusammenschluss von Unternehmen wie zum Beispiel Mozilla Foundation, Opera Software und Apple. Der allgemeine Sprachgebrauch von \ac{HTML} ist dadurch nicht an die \ac{W3C} Spezifikation gebunden. Er erstreckt sich über den \glqq lebenden Standard\grqq{} der\ac{WHATWG} hinaus und beinhaltet zahlreiche Schnittstellen zu anderen Technologien. Abbildung \ref{fig:html5specs} verdeutlicht diese Situation.
+\paragraph{Historie} \ac{HTML}5 ist die aktuell empfohlene Spezifikation des \ac{W3C} und sie stellt eine der Kernsprachen des World Wide Web dar. Angefangen hat es am 13. März 1989, als Tim Berners-Lee am CERN in Genf das \ac{WWW} ins Leben gerufen und damit zusammen \ac{HTML} festgelegt hat. So entstand ab 1990 eine Spezifikation seitens des \ac{W3C} zur Festlegung und Vereinheitlichung der Kommunikation über das Internet. Im November 1995 erklärte das \ac{W3C} \ac{HTML} 2.0 zum offiziellen Sprachstandard. Grundlegende Unterschiede zwischen Version 1.0 und 2.0 existieren nicht. Version 3.0 der \ac{HTML} Spezifikation ist gänzlich am Browser Markt vorbei definiert worden. Aus diesem Grund wurde \ac{HTML} 3.2 ab Januar 1997 zum Nachfolger von Version 2.0 gemacht. Die folgende Entwicklung der Spezifikation brachte 1999 die überarbeitete Version 4.01 hervor. Im selben Zug wurde \ac{CSS}, als Gestaltungssprache für \ac{HTML}, immer mehr fokussiert. So Begann die Fragmentierung der \ac{HTML} Spezifikation und es existierten drei Version zur selben Zeit. Nämlich \ac{HTML} 4.01 \textit{strict}, die dem eigentlich definiertem HTML am nächsten kam. \ac{HTML} 4.01 \textit{transitional}, nach welcher auch einige übliche physische Textauszeichnungen vorgesehen waren. \glqq Physische Textauszeichnungen haben Bedeutungen wie \glqq fett\grqq{} oder \glqq kursiv\grqq{}, stellen also direkte Angaben zur gewünschten Schriftformatierung dar. Bei physischen Elementen sollte der Web-Browser eine Möglichkeit finden, den so ausgezeichneten Text entsprechend darzustellen.\grqq{}\cite{SelfHTML20141}.Sie wurde als Übergangslösung entwickelt. Die dritte Variante ist \ac{HTML} 4.01 \textit{frameset}. Der einzige Unterschied zur \textit{transitional} Variante ist, dass sich im Rumpf eines HTML Dokument ein Element verändert. Neben \ac{HTML} wurde ab Januar 2000 auch eine \ac{XHTML} genannte Spezifikation entwickelt, die \ac{HTML} mit dem \ac{XML} Standard vereinen sollte. \ac{XHTML} ist allerdings nicht als eigenständige Sprache zu verstehen, sondern als eine Serialisierungsform für \ac{HTML} unter Verwendung von \ac{XML}. Mit \ac{HTML}5 wurde die Spezifikation nicht mehr durch die \ac{SGML} - eine Metasprache zur Definition von Auszeichnungssprachen - sondern durch ein \ac{DOM} beschrieben. Die in dieser Version neu eingeführten Elemente sollten es erlauben \ac{HTML} Dokumente semantisch vernünftiger zu strukturieren.(vgl. \cite{MunzHTML2012} S.20ff) Im Oktober 2014 wurde \ac{HTML}5 dann vom \ac{W3C} zum De-facto Standard des \ac{WWW} erklärt. Heute existiert neben der Spezifikation des \ac{W3C} auch noch ein sogenannter \glqq lebender Standard\grqq{} der \ac{WHATWG}. Die \ac{WHATWG} ist ein Zusammenschluss von Unternehmen wie zum Beispiel Mozilla Foundation, Opera Software und Apple. Der allgemeine Sprachgebrauch von \ac{HTML} ist dadurch nicht an die \ac{W3C} Spezifikation gebunden. Er erstreckt sich über den \glqq lebenden Standard\grqq{} der\ac{WHATWG} hinaus und beinhaltet zahlreiche Schnittstellen zu anderen Technologien. Abbildung \ref{fig:html5specs} verdeutlicht diese Situation.
 
 	\vspace{1em}
 	\begin{minipage}{\linewidth}
 		\centering
-		\includegraphics[width=0.98\linewidth]{images/html5_specs.png}
+		\includegraphics[width=0.87\linewidth]{images/html5_specs.png}
 		\captionof{figure}[HTML5 Spezifikationen Übersicht]{HTML5 Spezifikationen Übersicht}
 		\label{fig:html5specs}
 	\end{minipage}
@@ -228,88 +229,60 @@ Zum besseren Verständnis der gesamten Thematik werden in den folgenden Kapiteln
 \vspace{1em}
 \begin{table}[!h]
 	\centering
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|l|c|}
 		\hline
-		\textbf{Desktop Browser} & \textbf{HTML5-Support}\\
+		\textbf{Hersteller} & \textbf{Desktop/Mobile} & \textbf{Version}\\
 		\hline
-		Mozilla - Firefox & Teilweise seit 3.6\\
+		Mozilla & Firefox & 4.0\\
 		\hline
-		 & Umfassend seit 4.0\\
+		 & Firefox Mobile & 16\\
 		\hline
-		Microsoft - Internet Explorer & Teilweise seit 9\\
+		Google & Chrome & 10\\
 		\hline
-		 & Umfassend seit 10\\
+		 & Chrome Mobile & 25\\
 		\hline
-		Google - Chrome & Teilweise seit 6\\
+		 & Android & 4.0\\
 		\hline
-		 & Umfassend seit 10\\
+		Apple & Safari & 5.1\\
 		\hline
-		Apple - Safari & Teilweise seit 5.0\\
+		 & Safari iOS & 5.1\\
 		\hline
-		 & Umfassend seit 5.1\\
+		Microsoft & Internet Explorer & 10\\
 		\hline
-		Opera Software - Opera & Teilweise seit 11.10\\
+		 & Windows Phone & 8\\
 		\hline
-		 & Umfassend seit 11.64\\
+		Opera Software & Opera & 11.64\\
+		\hline
+		Blackberry & Browser & 10\\
 		\hline
 	\end{tabular}
-	\caption{HTML5 Desktop Browserkompatibilität}
+	\caption{HTML5 Browserkompatibilität}
 	\label{tab:html5deskbrowserkomp}
 \end{table}
 
-\vspace{1em}
-\begin{table}[!h]
-	\centering
-	\begin{tabular}{|l|l|}
-		\hline
-		\textbf{Mobile Browser} & \textbf{HTML5-Support}\\
-		\hline
-		Android & Teilweise seit 2.1\\
-		\hline
-		 & Umfassend seit 4.0\\
-		\hline
-		Blackberry & Teilweise seit 6\\
-		\hline
-		 & Umfassend seit 10\\
-		\hline
-		Google - Chrome Mobile & Teilweise seit 18\\
-		\hline
-		 & Umfassend seit 25\\
-		\hline
-		Apple - Safari iOS & Teilweise seit 3.1\\
-		\hline
-		 & Umfassend seit 5.1\\
-		\hline
-		Mozilla - Firefox Mobile & Teilweise seit 10\\
-		\hline
-		 & Umfassend seit 16\\
-		\hline
-		Microsoft - Windows Phone & Teilweise seit 7.5\\
-		\hline
-		 & Umfassend seit 8\\
-		\hline
-	\end{tabular}
-	\caption{HTML5 Mobile Browserkompatibilität}
-	\label{tab:html5mobbrowserkomp}
-\end{table}
-
-\paragraph{Aufbau} - Syntax, Start Tag, End Tag, Attributes\\
-// Listing \ref{lst:html401doctype}    
+\paragraph{Aufbau} Ein jedes HTML Dokument beginnt mit dem sogenannten \textit{Doctype}. Dieser legt fest wie das Dokument vom Browser verarbeitet werden soll. Verschiedene Varianten wie \textit{strict},\textit{transitional} und \textit{frameset} sind in HTML5 nicht vorgesehen. In den Vorgängerversionen musste die Variante jedoch mit angegeben werden um eine eindeutige Interpretation des Dokuments zu gewährleisten. Listing \ref{lst:html401doctype} zeigt die beiden \textit{Doctype} von HTML 4.01 und XHTML 1.0. Durch die Abwärtskompatibilität von HTML5 sind auch diese \textit{Doctype} heute noch gültig und das Dokument würde korrekt vom Parser interpretiert werden.
+    
     \vspace{1em}
 	\begin{lstlisting}[caption=(X)HTML4.01 Doctype, label=lst:html401doctype]
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-    "http://www.w3.org/TR/html4/strict.dtd">
+        "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+        "http://www.w3.org/TR/html4/frameset.dtd">        
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">    
 	\end{lstlisting}
 	
-// Listing \ref{lst:html5doctype}	
+Listing \ref{lst:html5doctype}	hingegen zeigt das \textit{Doctype} von HTML5. Es wurde enorm gekürzt im Vergleich zu dem \textit{Doctype} von HTML 4.01 und XHTML 1.0. Groß- und Kleinschreibung ist nicht von bedeutung innerhalb des \textit{Doctype}. 
+
     \vspace{1em}
 	\begin{lstlisting}[caption=HTML5 Doctype, label=lst:html5doctype]
 <!DOCTYPE html>
 	\end{lstlisting}		
 	
-// Listing \ref{lst:html5basicdoc}
+Nach dem \textit{Doctype} folgt der restliche Dokument Aufbau der HTML Syntax. Diese teilt sich auf in sogenannte \textit{Tags} und \textit{Attribute}, die diesen \textit{Tags} zugeordnet und mit Werten versehen werden können. Es existieren für die meisten \textit{Tags} Start- und End-\textit{Tags}. Für einige \textit{Tags} sind die Start- bzw. End-\textit{Tags} optional und für einige widerrum verpflichtend in der Dokumentstruktur zu setzen. In Listing \ref{lst:html5basicdoc} sieht man ein valides HTML5 Dokument mit den Mindestanforderungen.(vgl. \cite{KronHTML2011} S.58)
+
 	\vspace{1em}
 	\begin{lstlisting}[caption=HTML5 Basis Dokument, label=lst:html5basicdoc]
 <!DOCTYPE html>
@@ -324,10 +297,9 @@ Zum besseren Verständnis der gesamten Thematik werden in den folgenden Kapiteln
  </body>
 </html>
 	\end{lstlisting}
+	
+\paragraph{Wichtige neue Sprachelemente} In HTML5 wurde das Mikrodaten \ac{API} mit aufgenommen. Mit Mikrodaten bietet sich eine weitere Möglichkeit ein HTML Dokument semantisch zu spezifizieren. Metadaten wie z.B. der verwendete Zeichensatz lassen sich so festlegen. Browser und Webseiten können über die Mikrodaten-\ac{API} die gesetzten Werte auslesen und weiter verarbeiten. Auch Suchmaschinen haben natürlich Zugriff auf die Metadaten, verwenden sie jedoch heutzutage weitestgehend nicht. Aus diesem Grund tragen die Metadaten zwar zur semantischen Struktur des HTML bei, können aber aus Sicht der Suchmaschinenoptimierung getrost vernachlässigt werden.(vgl. \cite{SelfHtml20142}) Listing \ref{lst:html5meta} zeigt Beispielhaft den Head Bereich eines HTML Dokuments mit vier Meta-\textit{Tags}. Unter anderem wird mit dem ersten \textit{Tag} der Zeichensatz näher definiert.
 
-\paragraph{Wichtige neue Sprachelemente} 2D Canvas (canvas tag), Media (audio/video tags), geänderte Elemente (b, i, hr, small, ...)\\
-
-// Listing \ref{lst:html5meta}	
     \vspace{1em}
 	\begin{lstlisting}[caption=HTML5 Microdata, label=lst:html5meta]
 <head>
@@ -405,10 +377,11 @@ Zum besseren Verständnis der gesamten Thematik werden in den folgenden Kapiteln
 <body>
   <input type="email" name="addr"> 
   <input type="date"  name="start">
-  <input type="time"  min="09:00" max="17:00>
+  <input type="time"  min="09:00" max="17:00">
   <input type="date"  required="required" name="start">
 </body>
 	\end{lstlisting}
+2D Canvas (canvas tag), Media (audio/video tags), geänderte Elemente (b, i, hr, small, ...)
 	
 \subsection{CSS3}
 // Allgemeiner Aufbau - Gestaltungssprache, Kern Element des WWW, Darstellung und Inhalt getrennt, Unterschiedliche Optik je nach Ausgabe Gerät\\
@@ -418,9 +391,9 @@ Zum besseren Verständnis der gesamten Thematik werden in den folgenden Kapiteln
 	\begin{lstlisting}[caption=CSS3 Syntax Beispiel, label=lst:css3syntax]
 Selektor [, Selektor2, ...]
   {
-    Eigenschaft-1: Wert-1;
+    Eigenschaft1: Wert1;
     ...
-    Eigenschaft-N: Wert-N[;]
+    EigenschaftN: WertN[;]
   }
   /* Kommentar - In eckigen Klammern stehen optionale Angaben */
 	\end{lstlisting}
