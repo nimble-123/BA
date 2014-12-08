@@ -415,20 +415,39 @@ Als letzte Möglichkeit kann man ein Stylesheet bzw Style-Informationen direkt e
 <span style="font-size: small;">Text</span>
 	\end{lstlisting}
 	
-Innerhalb von CSS-Dateien kann man wiederum mit der Direktive \textit{@import} den Browser dazu zu bringen weitere Stylesheets nachzuladen und zu verwenden. Zu beachten ist, dass die \textit{@import} Direktive vor allen anderen CSS Befehlen steht, bei den eingebetteten wie auch den externen Stylesheets.(vgl. \cite[S.20]{MeyeCasc2005})
-	
-// Syntax - Selektoren, Eigenschaften, Werte, Pseudoklassen\\
-// Listing \ref{lst:css3syntax}
+Innerhalb von CSS-Dateien kann man wiederum mit der Direktive \textit{@import} den Browser dazu zu bringen weitere Stylesheets nachzuladen und zu verwenden. Zu beachten ist, dass die \textit{@import} Direktive vor allen anderen CSS Befehlen steht, bei den eingebetteten wie auch den externen Stylesheets.(vgl. \cite[S.20]{MeyeCasc2005})\\
+Die Syntax von CSS ist denkbar einfach. Sie besteht im wesentlichen aus dem Selektor und dem Deklarationsblock. Ein Selektor entspricht in den häufigsten Fällen dem gleichnamigen HTML Element. Der Deklarationsblock wiederum besteht aus mindestens einer Deklaration.(vgl. \cite[S.26]{MeyeCasc2005}) \glqq Eine Deklaration besteht dabei immer aus einer Eigenschaft, die mit einem Wert durch einen Doppelpunkt verbunden ist. Abgeschlossen wird die Deklaration durch ein nachgestelltes Semikolon. Auf den Doppelpunkt und das Semikolon kann eine beliebige Anzahl von Leerzeichen (also auch keines) folgen. Fast immer besteht der Wert aus einem einzelnen Schlüsselwort oder einer durch Leerzeichen getrennten Liste aus mehreren Schlüsselwörtern, die für die genannte Eigenschaft zulässig sind.\grqq{}\cite[S.28]{MeyeCasc2005} Verwendet man in der Deklaration ungültige Eigenschaften oder Werte werden diese einfach ignoriert. Listing \ref{lst:css3syntax} zeigt die Syntax beispielhaft.
+
 	\vspace{1em}
 	\begin{lstlisting}[caption=CSS3 Syntax Beispiel, label=lst:css3syntax]
-Selektor [, Selektor2, ...]
-  {
+Selektor [, Selektor2, ...] {
     Eigenschaft1: Wert1;
     ...
     EigenschaftN: WertN[;]
-  }
-  /* Kommentar - In eckigen Klammern stehen optionale Angaben */
+}
 	\end{lstlisting}
+
+Um sich wiederholende Design Regeln zusammenfassen zu können lassen sich Selektoren in CSS gruppieren. Dabei werden die zu gruppierenden Selektoren durch ein Komma von einander getrennt und dann die zu gestaltenden Eigenschaften mit den entsprechenden Werten genannt wie in Listing \ref{lst:css3group} zu sehen.
+
+	\vspace{1em}
+	\begin{lstlisting}[caption=CSS3 Gruppierung, label=lst:css3group]
+h1, h2, p {
+  color: black;
+}
+	\end{lstlisting}
+
+CSS arbeitet wie HTML auch mit dem \ac{DOM}. \glqq Der erste Vorteil, der sich aus dem Verständnis dieses Modells ergibt, ist die Möglichkeit, Selektoren für Nachfahren (auch als Kontext-Selektoren bezeichnet) zu definieren. Die Definition von Selektoren für Nachfahren besteht aus dem Festlegen von Regeln, die nur für bestimmte hierarchische Strukturen gelten.\grqq{}\cite[S.48]{MeyeCasc2005} Der erst genannte Selektor ist das Elternelement. Mittels eines Leerzeichens wird das Nachfahren Element vom Elternelement getrennt. In Listing \ref{lst:css3kids} wird angegeben, dass jedes \textit{strong}-Element innerhalb eines \textit{h1}-Elements eine besondere Formatierung erhält. Konkret bedeutet das in diesem Fall, dass die Schriftgröße 14pt und die Schriftgewichtung, welche die Dicke und Stärke festlegt, \textit{bold} sein soll. Zu beachten ist, dass so sämtliche Nachfahren des \textit{h1}-Elements entsprechend formatiert werden. Es gibt auch die Möglichkeit die Formatierung nur auf einen direkt Nachfahren, ein sogenanntes Kindelement, zu beschränken. Um dies zu erreichen werden Eltern- und Kindelement nicht durch ein Leerzeichen von einander getrennt, sondern durch das Größer-als-Zeichen (\textgreater).
+
+	\vspace{1em}
+	\begin{lstlisting}[caption=CSS3 Selektoren für Nachfahren, label=lst:css3kids]
+h1 strong {
+  font-size:  14pt;
+  font-weight: bold;  
+}
+	\end{lstlisting}
+
+Das gleiche Verfahren kann auch auf Nachbarelemente angewandt werden. Nur wird hierbei ein anderes Kombinatorenzeichen benötigt, nämlich das Plus (+).\\
+// Pseudoklassen\\
 
 // CSS-Box-Modell - margin, border, padding\\
 // Abbildung \ref{fig:cssboxmodell}\\
