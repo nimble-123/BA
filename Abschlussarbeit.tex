@@ -496,24 +496,14 @@ a:visited {
 		\label{fig:cssboxmodell}
 	\end{minipage}
 	
-// Medienspezifische Stylesheets (@media print, screen, ...)\\
-// Listing \ref{lst:css3media}
+\glqq Dank der Mechanismen in CSS und HTML [... lassen sich] beliebige Stylesheets auf bestimmte Medien beschränken. In HTML-basierten Stylesheets geschieht dies mit Hilfe des Attributs \textit{media} und gilt sowohl für \textit{link}- wie auch \textit{style}-Elemente. Das Attribut \textit{media} akzeptiert entweder die Angabe eines einzelnen Mediums oder eine durch Komma getrennte Liste von Werten.\grqq{}\cite[S.434ff]{MeyeCasc2005} Die Angaben in Listing \ref{lst:css3media} bewirken eine gesonderte Formatierung für ein \textit{print} Medium.
 
 	\vspace{1em}
 	\begin{lstlisting}[caption=CSS3 medienspezifisches Stylesheet, label=lst:css3media]
-@media print {
-	body {
-		color: black;
-		background-color: white;
-	}
-	.navigation {
-		display: none;
-	}
-}
+<link rel="stylesheet" type="text/css" media="print" href="article-print.css">
 	\end{lstlisting}
-
-// Eigenschaftsspezifische Stylesheets (@media screen and (max-width:1024px))\\
-// Listing \ref{lst:css3mediaquery}
+	
+Ein vorhandenes Stylesheet ohne Medieninformationen gilt für alle Medien. Fernen lassen sich die Medien auch innerhalb des Stylesheets näher beschreiben durch den \textit{@media}-Block. Diesen \textit{@media}-Blöcken können neben den Medientypen auch noch weitere Bedingungen hinzugefügt werden. In Listing \ref{lst:css3mediaquery} wird das Element mit der ID \textit{inhalt} auf eine Breite von \textit{800px} festgelegt. Ist das verwendete Ausgabemedium jedoch ein Bildschirm und hat nur eine Gesamtbreite von \textit{1024px} wird das Element mit der ID \textit{inhalt} auf eine Breite von nur noch \textit{600px} und das \textit{aside}-Element gar nicht mehr angezeigt.
 
 	\vspace{1em}
 	\begin{lstlisting}[caption=CSS3 eigenschaftsspezifisches Stylesheet, label=lst:css3mediaquery]
@@ -525,7 +515,6 @@ a:visited {
 	#inhalt {
 		width: 600px;
 	}
- 
 	aside {
 		display: none;
 	}
