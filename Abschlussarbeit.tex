@@ -447,14 +447,51 @@ h1 strong {
 	\end{lstlisting}
 
 Das gleiche Verfahren kann auch auf Nachbarelemente angewandt werden. Nur wird hierbei ein anderes Kombinatorenzeichen benötigt, nämlich das Plus (+).\\
-// Pseudoklassen\\
+\glqq Zusätzlich zu den rohen Dokument-Elementen gibt es noch zwei weitere Arten von Selektoren: Klassenselektoren und ID-Selektoren, mit denen sich Stildefinitionen unabhhängig von den Elementen eines Dokuments zuweisen lassen. Diese Selektoren können eigenständig oder zusammen mit Elementselektoren verwendet werden. Allerdings ist es hierfür notwendig, die Dokumentteile entsprechend zu markieren. Die Benutzung dieser neuen Selektoren erfordert daher [...] Voraussicht und Planung.\grqq{}\cite[S.34ff]{MeyeCasc2005} Des weiteren muss die HTML Auszeichnung angepasst werden sollten Klassen- und/oder ID-Selektoren verwendet werden. Konkret bedeutet dies, dass jedem HTML Element ein \textit{class}- und/oder \textit{id}-Attribut hinzugefügt werden muss sofern es von den CSS Regeln beachtet werden soll. Zu beachten ist, dass eine vergebene ID im gesamten HTML Dokument einzigartig sein muss, wohingegen eine vergebene Klasse auf mehrere HTML Elemente und auf ein HTML Element auch mehrere Klassen angewandt werden können. (vgl. \cite{W3ScCss2014}) Listing \ref{lst:css3idclass} zeigt einen solchen ID-Selektor, einen Klassenselektor und einen Klassenselektor der nur auf \textit{p}-Elementen gilt die das \textit{class}-Attribut besitzen.
 
-// CSS-Box-Modell - margin, border, padding\\
-// Abbildung \ref{fig:cssboxmodell}\\
+	\vspace{1em}
+	\begin{lstlisting}[caption=CSS3 Klassen- und ID-Selektoren, label=lst:css3idclass]
+<div id="ID">
+  <p class="Klasse"></p>
+</div>
+
+div#ID {
+  text-align: center;
+  color:      red;
+}
+.Klasse {
+  text-align: center;
+  color:      red;
+}
+p.Klasse {
+  text-align: center;
+  color:      red;
+}
+	\end{lstlisting}
+	
+Neben den genannten gibt es noch einen weiteren Typ von Selektoren. Die sogenannten Pseudoselektoren für die Pseudoklassen. \glqq Mit diesen Selektoren [... kann man] Stildefinitionen auf Strukturen zuweisen, die nicht unbedingt im Dokument vorkommen müssen, oder auch [... Pseudo]klassen, die vom Zustand bestimmter Elemente oder sogar vom Zustand des Dokuments selbst abhängen. Anders gesagt, werden die Stile, basierend auf etwas anderem als der Struktur des Dokuments, auf Teile des Dokuments angewendet.\grqq{}\cite[S.53ff]{MeyeCasc2005} Um beispielsweise einen Link in einem Dokument farblich zu markieren sobald er besucht wurde wäre eigentlich für jeden Zustand des Links eine eigene Klasse nötig. Diese Klasse müsste sich ständig ändern je nach dem ob der Nutzer den Link schon besucht hat oder nicht. Um diesen Umstand zu verhindern existieren die Pseudoselektoren und Pseudoklassen. Im Fall eines \textit{a}-Elements werden die Pseudoklassen \textit{link} und \textit{visited} bereitgestellt um den Effekt zu erzeugen. Diese Klassen werden dem \textit{a}-Element durch CSS selber hinzugefügt bzw. wird ein \textit{a}-Element, das ein \textit{href}-Attribut besitzt und noch nicht besucht wurde mit der Pseudoklasse \textit{link} versehen. Die Pseudoklasse \textit{visited} bezieht sich auf \textit{a}-Elemente mit \textit{href}-Attribut die schon besucht wurden. Listing \ref{lst:css3pseudo} zeigt ein solches \textit{a}-Element und die beiden Pseudoselektoren.
+
+	\vspace{1em}
+	\begin{lstlisting}[caption=CSS3 Pseudoklassen und -selektoren, label=lst:css3pseudo]
+<a href="http://www.example.com">Example.com</a>
+
+/* unvisited link */
+a:link {
+    color: #FF0000;
+}
+
+/* visited link */
+a:visited {
+    color: #00FF00;
+}
+	\end{lstlisting}
+
+\glqq CSS geht davon aus, dass jedes Element eine oder mehrere rechteckige Boxen erzeugt, die Element-Boxen genannt werden.[...] Im Kern besitzt jede Box einen Inhaltsbereich (content area). Dieser wird umgeben von optionalen Innenabständen (padding), Rahmen (borders) und Außenabständen (margins). Diese Teile werde als optional angesehen, weil sie alle eine Breite von null Einheiten haben können, also sozusagen nicht vorhanden sind.\grqq{}\cite[S.167]{MeyeCasc2005} Abbildung \ref{fig:cssboxmodell}\\
+
 	\vspace{1em}
 	\begin{minipage}{\linewidth}
 		\centering
-		\includegraphics[width=0.7\linewidth]{images/css_boxmodell.png}
+		\includegraphics[width=0.8\linewidth]{images/css_boxmodell.png}
 		\captionof{figure}[CSS-Boxmodell]{CSS-Boxmodell\footnotemark }
 		\label{fig:cssboxmodell}
 	\end{minipage}
