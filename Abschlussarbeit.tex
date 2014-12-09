@@ -486,19 +486,19 @@ a:visited {
 }
 	\end{lstlisting}
 
-\glqq CSS geht davon aus, dass jedes Element eine oder mehrere rechteckige Boxen erzeugt, die Element-Boxen genannt werden.[...] Im Kern besitzt jede Box einen Inhaltsbereich (content area). Dieser wird umgeben von optionalen Innenabständen (padding), Rahmen (borders) und Außenabständen (margins). Diese Teile werde als optional angesehen, weil sie alle eine Breite von null Einheiten haben können, also sozusagen nicht vorhanden sind.\grqq{}\cite[S.167]{MeyeCasc2005} Abbildung \ref{fig:cssboxmodell}\\
+\glqq CSS geht davon aus, dass jedes Element eine oder mehrere rechteckige Boxen erzeugt, die Element-Boxen genannt werden.[...] Im Kern besitzt jede Box einen Inhaltsbereich (content area). Dieser wird umgeben von optionalen Innenabständen (padding), Rahmen (borders) und Außenabständen (margins). Diese Teile werde als optional angesehen, weil sie alle eine Breite von null Einheiten haben können, also sozusagen nicht vorhanden sind.\grqq{}\cite[S.167]{MeyeCasc2005} \glqq Da eine Box aus mehreren Komponenten bestehen kann, werden für die einzelnen Bereiche verschiedene Kantenbezeichnungen definiert. Als Innen- oder Inhaltskante wird die Strecke bezeichnet, die den Inhaltsbereich einer Box umfasst. Das ist der Bereich, der durch den Inhalt oder die Eigenschaften width und height festgelegt wurde. Der Bereich einer Box, der von den Innenkanten umgeben ist, wird auch content box (Inhaltsbox) genannt. Die Kanten, die eine Box mitsamt Innenabstand umfassen, werden Polsterungskanten genannt. Der von diesen Kanten umfasste Bereich wird padding box (Polsterungsbox) genannt. Besitzt eine Seite keinen Innenabstand, so ist die Polsterungskante mit der Innenkante identisch. Die Rahmenkanten umgeben eine Box mit deren Rahmen. Der durch diese Kanten abgesteckte Bereich wird border box (Rahmenbox) genannt. Besitzt eine Box keinen Rahmen, so ist die Rahmenkante mit der Polsterungskante identisch. Eine vollständige Box wird durch die Außenkanten definiert. Die Außenkante umfasst eine Box mitsamt Außenabständen, also die margin box. Sind für eine Box keine Außenabstände definiert, so ist die Außenkante mit der Rahmenkante identisch.\grqq{}\cite{SelfHtml20145} Die Gesamtbreite eines Elements definiert sich dadurch als Summe aus Breite, linkem und rechten Innenabstand, linkem und rechten Rahmen und dem linken und rechtem Außenabstand. Für die Gesamthöhe verhält sich die Berechnung analog. Abbildung \ref{fig:cssboxmodell} zeigt das beschriebene CSS-Box-Modell.
 
 	\vspace{1em}
 	\begin{minipage}{\linewidth}
 		\centering
 		\includegraphics[width=0.8\linewidth]{images/css_boxmodell.png}
-		\captionof{figure}[CSS-Boxmodell]{CSS-Boxmodell\footnotemark }
+		\captionof{figure}[CSS-Boxmodell]{CSS-Box-Modell\cite{WikiCSS2014} }
 		\label{fig:cssboxmodell}
 	\end{minipage}
-	\footnotetext{Quelle: \url{http://commons.wikimedia.org/wiki/File:Boxmodell-detail.png}}
 	
 // Medienspezifische Stylesheets (@media print, screen, ...)\\
 // Listing \ref{lst:css3media}
+
 	\vspace{1em}
 	\begin{lstlisting}[caption=CSS3 medienspezifisches Stylesheet, label=lst:css3media]
 @media print {
@@ -514,6 +514,7 @@ a:visited {
 
 // Eigenschaftsspezifische Stylesheets (@media screen and (max-width:1024px))\\
 // Listing \ref{lst:css3mediaquery}
+
 	\vspace{1em}
 	\begin{lstlisting}[caption=CSS3 eigenschaftsspezifisches Stylesheet, label=lst:css3mediaquery]
 #inhalt {
