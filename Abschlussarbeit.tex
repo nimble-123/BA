@@ -161,7 +161,8 @@ Das ganze auf Englisch.
 	\acro{DOM}{Dokument-Objekt-Modell}
 	\acro{WHATWG}{Web Hypertext Application Technology Working Group}
 	\acro{API}{Application-Programming-Interface}
-	\acro{ECMA}{European Computer Manufacturers Association}	
+	\acro{ECMA}{European Computer Manufacturers Association}
+	\acro{SDK}{Software Development Kit}
 \end{acronym}
 \newpage
 
@@ -205,7 +206,7 @@ Das ganze auf Englisch.
 // Das Produkt - Template Programmierung für SAP Frontends mit SAP UI5
 
 \paragraph{Struktur}
-// der weg über die software ergonomie und ihre wichtigkeit, gezeigt über die Marktanalyse, hin zur praktischen Umsetzung durch Grundlagen und Beschreibung des Lösungsweges\\
+// kapitel oberflächlich anreißen\\
 \pagebreak
 
 % ----------------------------------------------------------------------------------------------------------
@@ -527,7 +528,7 @@ Ein vorhandenes Stylesheet ohne Medieninformationen gilt für alle Medien. Ferne
 
 \paragraph{Sandbox-Prinzip} JavaScript wird innerhalb eines Browser in einer sogenannten Sandbox ausgeführt. Das bedeutet es liegt in einem abgesichtertem Speicherbereich, aus welchem es keinen Zugriff auf Objekte außerhalb des Browsern hat. Eine Ausnahme ist der Lesezugriff auf Dateien die mittels des \textit{input}-Elements von einem Nutzer selbst hoch geladen werden. Des weiteren kann mit JavaScript auch nicht ohne weiteres auf bestimmte sicherheitskritische Funktionen des ausführenden Browser zugegriffen werden. Um beispielsweise das Browserfenster zu schließen, Symbolleisten ein- und auszublenden oder zugriff auf die Seitenhistorie zu erlangen sind Nutzereingaben nötig. (vgl. \cite{WikiJS2014})
 
-\paragraph{Sprachelemente} Um ein in JavaScript geschriebenes Skript innerhalb eines HTML Dokuments verwenden zu können muss es erst einmal in dieses eingebunden werden. Dies passiert ähnlich wie bei CSS. Zum einen kann das Skript als separate Datei in das \textit{head}-Element des HTML Dokuments eingebunden werden. Listing \ref{lst:jseinbindunghead} zeigt das \textit{script}-Element mit dem \textit{src}-Attribut. Dieses Attribut verweist auf das externe Skript.
+\paragraph{Sprachelemente} Um ein in JavaScript geschriebenes Skript innerhalb eines HTML Dokuments verwenden zu können muss es erst einmal in dieses eingebunden werden. Eine Möglichkeit ist es, dass Skript als separate Datei in das \textit{head}-Element des HTML Dokuments einzubinden. Listing \ref{lst:jseinbindunghead} zeigt das \textit{script}-Element mit dem \textit{src}-Attribut. Dieses Attribut verweist auf das externe Skript.
 
 	\vspace{1em}
 	\begin{lstlisting}[caption=JavaScript Einbindung als separate Datei im \textit{head}-Element, label=lst:jseinbindunghead]
@@ -540,6 +541,7 @@ Die andere Möglichkeit besteht darin ein Skript direkt in das HTML Dokument zu 
 	\begin{lstlisting}[caption=JavaScript Einbindung in \textit{script}-Element, label=lst:jseinbindungscript]
 <script type="text/javascript"></script>
 	\end{lstlisting}
+	
 // Variablen - Dynamische Typisierung(Loose Typing), Case-Sensitive, ungarische Nomenklatur, spezielle Werte(\textit{undefined, null, true, false, NaN})\\
 
 // Operatoren - \textit{+,-,*,/}, zusätzlich \textit{+} als Zeichenverkettung, In- und Dekrement, Zuweisung, Vergleich, typeof, Logisch\\
@@ -632,11 +634,12 @@ $\;$ \\
 
 \subsection{SAP UI5 Framework}
 \subsubsection{Definition}
-// Aufbauend auf jQuery, AJAX, HTML5/CSS3 \cite{AntoEinf2014}\\
+SAP UI5 ist ein \ac{SDK} zur Entwicklung von Desktop- und mobilen Anwendungen die in einem Browser ausgeführt werden. Nicht zu verwechseln mit SAP Fiori - was nur eine Sammlung webbasierter Anwendungen, die mit SAP UI5 entwickelt wurden, darstellt. Das Framework bündelt eine vielzahl an Technologien und Bibliotheken um den Entwicklungsprozess solcher Anwendungen bestmöglich zu unterstützen. Grundsätzlich basieren die, mit dem SDK entwickelten, Anwendungen auf den aktuellen Web-Entwicklungsstandards. Dazu gehören HTML 5, CSS 3 und JS. HTML 5 und CSS 3 werden, wie in den vorherigen Kapiteln geschildert, dafür verwendet um Struktur und Aussehen der Applikation zu gestalten. Bei JS hat man sich außerdem dazu entschieden zusätzlich die überaus populäre Erweiterungsbibliothek jQuery zu nutzen.(vgl. \cite{BuiltWith2014}) Das komplette SAP UI5 SDK ist freie Software und kann ohne jegliche SAP Lizenz bezogen und betrieben werden.
 
 \subsubsection{Architektur}
-// Einführung in SAPUI5 S. 123 \cite{AntoEinf2014}\\
+// Einführung in SAPUI5 \cite[S.123]{AntoEinf2014}\\
 // Abbildung \ref{fig:mvcarch}\\
+
 	\vspace{1em}
 	\begin{minipage}{\linewidth}
 		\centering
