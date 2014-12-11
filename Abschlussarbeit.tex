@@ -160,7 +160,8 @@ Das ganze auf Englisch.
 	\acro{SGML}{Standard Generalized Markup Language}
 	\acro{DOM}{Dokument-Objekt-Modell}
 	\acro{WHATWG}{Web Hypertext Application Technology Working Group}
-	\acro{API}{Application-Programming-Interface}	
+	\acro{API}{Application-Programming-Interface}
+	\acro{ECMA}{European Computer Manufacturers Association}	
 \end{acronym}
 \newpage
 
@@ -522,9 +523,9 @@ Ein vorhandenes Stylesheet ohne Medieninformationen gilt für alle Medien. Ferne
 	\end{lstlisting}
 
 \subsection{JavaScript}
-// Grundlagen - Geschichte, Sicherheit, aktueller Stand
+\paragraph{Historie} JavaScript wurde 1995 von Netscape entwickelt, lizenziert und eingeführt. Um der Sprache von Anfang an einen Standardcharakter zu geben wurde die Organisation \ac{ECMA} hinzugezogen. Die ECMA veröffentlichte unter dem Namen ECMAScript einen, auf Netscapes JavaScript Spezifikation basierenden, Industriestandard der Sprache. Da JavaScript somit eine proprietäre Sprache von Netscape ist, hat Microsoft seine eigene Variante, mit Namen JScript, veröffentlicht. JScript implementiert JavaScript vollständig, besitzt allerdings auch noch Zusatzfunktionen wie z.B. Zugriff auf das Dateisystem und das Betriebssystem Windwos. Mit Version 1.5 von JavaScript erhielt das DOM Einzug in die Implementierung. Da jeder Browser seinen eigenen JavaScript Interpreter besaß, war es kaum Möglich einheitlichen Code für alle Browser zu entwickeln. Es musste auf alle Eventualitäten geachtet werden. Um diesem Missstand entgegen zu wirken wurde das W3C hinzugezogen um einen einheitlichen Sprachstandard zu etablieren. Jedoch entwickelte das W3C keinen konkreten JavaScript-Standard, sondern eine Schnittstelle - das erwähnte DOM. Die aktuelle JavaScript Version von 2010 ist 1.8.5 und ECMAScript liegt in Version 5.1 seit Juni 2011 vor. (vgl. \cite[]{})
 
-Eingebunden wird ein Skript ähnlich wie ein CSS Stylesheet. Zum einen kann das Skript als separate Datei in das \textit{head}-Element des HTML Dokuments eingebunden werden. Listing \ref{lst:jseinbindunghead} zeigt das \textit{script}-Element mit dem \textit{src}-Attribut. Dieses Attribut verweist auf das externe Skript.
+\paragraph{Sprachelemente} Eingebunden wird ein Skript ähnlich wie ein CSS Stylesheet. Zum einen kann das Skript als separate Datei in das \textit{head}-Element des HTML Dokuments eingebunden werden. Listing \ref{lst:jseinbindunghead} zeigt das \textit{script}-Element mit dem \textit{src}-Attribut. Dieses Attribut verweist auf das externe Skript.
 
 	\vspace{1em}
 	\begin{lstlisting}[caption=JavaScript Einbindung als separate Datei im \textit{head}-Element, label=lst:jseinbindunghead]
@@ -537,16 +538,13 @@ Die andere Möglichkeit besteht darin ein Skript direkt in das HTML Dokument zu 
 	\begin{lstlisting}[caption=JavaScript Einbindung in \textit{script}-Element, label=lst:jseinbindungscript]
 <script type="text/javascript"></script>
 	\end{lstlisting}
-
-// Sprachelemente - Kommentare, Funktionen, Objekte\\
-
 // Variablen - Dynamische Typisierung(Loose Typing), Case-Sensitive, ungarische Nomenklatur, spezielle Werte(\textit{undefined, null, true, false, NaN})\\
 
 // Operatoren - \textit{+,-,*,/}, zusätzlich \textit{+} als Zeichenverkettung, In- und Dekrement, Zuweisung, Vergleich, typeof, Logisch\\
 
 // Kontrollstrukturen - \textit{if, switch, for, while} Anweisungen inklusive ihrer Varianten\\
 
-// Document Object Model - Schnittstelle zum HTML Aufbau, W3C Spezifikation unterschieldich implementiert, Knoten Beziehungen, Verarbeitung des DOM, Generierung von HTML durch Serialisierung, Listing \ref{lst:html5beispieltable} beschreiben und zur Baumstruktur hinleiten\\
+\paragraph{Document Object Model} Schnittstelle zum HTML Aufbau, W3C Spezifikation unterschieldich implementiert, Knoten Beziehungen, Verarbeitung des DOM, Generierung von HTML durch Serialisierung, Listing \ref{lst:html5beispieltable} beschreiben und zur Baumstruktur hinleiten\\
 // Listing \ref{lst:html5beispieltable}
 	\vspace{1em}
 	\begin{lstlisting}[caption=DOM5 Beispiel Definition, label=lst:html5beispieltable]
@@ -575,8 +573,7 @@ Die andere Möglichkeit besteht darin ein Skript direkt in das HTML Dokument zu 
 		\label{fig:dombeispielbaum}
 	\end{minipage}
 
-// Ereignisse\\
-// Übersicht einiger wichtiger Events
+\paragraph{Ereignisse} Übersicht einiger wichtiger Events
     \begin{compactitem}
 	    \item onabort (bei Abbruch)
 	    \item onblur (beim Verlassen)
