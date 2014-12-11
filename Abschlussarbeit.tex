@@ -163,6 +163,8 @@ Das ganze auf Englisch.
 	\acro{API}{Application-Programming-Interface}
 	\acro{ECMA}{European Computer Manufacturers Association}
 	\acro{SDK}{Software Development Kit}
+	\acro{ODBC}{Open Database Connectivity}
+	\acro{JDBC}{Java Database Connectivity}
 \end{acronym}
 \newpage
 
@@ -637,19 +639,37 @@ $\;$ \\
 SAP UI5 ist ein \ac{SDK} zur Entwicklung von Desktop- und mobilen Anwendungen die in einem Browser ausgeführt werden. Nicht zu verwechseln mit SAP Fiori - was nur eine Sammlung webbasierter Anwendungen, die mit SAP UI5 entwickelt wurden, darstellt. Das Framework bündelt eine vielzahl an Technologien und Bibliotheken um den Entwicklungsprozess solcher Anwendungen bestmöglich zu unterstützen. Grundsätzlich basieren die, mit dem SDK entwickelten, Anwendungen auf den aktuellen Web-Entwicklungsstandards. Dazu gehören HTML 5, CSS 3 und JS. HTML 5 und CSS 3 werden, wie in den vorherigen Kapiteln geschildert, dafür verwendet um Struktur und Aussehen der Applikation zu gestalten. Bei JS hat man sich außerdem dazu entschieden zusätzlich die überaus populäre Erweiterungsbibliothek jQuery zu nutzen.(vgl. \cite{BuiltWith2014}) Das komplette SAP UI5 SDK ist freie Software und kann ohne jegliche SAP Lizenz bezogen und betrieben werden.
 
 \subsubsection{Architektur}
-// Einführung in SAPUI5 \cite[S.123]{AntoEinf2014}\\
-// Abbildung \ref{fig:mvcarch}\\
+\glqq Das Model-View-Controller-Architekturmuster strukturiert die Softwareentwicklung in die drei Einheiten Datenmodell (Model), Präsentation (View) und Steuerung (Controller). Durch diese Trennung können die einzelnen Komponenten leichter erweitert, ausgetauscht oder wiederverwendet werden. Abbildung [... \ref{fig:mvcarch}] zeigt dieses Architekturmuster.
 
 	\vspace{1em}
 	\begin{minipage}{\linewidth}
 		\centering
-		\includegraphics[width=0.6\linewidth]{images/mvc_arch.png}
-		\captionof{figure}[Model-View-Controller-Architekturmuster]{Model-View-Controller-Architekturmuster\cite{AntoEinf2014}}
+		\includegraphics[width=0.7\linewidth]{images/mvc_arch.png}
+		\captionof{figure}[Model-View-Controller-Architekturmuster]{Model-View-Controller-Architekturmuster\cite[S.123]{AntoEinf2014}}
+		\label{fig:mvcarch}
+	\end{minipage}
+
+Durch diese Trennung können z. B. zwei verschiedene Endgeräte das gleiche Model verwenden; der View wird z. B. einmal für die Desktop-Anwendung und einmal für das mobile Endgerät implementiert.\grqq{}\cite[S.123]{AntoEinf2014}
+
+\paragraph{Model}
+
+\paragraph{View}
+
+\paragraph{Controller}
+// Vergleich\\
+
+//Abbildung \ref{fig:mvcarch}\\
+	\vspace{1em}
+	\begin{minipage}{\linewidth}
+		\centering
+		\includegraphics[width=0.7\linewidth]{images/mvc_arch2.png}
+		\captionof{figure}[Model-View-Controller-Architekturmuster]{MVC-Architekturmuster\cite[S.124]{AntoEinf2014}}
 		\label{fig:mvcarch}
 	\end{minipage}
 
 \subsubsection{OData Protokoll}
-// Einführung in SAPUI5 S. 168 \\
+\glqq Das Open Data Protocol (OData) ist ein von Microsoft veröffentlichtes Protokoll. Das Protokoll basiert auf HTTP und baut auf den älteren Protokollen \ac{ODBC} und \ac{JDBC} auf. OData ist primär für die sogenannten CRUD-Operationen, (Create, Read, Update und Delete) implementiert worden.\grqq{}\cite[S.168]{AntoEinf2014}
+
 // SAP Netweaver Gateway OData Services\\
 \pagebreak
 
