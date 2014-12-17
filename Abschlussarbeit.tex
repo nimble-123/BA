@@ -224,7 +224,7 @@ Zum besseren Verständnis der gesamten Thematik werden in den folgenden Kapiteln
 	\begin{minipage}{\linewidth}
 		\centering
 		\includegraphics[width=0.87\linewidth]{images/html5_specs.png}
-		\captionof{figure}[HTML5 Spezifikationen Übersicht]{HTML5 Spezifikationen Übersicht}
+		\captionof{figure}[HTML5 Spezifikationen Übersicht]{HTML5 Spezifikationen Übersicht\cite{PeteKroe2014}}
 		\label{fig:html5specs}
 	\end{minipage}
 
@@ -530,6 +530,8 @@ Ein vorhandenes Stylesheet ohne Medieninformationen gilt für alle Medien. Ferne
 
 \paragraph{Sandbox-Prinzip} JavaScript wird innerhalb eines Browser in einer sogenannten Sandbox ausgeführt. Das bedeutet es liegt in einem abgesichtertem Speicherbereich, aus welchem es keinen Zugriff auf Objekte außerhalb des Browsern hat. Eine Ausnahme ist der Lesezugriff auf Dateien die mittels des \textit{input}-Elements von einem Nutzer selbst hoch geladen werden. Des weiteren kann mit JavaScript auch nicht ohne weiteres auf bestimmte sicherheitskritische Funktionen des ausführenden Browser zugegriffen werden. Um beispielsweise das Browserfenster zu schließen, Symbolleisten ein- und auszublenden oder zugriff auf die Seitenhistorie zu erlangen sind Nutzereingaben nötig. (vgl. \cite{WikiJS2014})
 
+\paragraph{Objektorientierung} \glqq JavaScript gehört zu den sogenannten objektorientierten Programmiersprachen (oder, um genauer zu sein, zu den objektbasierten Sprachen). Das Konzept der objektorientierten Programmierung (OOP) wird im Folgenden sehr stark vereinfacht erklärt.[...] In JavaScript ist (mit Ausnahme der Variablen) alles, worauf man zugreift, ein Objekt. Ein Objekt ist der Versuch, die reale Welt in eine Programmiersprachenumgebung abzubilden. Ein Standardbeispiel für Objekte ist etwa ein Auto. Das Auto an sich (als abstrakter Begriff) kann als Objekt angesehen werden, ein einzelnes Auto wird als Instanz des Objekts Auto bezeichnet.\grqq{}\cite[S.93]{WenzJava2008} Ein Auto bzw. ein Objekt generell lässt sich durch Parameter näher beschreiben. Diese Parameter gibt es in zwei Ausführungen. Die Eigenschaften und die Methoden. Bei einer Eigenschaft handelt es sich im Grunde um eine Variable die einen festen Bezug zum Objekt besitzt. Eigenschaften können gelesen und gesetzt werden. Ein Auto hat beispielsweise als Eigenschaft die Anzahl der Türen oder die Motorleistung. Methoden auf der anderen Seite müssen nicht immer einen Informationswert zurückgeben. Bei dem Objekt Auto könnte es eine Methode \textit{tunen()} geben die dann Einfluss auf die Eigenschaft Motorleistung nimmt.\\Im Kontext der Webentwicklung mit JavaScript existieren einige feste Objekte die zu jederzeit zur Verfügung stehen. Da wäre zum einen das \textit{window}-Objekt, dass, wie der Name schon erahnen lässt, das aktuelle Browserfenster repräsentiert. Über die Eigenschaften und Methoden lassen sich Informationen zum Browserfenster erhalten und beispielsweise neue Fenster öffnen. Das \textit{document}-Objekt bildet den Inhalt eines Browserfensters ab. Es stellt das Ausgangsobjekt für das DOM dar. Es steht in der Hierarchie direkt unter dem \textit{window}-Objekt. Neben diesen Objekten existieren noch weitere um den Browserkontext möglichst genau innerhalb einer JavaScript Anwendung verfügbar zu machen.(vgl. \cite{SelfHtml20147})
+
 \paragraph{Sprachelemente} Um ein in JavaScript geschriebenes Skript innerhalb eines HTML Dokuments verwenden zu können muss es erst einmal in dieses eingebunden werden. Eine Möglichkeit ist es, dass Skript als separate Datei in das \textit{head}-Element des HTML Dokuments einzubinden. Listing \ref{lst:jseinbindunghead} zeigt das \textit{script}-Element mit dem \textit{src}-Attribut. Dieses Attribut verweist auf das externe Skript.
 
 	\vspace{1em}
@@ -550,27 +552,26 @@ Die andere Möglichkeit besteht darin ein Skript direkt in das HTML Dokument zu 
 
 // Kontrollstrukturen - \textit{if, switch, for, while} Anweisungen inklusive ihrer Varianten\\
 
-\paragraph{Document Object Model} Schnittstelle zum HTML Aufbau, W3C Spezifikation unterschieldich implementiert, Knoten Beziehungen, Verarbeitung des DOM, Generierung von HTML durch Serialisierung, Listing \ref{lst:html5beispieltable} beschreiben und zur Baumstruktur hinleiten\\
-// Listing \ref{lst:html5beispieltable}
+\paragraph{Document Object Model} Das \ac{DOM} ist eine Schnittstelle um mit Skriptsprachen auf die Struktur eines HTML Dokuments Einfluss nehmen zu können. Spezifiziert wurde das DOM vom W3C um eine einheitliche Funktionsweise zu ermöglichen. Das DOM ist wie ein umgedrehter Baum aufgebaut. Jedes HTML Element und auch Texte die nicht von HTML Elementen umschlossen sind werden im DOM als Knoten(engl. node) dargestellt. HTML Elemente, die innerhalb eines anderen HTML Elements liegen, werden im DOM als Kindknoten(engl. child nodes) eingegliedert. Dadurch ist im DOM auch eine klare Hierarchie gegeben.(vgl. \cite[S.350]{WenzJava2008})\\Jeder Knoten im DOM beinhaltet zum einen Informationen über sich selbst und zum anderen Informationen über seinen Elternknoten und seine Kinderknoten. JavaScript hat dafür eigene Eigenschaften je Knoten definiert, mit denen auf diese Informationen zugegriffen werden kann. Mit den Eigenschaften \textit{firstChild} und \textit{lastChild} erhält man eine Referenz auf den ersten bzw. letzten Kindknoten des aktuellen Knotens. \textit{nextSibling} und \textit{previousSibling} liefern eine Referenz auf den nächsten bzw. vorherigen Kindknoten. \textit{parentNode} ermöglicht den Zugriff auf den Elternknoten und die beiden Eigenschaften \textit{nodeName} und \textit{nodeType} sind zur bestimmung des Knoten selbst zuständig. Listing \ref{lst:html5beispieltable} zeigt eine in HTML implementierte Tabelle die in das entsprechende DOM umgewandelt wird, welches in Abbildung \ref{fig:dombeispielbaum} zu sehen ist.
+
 	\vspace{1em}
 	\begin{lstlisting}[caption=DOM5 Beispiel Definition, label=lst:html5beispieltable]
 <table>
   <thead>
     <tr>
-      <th>Vorname</th>
-      <th>Name</th>
+      <th>Produkt</th>
+      <th>Preis</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Donald</td>
-      <td>Duck</td>
+      <td>XYZ</td>
+      <td>50,00</td>
     </tr>
   </tbody>
 </table>
 	\end{lstlisting}
 
-// Abbildung \ref{fig:dombeispielbaum}\\
 	\vspace{1em}
 	\begin{minipage}{\linewidth}
 		\centering
@@ -578,6 +579,10 @@ Die andere Möglichkeit besteht darin ein Skript direkt in das HTML Dokument zu 
 		\captionof{figure}[DOM Beispielbaum]{DOM Beispielbaum}
 		\label{fig:dombeispielbaum}
 	\end{minipage}
+
+Selbstverständlich bietet das DOM die Möglichkeit der Modifizierung. So lassen sich Knoten nicht nur ändern, sondern auch entfernen und neu hinzufügen. Auf Grund der Baumstruktur ist ein Löschen eines Knotens möglich ohne die Integrität des Baums zu zerstören.\\
+
+Schnittstelle zum HTML Aufbau, W3C Spezifikation unterschieldich implementiert, Knoten Beziehungen, Verarbeitung des DOM, Generierung von HTML durch Serialisierung, Listing \ref{lst:html5beispieltable} beschreiben und zur Baumstruktur hinleiten\\
 
 \paragraph{Ereignisse} Übersicht einiger wichtiger Events
     \begin{compactitem}
