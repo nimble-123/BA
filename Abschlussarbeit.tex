@@ -531,11 +531,75 @@ Ein vorhandenes Stylesheet ohne Medieninformationen gilt für alle Medien. Ferne
 \subsection{JavaScript}
 \paragraph{Historie} JavaScript wurde 1995 von Netscape entwickelt, lizenziert und eingeführt. Um der Sprache von Anfang an einen Standardcharakter zu geben wurde die Organisation \ac{ECMA} hinzugezogen. Die ECMA veröffentlichte unter dem Namen ECMAScript einen, auf Netscapes JavaScript Spezifikation basierenden, Industriestandard der Sprache. Da JavaScript somit eine proprietäre Sprache von Netscape ist, hat Microsoft seine eigene Variante, mit Namen JScript, veröffentlicht. JScript implementiert JavaScript vollständig, besitzt allerdings auch noch Zusatzfunktionen wie z.B. Zugriff auf das Dateisystem und das Betriebssystem Windwos. Mit Version 1.5 von JavaScript erhielt das DOM Einzug in die Implementierung. Da jeder Browser seinen eigenen JavaScript Interpreter besaß, war es kaum Möglich einheitlichen Code für alle Browser zu entwickeln. Es musste auf alle Eventualitäten geachtet werden. Um diesem Missstand entgegen zu wirken wurde das W3C hinzugezogen um einen einheitlichen Sprachstandard zu etablieren. Jedoch entwickelte das W3C keinen konkreten JavaScript-Standard, sondern eine Schnittstelle - das erwähnte DOM. Die aktuelle JavaScript Version von 2010 ist 1.8.5 und ECMAScript liegt in Version 5.1 seit Juni 2011 vor. (vgl. \cite{SelfHtml20146})
 
-\paragraph{Sandbox-Prinzip} JavaScript wird innerhalb eines Browser in einer sogenannten Sandbox ausgeführt. Das bedeutet es liegt in einem abgesichtertem Speicherbereich, aus welchem es keinen Zugriff auf Objekte außerhalb des Browsern hat. Eine Ausnahme ist der Lesezugriff auf Dateien die mittels des \textit{input}-Elements von einem Nutzer selbst hoch geladen werden. Des weiteren kann mit JavaScript auch nicht ohne weiteres auf bestimmte sicherheitskritische Funktionen des ausführenden Browser zugegriffen werden. Um beispielsweise das Browserfenster zu schließen, Symbolleisten ein- und auszublenden oder zugriff auf die Seitenhistorie zu erlangen sind Nutzereingaben nötig. (vgl. \cite{WikiJS2014})
+\paragraph{Sandbox-Prinzip} JavaScript wird innerhalb eines Browser in einer sogenannten Sandbox ausgeführt. Das bedeutet es liegt in einem abgesichertem Speicherbereich, aus welchem es keinen Zugriff auf Objekte außerhalb des Browsern hat. Eine Ausnahme ist der Lesezugriff auf Dateien die mittels des \textit{input}-Elements von einem Nutzer selbst hoch geladen werden. Des weiteren kann mit JavaScript auch nicht ohne weiteres auf bestimmte sicherheitskritische Funktionen des ausführenden Browser zugegriffen werden. Um beispielsweise das Browserfenster zu schließen, Symbolleisten ein- und auszublenden oder zugriff auf die Seitenhistorie zu erlangen sind Nutzereingaben nötig. (vgl. \cite{WikiJS2014})
 
 \paragraph{Objektorientierung} \glqq JavaScript gehört zu den sogenannten objektorientierten Programmiersprachen (oder, um genauer zu sein, zu den objektbasierten Sprachen). Das Konzept der objektorientierten Programmierung (OOP) wird im Folgenden sehr stark vereinfacht erklärt.[...] In JavaScript ist (mit Ausnahme der Variablen) alles, worauf man zugreift, ein Objekt. Ein Objekt ist der Versuch, die reale Welt in eine Programmiersprachenumgebung abzubilden. Ein Standardbeispiel für Objekte ist etwa ein Auto. Das Auto an sich (als abstrakter Begriff) kann als Objekt angesehen werden, ein einzelnes Auto wird als Instanz des Objekts Auto bezeichnet.\grqq{}\cite[S.93]{WenzJava2008} Ein Auto bzw. ein Objekt generell lässt sich durch Parameter näher beschreiben. Diese Parameter gibt es in zwei Ausführungen. Die Eigenschaften und die Methoden. Bei einer Eigenschaft handelt es sich im Grunde um eine Variable die einen festen Bezug zum Objekt besitzt. Eigenschaften können gelesen und gesetzt werden. Ein Auto hat beispielsweise als Eigenschaft die Anzahl der Türen oder die Motorleistung. Methoden auf der anderen Seite müssen nicht immer einen Informationswert zurückgeben. Bei dem Objekt Auto könnte es eine Methode \textit{tunen()} geben die dann Einfluss auf die Eigenschaft Motorleistung nimmt.\\Im Kontext der Webentwicklung mit JavaScript existieren einige feste Objekte die zu jederzeit zur Verfügung stehen. Da wäre zum einen das \textit{window}-Objekt, dass, wie der Name schon erahnen lässt, das aktuelle Browserfenster repräsentiert. Über die Eigenschaften und Methoden lassen sich Informationen zum Browserfenster erhalten und beispielsweise neue Fenster öffnen. Das \textit{document}-Objekt bildet den Inhalt eines Browserfensters ab. Es stellt das Ausgangsobjekt für das DOM dar. Es steht in der Hierarchie direkt unter dem \textit{window}-Objekt. Neben diesen Objekten existieren noch weitere um den Browserkontext möglichst genau innerhalb einer JavaScript Anwendung verfügbar zu machen.(vgl. \cite{SelfHtml20147})
 
-\paragraph{Sprachelemente} Um ein in JavaScript geschriebenes Skript innerhalb eines HTML Dokuments verwenden zu können muss es erst einmal in dieses eingebunden werden. Eine Möglichkeit ist es, dass Skript als separate Datei in das \textit{head}-Element des HTML Dokuments einzubinden. Listing \ref{lst:jseinbindunghead} zeigt das \textit{script}-Element mit dem \textit{src}-Attribut. Dieses Attribut verweist auf das externe Skript.
+\paragraph{Sprachelemente} JavaScript wird mit dem Unicode Zeichensatz geschrieben. Die 16-Bit-Codierung bei Unicode enthält fast sämtliche Zeichen der Schriftsprachen der Welt. Die Nutzung von Unicode trägt wesentlich zu der Internationalisierung bei. Bei der Groß- und Kleinschreibung unterscheidet JavaScript eindeutig. So müssen alle Schlüsselwörter und Bezeichner immer in der selben vorgegebenen Schreibweise geschrieben werden, damit sie vom JavaScript Interpreter korrekt behandelt werden. Whitespace, Tabulatoren und Zeilentrenner werden vom Interpreter komplett ignoriert und können deshalb zur visuellen Strukturierung des Programmcodes genutzt werden. Dadurch kann der Programmcode leicht leserlich und verständlich formatiert werden ohne das dadurch die Logik verletzt wird. Das, aus anderen Programmiersprachen bekannte, Semikolon am Ende einer Anweisung ist in JavaScript nicht zwingend erforderlich. Eine Anweisung ist im Normalfall mit dem Ende der Zeile abgeschlossen. So muss ein Semikolon lediglich gesetzt werden, wenn sich mehr als eine Anweisung in der Zeile befinden oder eine Anweisung über mehrere Zeilen hinweg formuliert wurde. Fehlende Semikola werden vom Interpreter selbst gesetzt, was in bestimmten Fällen aber zum Bruch der Logik führen kann wie in Listing \ref{lst:jssemikolon} zu sehen.(vgl. \cite[S.15ff]{FlanJava2007})
+
+	\vspace{1em}
+	\begin{lstlisting}[caption=JavaScript Logikbruch Semikolon, label=lst:jssemikolon]
+// kein Interpretierungsfehler
+a = 3
+b = 4;
+
+// korrekte Schreibweise in einer Zeile
+a = 3; b = 4;
+
+// Interpreter setzt Semikolon automatisch
+return
+true;
+// falsche Interpretation anschliessend
+return;
+true;
+	\end{lstlisting}
+
+Des weiteren gibt es einige Literale in JavaScript. \glqq Ein Literal ist ein Datenwert, der direkt in einem Programm vorkommt. Literale können zum Beispiel folgendermaßen aussehen:\grqq{}\cite[S.18]{FlanJava2007}
+
+	\vspace{1em}
+	\begin{lstlisting}[caption=JavaScript Literale, label=lst:jsliterale]
+12                // Die Zahl zwoelf
+1.2               // Die Zahl eins komma zwei
+"Hallo Welt"      // Ein Text-String
+'Hi'              // Noch ein String
+true              // Ein boolescher Wert
+false             // Der andere Boolesche Wert
+null              // Kein Objekt vorhanden
+	\end{lstlisting}
+	
+Im offiziellen Standard ECMAScript existieren außerdem Literale, die zur Initialisierung von Arrays und Objekten dienen. Neben den genannten Sprachelementen gibt es noch die Bezeichner. Ein Bezeichner ist ein Name in JavaScript. Er dient dazu Variablen, Funktionen und einige Schleifen-Marker zu benennen. Ein Bezeichner unterliegt gewissen Regeln. Zum einen muss das erste Zeichen ein Buchstabe, ein Unterstrich (\_) oder ein Dollar-Zeichen (\$) sein. Der restliche Bezeichner darf aus Buchstaben, Ziffern, Unterstrichen oder Dollar-Zeichen bestehen. Eine weitere Regel legt fest, dass ein Bezeichner nicht wie ein Schlüsselwort heißen darf. Tabelle \ref{tab:jskeywords} listet die Schlüsselwörter von JavaScript auf.(vgl. \cite[S.19]{FlanJava2007})
+
+\vspace{1em}
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		break & do & if & switch & typeof\\
+		\hline
+		case & else & in & this & var\\
+		\hline
+		catch & false & instanceof & thorw & void\\
+		\hline
+		continue & finally & new & true & while\\
+		\hline
+		default & for & null & try & with\\
+		\hline
+		delete & function & return & &\\
+		\hline
+	\end{tabular}
+	\caption{JavaScript Schlüsselwörter}
+	\label{tab:jskeywords}
+\end{table}
+
+\paragraph{Datentypen} // Zahlen, Integer-Literale, Hexadezimal- und Oktal-Literale, Gleitkomma-Literale, Strings, Escapesequenzen, Boolesche Werte, Funktionen, Objekte, Arrays, null, undefined, Typumwandlung(Tabelle S.41)
+	
+\paragraph{Variablen} // Variablen - Dynamische Typisierung(Loose Typing), Case-Sensitive, ungarische Nomenklatur, spezielle Werte(\textit{undefined, null, true, false, NaN})\\
+
+\paragraph{Operatoren} // Operatoren - \textit{+,-,*,/}, zusätzlich \textit{+} als Zeichenverkettung, In- und Dekrement, Zuweisung, Vergleich, typeof, Logisch\\
+
+\paragraph{Kontrollstrukturen} // Kontrollstrukturen - \textit{if, switch, for, while} Anweisungen inklusive ihrer Varianten\\
+
+\paragraph{Einbindung} Um ein in JavaScript geschriebenes Skript innerhalb eines HTML Dokuments verwenden zu können muss es erst einmal in dieses eingebunden werden. Eine Möglichkeit ist es, dass Skript als separate Datei in das \textit{head}-Element des HTML Dokuments einzubinden. Listing \ref{lst:jseinbindunghead} zeigt das \textit{script}-Element mit dem \textit{src}-Attribut. Dieses Attribut verweist auf das externe Skript.
 
 	\vspace{1em}
 	\begin{lstlisting}[caption=JavaScript Einbindung als separate Datei im \textit{head}-Element, label=lst:jseinbindunghead]
@@ -548,12 +612,6 @@ Die andere Möglichkeit besteht darin ein Skript direkt in das HTML Dokument zu 
 	\begin{lstlisting}[caption=JavaScript Einbindung in \textit{script}-Element, label=lst:jseinbindungscript]
 <script type="text/javascript"></script>
 	\end{lstlisting}
-	
-\paragraph{Variablen} // Variablen - Dynamische Typisierung(Loose Typing), Case-Sensitive, ungarische Nomenklatur, spezielle Werte(\textit{undefined, null, true, false, NaN})\\
-
-\paragraph{Operatoren} // Operatoren - \textit{+,-,*,/}, zusätzlich \textit{+} als Zeichenverkettung, In- und Dekrement, Zuweisung, Vergleich, typeof, Logisch\\
-
-\paragraph{Kontrollstrukturen} // Kontrollstrukturen - \textit{if, switch, for, while} Anweisungen inklusive ihrer Varianten\\
 
 \paragraph{Document Object Model} Das \ac{DOM} ist eine Schnittstelle um mit Skriptsprachen auf die Struktur eines HTML Dokuments Einfluss nehmen zu können. Spezifiziert wurde das DOM vom W3C um eine einheitliche Funktionsweise zu ermöglichen. Das DOM ist wie ein umgedrehter Baum aufgebaut. Jedes HTML Element und auch Texte die nicht von HTML Elementen umschlossen sind werden im DOM als Knoten(engl. node) dargestellt. HTML Elemente, die innerhalb eines anderen HTML Elements liegen, werden im DOM als Kindknoten(engl. child nodes) eingegliedert. Dadurch ist im DOM auch eine klare Hierarchie gegeben.(vgl. \cite[S.350]{WenzJava2008})\\Jeder Knoten im DOM beinhaltet zum einen Informationen über sich selbst und zum anderen Informationen über seinen Elternknoten und seine Kinderknoten. JavaScript hat dafür eigene Eigenschaften je Knoten definiert, mit denen auf diese Informationen zugegriffen werden kann. Mit den Eigenschaften \textit{firstChild} und \textit{lastChild} erhält man eine Referenz auf den ersten bzw. letzten Kindknoten des aktuellen Knotens. \textit{nextSibling} und \textit{previousSibling} liefern eine Referenz auf den nächsten bzw. vorherigen Kindknoten. \textit{parentNode} ermöglicht den Zugriff auf den Elternknoten und die beiden Eigenschaften \textit{nodeName} und \textit{nodeType} sind zur bestimmung des Knoten selbst zuständig. Listing \ref{lst:html5beispieltable} zeigt eine in HTML implementierte Tabelle die in das entsprechende DOM umgewandelt wird, welches in Abbildung \ref{fig:dombeispielbaum} zu sehen ist.
 
@@ -583,7 +641,7 @@ Die andere Möglichkeit besteht darin ein Skript direkt in das HTML Dokument zu 
 		\label{fig:dombeispielbaum}
 	\end{minipage}
 
-Selbstverständlich bietet das DOM die Möglichkeit der Modifizierung. So lassen sich Knoten nicht nur ändern, sondern auch entfernen und neu hinzufügen. Auf Grund der Baumstruktur ist ein Löschen eines Knotens möglich ohne die Integrität des Baums zu zerstören.\\
+Selbstverständlich bietet das DOM die Möglichkeit der Modifizierung. So lassen sich Knoten nicht nur ändern, sondern auch entfernen und neu hinzufügen. Außerdem ist auf Grund der Baumstruktur ein Löschen eines Knotens möglich ohne die Integrität des Baumes zu zerstören.\\
 
 Schnittstelle zum HTML Aufbau, W3C Spezifikation unterschieldich implementiert, Knoten Beziehungen, Verarbeitung des DOM, Generierung von HTML durch Serialisierung, Listing \ref{lst:html5beispieltable} beschreiben und zur Baumstruktur hinleiten\\
 
