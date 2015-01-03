@@ -1,6 +1,7 @@
 \documentclass[12pt,a4paper,bibliography=totocnumbered,listof=totocnumbered]{scrartcl}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -165,6 +166,7 @@ Das ganze auf Englisch.
 	\acro{SDK}{Software Development Kit}
 	\acro{ODBC}{Open Database Connectivity}
 	\acro{JDBC}{Java Database Connectivity}
+	\acro{IDE}{Integrated Development Environment}
 \end{acronym}
 \newpage
 
@@ -562,7 +564,7 @@ Des weiteren gibt es einige Literale in JavaScript. \glqq Ein Literal ist ein Da
 1.2               // Die Zahl eins komma zwei
 "Hallo Welt"      // Ein Text-String
 'Hi'              // Noch ein String
-true              // Ein boolescher Wert
+true              // Ein Boolescher Wert
 false             // Der andere Boolesche Wert
 null              // Kein Objekt vorhanden
 	\end{lstlisting}
@@ -595,7 +597,9 @@ Im offiziellen Standard ECMAScript existieren außerdem Literale, die zur Initia
 	
 \paragraph{Variablen} \glqq Eine Variable ist ein Name, der mit einem Wert verbunden ist. Man spricht davon, dass die Variable den Wert speichert oder enthält. Variablen ermöglichen es [...], Daten in [...] Programmen zu speichern und zu bearbeiten.\grqq{}\cite[S.51]{FlanJava2007} Ein grundlegender Unterschied von JavaScript zu anderen Programmiersprachen besteht darin, dass Variablen nicht typisiert werden müssen. So kann man einer JavaScript Variablen ohne weiteres erst einen Zahlenwert zuweisen und später eine Zeichenkette. Diese Art von Typisierung nennt man dynamische Typisierung(Loose Typing), da erst zur Laufzeit der tatsächliche Datentyp der Variablen feststeht. In anderen stark typisierten Sprachen wie C oder Java sind solche Konstrukte nicht zulässig, da einer Variable auch nur ein Wert, der ihrem Datentyp entspricht, zugewiesen werden kann.\\Eine Variable wird in JavaScript mit dem Schlüsselwort \textit{var} und einem Bezeichner deklariert. Das Schlüsselwort \textit{var} kann auch weggelassen werden, dann wird es vom Interpreter implizit gesetzt. So deklarierte Variablen werden automatisch als globale Variabeln deklariert. Soll eine Variable jedoch nur innerhalb eines Funktionsblocks Gültigkeit haben ist die verwenden des Schlüsselworts \textit{var} unerlässlich. Aus diesem Grund sollte das Schlüsselwort immer zur Deklaration von Variablen genutzt werden.\\Initialisiert werden Variablen durch die Zuweisung eines Wertes mittels des Zuweisungsoperator (=). Dies kann auch mit der Deklaration in einem Schritt zusammengefasst werden.(vgl. \cite[S.52ff]{FlanJava2007})
 
-\paragraph{Operatoren} // Operatoren - \textit{+,-,*,/}, zusätzlich \textit{+} als Zeichenverkettung, In- und Dekrement, Zuweisung, Vergleich, typeof, Logisch\\
+\paragraph{Operatoren} \glqq Durch Operatoren wird eine gewisse Anzahl von Variablen miteinander kombiniert. Beispiele für Operatoren sind die Grundrechenarten. Durch den Plus-Operator werden zwei Zahlen miteinander kombiniert, und als Ergebnis erhält man die Summe dieser beiden Zahlen. Man unterscheidet - auch je nach Typ der beteiligten Variablen - verschiedene Arten von Operatoren.\grqq{}\cite[S.69]{WenzJava2008} Mit den arithmetischen Operatoren lassen sich numerische Variablen miteinander verknüpfen und berechnen. Durch die dynamische Typisierung sollte man stets sicher sein das die Operanden auch Zahlenvariablen sind und keine Stringvariablen. Zu den arithmetischen Operatoren gehören die Addition (+), Subtraktion (-), Multiplikation (*), Division (/), die Restwertberechnung Modulo (\%) sowie die Negation (-). Außerdem sind noch zwei Operatoren zur In- (++) und Dekrementation (--) vorhanden.\\Neben den arithmetischen Operatoren stehen in JavaScript auch Operatoren zur Verarbeitung von booleschen Werten bereit. Mit ihnen lassen sich Wahrheitswerte verknüpfen und vergleichen. Mit dem logischen Und (\&\&) beispielsweise wird ein boolescher Ausdruck darauf geprüft ob beide Operanden als Wert \textit{true} liefern. Ist dies der Fall wird der Wert \textit{true} für den booleschen Ausdruck zurück gegeben, ansonsten der Wert \textit{false}. Das logische Oder (||) prüft einen booleschen Ausdruck im Grunde genauso wie ein logisches Und mit der Abweichung, dass bei einem logischen Oder auch der Wert \textit{true} für den gesamten booleschen Ausdruck zurück geliefert sollte nur der erste Operand den Wert \textit{true} haben. Weiter gibt es boolesche Vergleichsoperatoren die bei Zahlenwerten aber auch mit Strings verwendet werden können. Zu ihnen gehören der Gleichheitsoperator (==), Ungleich (!=), Größer als (\textgreater), Kleiner als (\textless) und zuletzt Größer oder gleich (\textgreater=) und Kleiner oder gleich (\textless=).(vgl. \cite[S.71ff]{WenzJava2008})\\
+
+// zusätzlich \textit{+} als Zeichenverkettung, Zuweisung, typeof\\
 
 \paragraph{Kontrollstrukturen} // Kontrollstrukturen - \textit{if, switch, for, while} Anweisungen inklusive ihrer Varianten\\
 
@@ -815,9 +819,21 @@ Lorem ipsum dolor sit amet.
 
 \subsection{Hilfsmittel}
 \subsubsection{Entwicklungsumgebung}
-// Kurze Beschreibung der Entwicklungsumgebung\\
-// Sprich Eclipse, SE80, Chrome Dev-tools, Debugger\\
-// Neptune Application Designer\\
+\paragraph{Eclipse} Zum Einsatz in der Implementierung des Fallbeispiels ist die quelloffene integrierte Entwicklungsumgebung Eclipse gekommen. Diese \ac{IDE} wurde von der Eclipse Foundation entwickelt und ist plattformunabhängig. Geschrieben wurde Eclipse in Java. Die aktuelle Version 4.4 ist am 25. Juni 2014 erschienen und trägt den Namen Luna. Eclipse zeichnet sich durch ein Plugin System aus mit welchem eine erhebliche Anzahl an Anwendungsfälle mit dieser IDE abgedeckt werden können.(vgl. \cite{WikiEclipse2014}) So auch die Entwicklung von SAP UI5 Applikationen. Dafür hat die SAP AG ein spezielles SAP UI5 Plugin bereitgestellt. Entsprechende Plugins müssen nicht umständlich über eine Webseite bezogen und installiert werden. Sie können über die integrierte Plugin Funktion installiert und eingerichtet werden. Eine URL zum Plugin ist vollkommen ausreichend. Für die Entwicklung von SAP UI5 Applikationen wurden folgende Plugins benötigt:
+
+    \begin{compactitem}
+	    \item UI Development Toolkit for HTML5
+	    \item ABAP Development Tools for SAP NetWeaver
+	    \item (SAP HANA Tools)	    
+    \end{compactitem}
+
+Bezogen werden können diese Plugins mittels der URL \textit{https://tools.hana.ondemand.com/luna} und der erwähnten Plugin Funktion von Eclipse. Neben der dem reinen Code Editor werden allerdings weitere Tools benötigt um eine SAP UI5 Applikation zu entwickeln.
+
+\paragraph{Chrome Developer Tools}
+
+
+\paragraph{Neptune Application Designer}
+
 
 \subsubsection{UI Design und Prototyping}
 // Wireframing als Prototyping\\
