@@ -601,7 +601,7 @@ Im offiziellen Standard ECMAScript existieren außerdem Literale, die zur Initia
 
 // zusätzlich \textit{+} als Zeichenverkettung, Zuweisung, typeof\\
 
-\paragraph{Kontrollstrukturen} Um eine Anweisung innerhalb von JavaScript mehrfach ausführen zu lassen bietet JavaScript Schleifenkonstrukte an. Darunter zählen die For-Schleife, die Do-While-Schleife und die While-Schleife.Jede Schleifenart hat in bestimmten Situationen Vor- und Nachteile gegenüber den anderen beiden Arten.\\Eine For-Schleife wird mit einem Startwert initialisiert und enthält außerdem eine Abbruchbedingung sowie eine Befehlsfolge die nach jedem Schleifendurchlauf ausgeführt wird. Listing \ref{lst:jssyntaxfor} zeigt die Syntax einer For-Schleife. Der Startwert ist auch die sogenannte Zählervariable, welche mit jedem Durchlauf durch die Befehlsfolge verändert wird. Die Abbruchbedingung überprüft diese Zählervariable und beendet die Schleife sollte die Bedingung nicht mehr zutreffen. Eine For-Schleife akzeptiert auch mehr als einen Startwert, welche durch Kommata von einander getrennt werden.(vgl. \cite[S.75f]{WenzJava2008})
+\paragraph{Schleifen} Um eine Anweisung innerhalb von JavaScript mehrfach ausführen zu lassen bietet JavaScript Schleifenkonstrukte an. Darunter zählen die For-Schleife, die Do-While-Schleife und die While-Schleife.Jede Schleifenart hat in bestimmten Situationen Vor- und Nachteile gegenüber den anderen beiden Arten.\\Eine For-Schleife wird mit einem Startwert initialisiert und enthält außerdem eine Abbruchbedingung sowie eine Befehlsfolge die nach jedem Schleifendurchlauf ausgeführt wird. Listing \ref{lst:jssyntaxfor} zeigt die Syntax einer For-Schleife. Der Startwert ist auch die sogenannte Zählervariable, welche mit jedem Durchlauf durch die Befehlsfolge verändert wird. Die Abbruchbedingung überprüft diese Zählervariable und beendet die Schleife sollte die Bedingung nicht mehr zutreffen. Eine For-Schleife akzeptiert auch mehr als einen Startwert, welche durch Kommata von einander getrennt werden.(vgl. \cite[S.75f]{WenzJava2008})
 
 	\vspace{1em}
 	\begin{lstlisting}[caption=Syntax For-Schleife, label=lst:jssyntaxfor]
@@ -627,8 +627,35 @@ while (Abbruchbedingung) {
   //Anweisung
 }
 	\end{lstlisting}
+	
+Für den Fall das der aktuelle Schleifendurchgang oder die gesamte Schleife vorzeitig beendet werden soll gibt es die beiden Schlüsselwörter \textit{break} und \textit{continue}. Die \textit{break} Anweisung bewirkt, dass die gesamte Schleife beendet und das Programm nach der Schleife fortgeführt wird. Möchte man jedoch nur den aktuellen Schleifendurchgang beenden ist die \textit{continue} Anweisung das Mittel der Wahl. Beide Anweisungen sind nur innerhalb von Schleifen gültig und erzeugen außerhalb dieser einen Syntaxfehler.(vgl. \cite[S.103f]{FlanJava2007})
 
-// Kontrollstrukturen - \textit{if, switch, for, while} Anweisungen inklusive ihrer Varianten\\
+\paragraph{Kontrollstrukturen} Um den Programmablauf anhand von Fallunterscheidungen steuern zu können sind von JavaScript die \textit{if}-Anweisungen vorgesehen. Listing \ref{lst:jssyntaxifelse} zeigt die Syntax einer \textit{if-else}-Anweisung. Ist die Bedingung wahr wird die Anweisung ausgeführt. Sofern eine \textit{else} Anweisung vorhanden ist - sie ist optional - würde die folgende Anweisung ausgeführt werden.(vgl. \cite[S.80]{WenzJava2008})
+
+	\vspace{1em}
+	\begin{lstlisting}[caption=Syntax If-else-Anweisung, label=lst:jssyntaxifelse]
+if (Bedingung) {
+  //Anweisung
+} else {
+  //Anweisung
+}
+	\end{lstlisting}
+	
+Um den Programmcode übersichtlich zu halten existiert noch eine \textit{switch} Anweisung, die als eine Art Zusammenfassung für mehrere \textit{if} Anweisungen zu verstehen ist. Listing \ref{lst:jssyntaxswitch} beschreibt die Syntax einer \textit{switch} Anweisung. Zu beachten ist, dass in einer \textit{switch} Anweisung eine \textit{break} Anweisung als Abbruchbedingung unabdingbar ist. Lässt man sie weg würde nach Ausführung der Anweisung des zuständigen \textit{case} Blocks eventuell direkt der nächste passende \textit{case} Block mindestens aber der \textit{default} Block der \textit{switch} Anweisung ausgeführt werden.
+
+	\vspace{1em}
+	\begin{lstlisting}[caption=Syntax Switch-Anweisung, label=lst:jssyntaxswitch]
+switch (Ausdruck) {
+  case Wert1:
+    //Anweisung
+    break;
+  case WertN:
+    //Anweisung
+    break;
+  default:
+    //Anweisung
+}
+	\end{lstlisting}
 
 \paragraph{Einbindung} Um ein in JavaScript geschriebenes Skript innerhalb eines HTML Dokuments verwenden zu können muss es erst einmal in dieses eingebunden werden. Eine Möglichkeit ist es, dass Skript als separate Datei in das \textit{head}-Element des HTML Dokuments einzubinden. Listing \ref{lst:jseinbindunghead} zeigt das \textit{script}-Element mit dem \textit{src}-Attribut. Dieses Attribut verweist auf das externe Skript.
 
@@ -700,6 +727,8 @@ Schnittstelle zum HTML Aufbau, W3C Spezifikation unterschieldich implementiert, 
 	    \item onunload (beim Verlassen der Datei)
     \end{compactitem}
 
+\paragraph{AJAX} // AJAX\\
+
 \paragraph{jQuery}
 $\;$ \\
 // jQuery Bibliothek beinhaltet Elementselektion, Funktionen zum DOM, Animationen und Effekte, AJAX Funktionalitäten\\
@@ -723,8 +752,6 @@ $\;$ \\
     \end{compactitem}
     
 // DOM-Manipulation\\
-
-\paragraph{AJAX} // AJAX\\
 
 %\subsection{ABAP}
 %// Herkunft/Entstehung\\
