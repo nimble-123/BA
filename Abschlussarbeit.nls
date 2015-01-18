@@ -1,0 +1,44 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{API}]\begingroup Application-Programming-Interface\nomeqref {0}
+		\nompageref{IV}
+  \item [{BSP}]\begingroup Business Server Pages\nomeqref {0}
+		\nompageref{IV}
+  \item [{CSS}]\begingroup Cascading Style Sheets\nomeqref {0}
+		\nompageref{IV}
+  \item [{DOM}]\begingroup Dokument-Objekt-Modell\nomeqref {0}
+		\nompageref{IV}
+  \item [{ECMA}]\begingroup European Computer Manufacturers Association\nomeqref {0}
+		\nompageref{IV}
+  \item [{HTML}]\begingroup Hypertext Markup Language\nomeqref {0}
+		\nompageref{IV}
+  \item [{IDE}]\begingroup Integrated Development Environment\nomeqref {0}
+		\nompageref{IV}
+  \item [{JDBC}]\begingroup Java Database Connectivity\nomeqref {0}
+		\nompageref{IV}
+  \item [{JS}]\begingroup JavaScript\nomeqref {0}\nompageref{IV}
+  \item [{JSON}]\begingroup JavaScript Object Notation\nomeqref {0}
+		\nompageref{IV}
+  \item [{JSP}]\begingroup Java Server Pages\nomeqref {0}
+		\nompageref{IV}
+  \item [{ODBC}]\begingroup Open Database Connectivity\nomeqref {0}
+		\nompageref{IV}
+  \item [{SDK}]\begingroup Software Development Kit\nomeqref {0}
+		\nompageref{IV}
+  \item [{SGML}]\begingroup Standard Generalized Markup Language\nomeqref {0}
+		\nompageref{IV}
+  \item [{SPP}]\begingroup Spare Parts Planning\nomeqref {0}
+		\nompageref{IV}
+  \item [{W3C}]\begingroup World Wide Web Consortium\nomeqref {0}
+		\nompageref{IV}
+  \item [{WHATWG}]\begingroup Web Hypertext Application Technology Working Group\nomeqref {0}
+		\nompageref{IV}
+  \item [{WWW}]\begingroup World Wide Web\nomeqref {0}\nompageref{IV}
+  \item [{XHTML}]\begingroup Extensible Hypertext Markup Language\nomeqref {0}
+		\nompageref{IV}
+  \item [{XML}]\begingroup Extensible Markup Language\nomeqref {0}
+		\nompageref{IV}
+
+\end{thenomenclature}

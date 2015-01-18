@@ -1,0 +1,140 @@
+\section{Fallbeispiel SAP UI5 Applikation}\label{fallbeispiel}
+// Struktur des Kapitel
+
+\subsection{Beschreibung}
+// Frontend - Browser, Elemente\\
+// Backend - JSON, OData Model\\
+// Analyse der wichtigen Arbeitsschritte\\
+
+\subsection{Hilfsmittel}
+Dieses Kapitel soll kurz aufzeigen welche Hilfsmittel zur Realisierung des Prototypen verwendet wurden. Zum einen gehört die Entwicklungsumgebung Eclipse dazu. Weiter wurden die Chrome Developer Tools des Chrome Browser genutzt, sowie das Tool Wireframesketcher. In den folgenden Unterkapitel werden diese Tools kurz vorgestellt.
+
+\subsubsection{Eclipse}
+Zum Einsatz in der Implementierung des Fallbeispiels ist die quelloffene integrierte Entwicklungsumgebung Eclipse gekommen. Diese IDE wurde von der Eclipse Foundation entwickelt und ist plattformunabhängig. Geschrieben wurde Eclipse in Java. Die aktuelle Version 4.4 ist am 25. Juni 2014 erschienen und trägt den Namen Luna. Eclipse zeichnet sich durch ein Plugin System aus mit welchem eine erhebliche Anzahl an Anwendungsfälle mit dieser IDE abgedeckt werden können.(vgl. \cite{WikiEclipse2014}) So auch die Entwicklung von SAP UI5 Applikationen. Dafür hat die SAP AG ein spezielles SAP UI5 Plugin bereitgestellt. Entsprechende Plugins müssen nicht umständlich über eine Webseite bezogen und installiert werden. Sie können über die integrierte Plugin Funktion installiert und eingerichtet werden. Eine URL zum Plugin ist vollkommen ausreichend. Für die Entwicklung von SAP UI5 Applikationen wurden folgende Plugins benötigt:
+	
+	\vspace{1em}
+    \begin{compactitem}
+	    \item UI Development Toolkit for HTML5
+	    \item ABAP Development Tools for SAP NetWeaver
+	    \item (SAP HANA Tools)	    
+    \end{compactitem}
+
+Bezogen werden können diese Plugins mittels der URL \url{https://tools.hana.ondemand.com/luna} und der erwähnten Plugin Funktion von Eclipse. Neben dem reinen Code Editor werden allerdings weitere Tools benötigt um eine SAP UI5 Applikation zu entwickeln.
+
+\subsubsection{Chrome Developer Tools}
+Die SAP UI5 Dokumentation schlägt vor zum Testen der entwickelten Applikationen Google Chrome oder Mozilla Firefox anstatt Microsoft Internet Explorer zu verwenden. Das vorliegende Fallbeispiel wurde mit Google Chrome getestet. Google Chrome bietet dazu ein Tool mit dem Namen Developer Tools, welches in jeder Standard Installation des Browsers enthalten ist. Mit diesem Tool lässt sich beispielsweise das DOM der aktuellen Webseite anzeigen. Weiter kann man JavaScript Breakpoints setzen und so effizient debuggen. Es bietet eine Konsole um direkte JavaScript Befehle abzusetzen und die Ergebnisse zu analysieren. Um eine Anwendungen nicht zwingend auf verschiedenen Endgeräten, mit verschiedenen Displaygrößen, testen zu müssen lassen sich jegliche Art von Endgeräten mit den Developer Tools emulieren.(vgl. \cite{DevTools})
+
+%\subsubsection{Neptune Application Designer}
+
+\subsubsection{Wireframesketcher}
+// Wireframing als Prototyping\\
+// Abbildung Wireframesketcher\\
+
+\subsection{Implementierung}
+// Struktur des Kapitel
+
+\subsubsection{View}
+// Auszugsweise Coding bringen um bestimmte Elemente aus der Theorie zu zeigen\\
+// Generellen Aufbau der Views erklären\\
+// Kapselung wird dadurch verdeutlicht\\
+// Bootstrapping der Applikation\\
+// Listing \ref{lst:app.view.js}
+	\vspace{1em}
+	\begin{lstlisting}[frame=htrbl, caption=Root View der Applikation, label=lst:app.view.js]
+sap.ui.jsview("abat.Mockup.view.App", {
+
+  getControllerName: function () {
+    return "abat.Mockup.view.App";
+  },
+  
+  createContent: function (oController) {
+    // to avoid scroll bars on desktop
+    this.setDisplayBlock(true);
+    
+    // create app
+    this.app = new sap.m.SplitApp();
+    
+    // load the master page
+    var master = sap.ui.xmlview("Master", "abat.Mockup.view.Master");
+    master.getController().nav = this.getController();
+    this.app.addPage(master, true);
+    
+    // load the empty page
+    var empty = sap.ui.xmlview("Empty", "abat.Mockup.view.Empty");
+    this.app.addPage(empty, false);
+    
+    // wrap app with shell
+    return new sap.m.Shell("Shell", {
+      title : "{i18n>ShellTitle}",
+      showLogout : false,
+      app : this.app
+    });
+  }
+});
+	\end{lstlisting}
+
+// Master/Detail Applikation mit Fragment und Chart View Aufbau\\
+// TODO: Visio Diagramm oder vergleichbares erstellen\\
+// sap.ui.view\\
+//   |- sap.m.Shell\\
+//   |  |- sap.m.SplitApp\\
+//   |  |  |- sap.m.Page\\
+//   |  |  |  |- sap.m.Bar\\
+//   |  |  |  |- sap.m.Bar\\
+//   |  |  |  |- sap.m.List\\
+//   |  |  |  |  |- sap.m.ObjectListItem\\
+//   |  |  |  |- sap.m.Bar\\
+//   |  |  |- sap.m.Page\\
+//   |  |  |  |- sap.m.ObjectHeader\\
+//   |  |  |  |  |- sap.m.ObjectAttribute\\
+//   |  |  |  |  |- sap.m.ObjectAttribute\\
+//   |  |  |  |  |- sap.m.ObjectAttribute\\
+//   |  |  |  |  |- sap.m.ObjectAttribute\\
+//   |  |  |  |  |- sap.m.ObjectStatus\\
+//   |  |  |  |- sap.IconTabBar\\
+//   |  |  |  |  |- sap.IconTabFilter\\
+//   |  |  |  |  |  |- sap.ui.core.Fragment\\
+//   |  |  |  |  |  |  |- sap.ui.core.FragmentDefinition\\
+//   |  |  |  |  |  |  |  |- sap.viz.ui5.Bar\\
+//   |  |  |  |  |- sap.IconTabFilter\\
+//   |  |  |  |  |  |- sap.ui.core.Fragment\\
+//   |  |  |  |  |  |  |- sap.ui.core.FragmentDefinition\\
+//   |  |  |  |  |  |  |  |- sap.viz.ui5.Bar\\
+//   |  |  |  |- sap.m.Bar\\
+
+\subsubsection{Model und Controller}
+// die Verbindung von beiden Anhand von Coding zeigen\\
+// TODO: OData Modell einbinden\\
+// Datenfluss anreißen und auf Analyse verweisen\\
+// Listing \ref{lst:Component.js}
+	\vspace{1em}
+	\begin{lstlisting}[frame=htrbl, caption=Component.js - Datenmodell an die Root View binden, label=lst:Component.js]
+...
+// JSON Modell an die Root View binden
+var oModel = new sap.ui.model.json.JSONModel("model/mock.json");
+oView.setModel(oModel);
+
+// OData Modell
+var oModel = new sap.ui.model.odata.ODataModel(<URL>);
+oView.setModel(oModel);
+
+// I18N(Lokalisierung) Modell
+var i18nModel = new sap.ui.model.resource.ResourceModel({
+  bundleUrl : "i18n/messageBundle.properties"
+});
+oView.setModel(i18nModel, "i18n");
+
+// Geraetespezifisches Modell
+var deviceModel = new sap.ui.model.json.JSONModel({
+  isPhone : jQuery.device.is.phone,
+  listMode : (jQuery.device.is.phone) ? "None" : "SingleSelectMaster",
+  listItemType : (jQuery.device.is.phone) ? "Active" : "Inactive"
+});
+deviceModel.setDefaultBindingMode("OneWay");
+oView.setModel(deviceModel, "device");
+...
+	\end{lstlisting}
+
+\subsubsection{Backend}
+// ABAP Stack der den RESTful Service bereitstellt zeigen\\
+// Beispielhafte Implementation des HTTP Responses\\
