@@ -112,15 +112,6 @@
 \makenomenclature
 %\makeglossary
 
-% Abkürzungsverzeichnis TeTEX Version
-% \usepackage[german]{nomencl}
-% \makenomenclature
-% %\makeglossary
-% \renewcommand{\nomname}{Abkürzungsverzeichnis}
-% \setlength{\nomlabelwidth}{.25\hsize}
-% \renewcommand{\nomlabel}[1]{#1 \dotfill}
-% \setlength{\nomitemsep}{-\parsep}
-
 % Disable single lines at the start of a paragraph (Schusterjungen)
 \clubpenalty = 10000
 % Disable single lines at the end of a paragraph (Hurenkinder)
@@ -160,32 +151,13 @@
 % das Tabellenverzeichnis
 %\newpage
 \addcontentsline{toc}{section}{Tabellenverzeichnis}
-% \fancyhead[L]{Abbildungsverzeichnis / Abkürzungsverzeichnis} %Kopfzeile links
+% \fancyhead[L]{Abbildungsverzeichnis / Abkürzungsverzeichnis}
 \listoftables
-
-%% WORKAROUND für Listings
-%\makeatletter% --> De-TeX-FAQ
-%\renewcommand*{\lstlistoflistings}{%
-%  \begingroup
-%    \if@twocolumn
-%      \@restonecoltrue\onecolumn
-%    \else
-%      \@restonecolfalse
-%    \fi
-%    \lol@heading
-%    \setlength{\parskip}{\z@}%
-%    \setlength{\parindent}{\z@}%
-%    \setlength{\parfillskip}{\z@ \@plus 1fil}%
-%    \@starttoc{lol}%
-%    \if@restonecol\twocolumn\fi
-%  \endgroup
-%}
-%\makeatother% --> \makeatletter
 
 % das Listingverzeichnis
 %\newpage
 \addcontentsline{toc}{section}{Listingverzeichnis}
-\fancyhead[L]{Abbildungs- / Tabellen- / Listingverzeichnis} %Kopfzeile links
+\fancyhead[L]{Abbildungs- / Tabellen- / Listingverzeichnis}
 \renewcommand{\lstlistlistingname}{Listingverzeichnis}
 \lstlistoflistings
 
@@ -201,7 +173,7 @@
 
 %%%%%%% INHALT %%%%%%%%%%%%
 \newpage
-\fancyhead[L]{\nouppercase{\leftmark}} %Kopfzeile links
+\fancyhead[L]{\nouppercase{\leftmark}}
 
 % 1,5 facher Zeilenabstand
 \onehalfspacing

@@ -635,24 +635,24 @@ AJAX steht als Akronym für \textit{Asynchronous JavaScript and XML}. Geprägt w
 %// Wichtige Elemente (OpenSQL)\\
 
 \subsection{SAP UI5 Framework}
-Kapitel 2.4 beschreibt das SAP UI 5 Framework der SAP AG aus technischer Sicht. Zu aller erst wird die aktuelle UI Strategie der SAP AG beschrieben um zu verstehen wieso die SAP AG dieses Framework entwickelt hat. Im Anschluss kommt eine allgemeine Definition und Beschreibung des verwendeten Softwarearchitektur. Zuletzt folgt eine kurze Erklärung des OData Protokolls und der Positionierung des Frameworks innerhalb eines Netweaver Stacks.
+Kapitel 2.4 beschreibt das SAP UI 5 Framework der SAP AG. Beginnend wird mit einem kurzen Exkurs über die aktuelle UI Strategie der SAP AG, um zu verstehen wieso die SAP AG dieses Framework überhaupt entwickelt hat. Im Anschluss kommt eine allgemeine Definition, sowie die Beschreibung der verwendeten Softwarearchitektur. Zuletzt folgt eine kurze Erklärung des OData Protokolls und die Positionierung des Frameworks innerhalb einer SAP Netweaver Landschaft.
 
 \subsubsection{SAP UI Strategie}
-// cutting edge\\
-// aktuelle SAP UI Strategie\\
-// SAP Präsi Chart Fiori/SP renew, etc. pp\\
-// SAP Fiori einerseits Name des Themes/Guideline\\
-// andererseits Bündel der gängigsten TAs/GPs als fertige\\
-// Mobile First/Responsive Design Applikationen\\
-// SAP UI5 - SAPs Framework zur Entwicklung von eigenen Applikationen im Fiori Style\\
-// Nicht zu tief auf JS, HTML etc eingehen, dass kommt im nächsten Kapitel\\
-// SAP SP - Zusätzliche Schicht um Standard Dynpro zu Personalisieren und so\\
+Die SAP AG definiert ihre momentane \textit{User Experience} Strategie durch den Styleguide SAP Fiori und drei Schlagwörter -- \textit{New}, \textit{Renew} und \textit{Enable}. Unter \textit{New} wird verstanden, dass Entwicklern und Kunden neue Tools zur Entwicklung von SAP Applikationen und neue Applikationn selbst zur Verfügung gestellt werden. \textit{Renew} bedeutet, dass die vorhandenen Kernszenarios auf das neue UX portiert werden. SAP Screen Personas, auf das im Rahmen der Bachelorarbeit nicht weiter eingegangen wird, gehört zum Schlagwort \textit{Enable}. Kurz gesagt soll mit diesem Toolset das vorhandene UI der SAP Software an ein Unternehmen im Sinne des Corporate Design angepasst werden.(vgl. \cite{SAPUX})
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.9\textwidth]{abb/sap_key_ui_tools}
+  \caption[SAP Schlüssel UI Tools und Technologien]{SAP Schlüssel UI Tools und Technologien\footnotemark}
+  \label{fig:sapkeyuitools}
+\end{figure}
+\footnotetext{Bildquelle: \cite{SAPUXPDF}}
 
 \subsubsection{Definition}
-SAP UI5 ist ein SDK zur Entwicklung von Desktop- und mobilen Anwendungen die in einem Browser ausgeführt werden. Nicht zu verwechseln mit SAP Fiori - was nur eine Sammlung webbasierter Anwendungen, die mit SAP UI5 entwickelt wurden, darstellt. Das Framework bündelt eine vielzahl an Technologien und Bibliotheken um den Entwicklungsprozess solcher Anwendungen bestmöglich zu unterstützen. Grundsätzlich basieren die, mit dem SDK entwickelten, Anwendungen auf den aktuellen Web-Entwicklungsstandards. Dazu gehören HTML 5, CSS 3 und JS. HTML 5 und CSS 3 werden, wie in den vorherigen Kapiteln geschildert, dafür verwendet um Struktur und Aussehen der Applikation zu gestalten. Bei JS hat man sich außerdem dazu entschieden zusätzlich die überaus populäre Erweiterungsbibliothek jQuery zu nutzen.(vgl. \cite{BuiltWith2014}) Das komplette SAP UI5 SDK ist freie Software und kann ohne jegliche SAP Lizenz bezogen und betrieben werden.
+SAP UI5 ist ein SDK zur Entwicklung von Desktop- und mobilen Anwendungen die in einem Browser ausgeführt werden. Das Framework bündelt eine vielzahl an Technologien und Bibliotheken um den Entwicklungsprozess solcher Anwendungen bestmöglich zu unterstützen. Grundsätzlich basieren die, mit dem SDK entwickelten, Anwendungen auf den aktuellen Web-Entwicklungsstandards. Dazu gehören HTML 5, CSS 3 und JS. HTML 5 und CSS 3 werden, wie in den vorherigen Kapiteln geschildert, dafür verwendet um Struktur und Aussehen der Applikation zu gestalten. Bei JS hat man sich außerdem dazu entschieden zusätzlich die überaus populäre Erweiterungsbibliothek jQuery zu nutzen.(vgl. \cite{BuiltWith2014}) Das komplette SAP UI5 SDK ist freie Software und kann ohne jegliche SAP Lizenz bezogen und betrieben werden.
 
 \subsubsection{Architektur}
-\glqq Das Model-View-Controller-Architekturmuster strukturiert die Softwareentwicklung in die drei Einheiten Datenmodell (Model), Präsentation (View) und Steuerung (Controller). Durch diese Trennung können die einzelnen Komponenten leichter erweitert, ausgetauscht oder wiederverwendet werden. Abbildung [... \ref{fig:mvcarch}] zeigt dieses Architekturmuster.
+\glqq Das Model-View-Controller-Architekturmuster strukturiert die Softwareentwicklung in die drei Einheiten: Datenmodell (Model), Präsentation (View) und Steuerung (Controller). Durch diese Kapselung können die einzelnen Komponenten leichter erweitert, ausgetauscht oder wiederverwendet werden. Abbildung [... \ref{fig:mvcarch}] zeigt dieses Architekturmuster.
 	
 \begin{figure}[htb]
   \centering
