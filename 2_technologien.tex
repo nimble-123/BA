@@ -610,10 +610,14 @@ AJAX steht als Akronym für \textit{Asynchronous JavaScript and XML}. Geprägt w
 \footnotetext{Bildquelle: \cite{JesseJGarret}}
 
 \subsubsection{jQuery}
-jQuery ist die meistverbreiteste JavaScript Bibliothek im Internet. Mit 94,7\% Marktanteil, Stand 19.1.2015, ist jQuery klar der Marktführer bei den JavaScript Bibliotheken. Ganze 61,7\% der vom W3 Technology Survey analysierten Webseiten verwenden jQuery in ihrer Implementierung. (vgl. \cite{w3tech}) Die freie JavaScript Bibliothek jQuery stellt unter anderem umfangreiche Funktionen zur Manipulierung des DOM bereit. Daneben ist die verwendung der AJAX Technik enorm vereinfacht worden von jQuery. Animationen und Effekte lassen sich schnell und unkompliziert mit der Bibliothek realsieren. Wie aus CSS bekannt verwendet jQuery Selektoren um auf die DOM Knoten zuzugreifen. Dank dem Programmierkonzept der \textit{fluent interfaces}, was soviel bedeutet wie sprechende Schnittstellen, kann ein erzeugtes jQuery Objekt sehr einfach an andere Funktionen weitergegeben werden.(vgl. \cite{wikijquery})
+jQuery ist die meistverbreiteste JavaScript Bibliothek im Internet. Mit 94,7\% Marktanteil, Stand 19.1.2015, ist jQuery klar der Marktführer bei den JavaScript Bibliotheken. Ganze 61,7\% der vom W3 Technology Survey analysierten Webseiten verwenden jQuery in ihrer Implementierung. (vgl. \cite{w3tech}) Die freie JavaScript Bibliothek jQuery stellt unter anderem umfangreiche Funktionen zur Manipulierung des DOM bereit. Daneben ist die verwendung der AJAX Technik enorm vereinfacht worden von jQuery. Animationen und Effekte lassen sich schnell und unkompliziert mit der Bibliothek realsieren. Wie aus CSS bekannt verwendet jQuery Selektoren um auf die DOM Knoten zuzugreifen. Dank dem Programmierkonzept der \textit{fluent interfaces}, was soviel bedeutet wie sprechende Schnittstellen, kann ein erzeugtes jQuery Objekt sehr einfach an andere Funktionen weitergegeben werden.(vgl. \cite{wikijquery}) \glqq jQuery wird von \url{http://docs.jquery.com/} geladen und per Script-Tag in die HTML-Dokumente eingebunden.
 
-%\paragraph{Selektoren}$\;$ \\
-%Die typische Syntax eines jQuery Selektors sieht wie in Listing \ref{lst:jqueryselektor} aus. 
+	\vspace{1em}
+	\begin{lstlisting}[frame=htrbl, caption=jQuery Einbindung, label=lst:jqueryscript]
+<script type="text/javascript"src="jquery.js"></script>
+	\end{lstlisting}
+
+Die grundlegende Funktion von jQuery ist die Funktion jQuery() oder auch mit verringertem Schreibaufwand \$(), deren Verhalten abhängig ist von den jeweils gesetzten Parametern. Dabei fasst (sammelt) jede \$()-Funktion einen oder mehrere Knoten eines DOM-Baumes zusammen. In der einfachsten Form wird dann nur ein Ausdruck übergeben - meistens ein CSS-Selektor -, der alle passenden Elemente im Dokument findet.\grqq{}\cite{itwissenjquery}
 
 	\vspace{1em}
 	\begin{lstlisting}[frame=htrbl, caption=jQuery Selektor Syntax, label=lst:jqueryselektor]
