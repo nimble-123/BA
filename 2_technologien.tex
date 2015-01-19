@@ -545,13 +545,11 @@ Die andere Möglichkeit besteht darin ein Skript direkt in das HTML Dokument zu 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.5\textwidth]{abb/dom_sampletree}
-  \caption[DOM Beispielbaum]{DOM Beispielbaum}
+  \caption[DOM Beispielbaum aus Listing \ref{lst:html5beispieltable}]{DOM Beispielbaum aus Listing \ref{lst:html5beispieltable}}
   \label{fig:dombeispielbaum}
 \end{figure}
 
-Selbstverständlich bietet das DOM die Möglichkeit der Modifizierung. So lassen sich Knoten nicht nur ändern, sondern auch entfernen und neu hinzufügen. Außerdem ist auf Grund der Baumstruktur ein Löschen eines Knotens möglich ohne die Integrität des Baumes zu zerstören.\\
-
-//Schnittstelle zum HTML Aufbau, W3C Spezifikation unterschieldich implementiert, Knoten Beziehungen, Verarbeitung des DOM, Generierung von HTML durch Serialisierung, Listing \ref{lst:html5beispieltable} beschreiben und zur Baumstruktur hinleiten\\
+Selbstverständlich bietet das DOM die Möglichkeit der Modifizierung. So lassen sich Knoten nicht nur ändern, sondern auch entfernen und neu hinzufügen. Außerdem ist auf Grund der Baumstruktur ein Löschen eines Knotens möglich ohne die Integrität des Baumes zu zerstören.
 
 \subsubsection{Ereignisse} Interaktive JavaScript Applikationen kommunizieren mit dem Browser über Events. Der Browser erzeugt für eine vielzahl von Nutzeraktionen Events, welche dann wiederum im Applikationscode abgefangen und verarbeitet werden können. In der DOM Level 0 Spezifikation werden Events lediglich an die Elemente verteilt an denen sie auftreten. Ist an diesem Element dann ein Event-Listener registriert wird dieser ausgeführt. DOM Level 2 hat die sogenannte Event-Propagation eingeführt. Diese Event Verteilung ist in drei Phasen aufgeteilt. Das Abfangen, dabei werden Events vom Document-Objekt den Dokumentbaum hinunter gereicht bis sie am Zielelement angelangt sind. Besitz ein Vorgänger Element im Dokumentbaum allerdings einen abfangenden Event-Listener wird auch dieser ausgelöst. Als nächstes wird löst das Event den Listener am Zielelement aus, was der DOM Level 0 Spezifikation gleicht. Die dritte Phase ist das sog. \textit{bubbling}. Hierbei steigt das Event wie ein Bläschen in der Dokument-Hierarchie zum Document-Objekt auf. Das Aufsteigen eines Events ist aber je nach Event unterschiedlich. Einige steigen auf andere nicht. Ein Event mit dem ein Formular beispielsweise abgeschickt wird muss nicht weiter im Dokumentbaum nach oben propagiert werden. Mausklick Events hingegen können für das gesamte Dokument sinnvoll verarbeitet werden und werden daher immer im Dokument aufsteigen.\\Ein Event-Listener kann auf drei unterschiedliche Arten an ein HTML Element gebunden werden. Eine Möglichkeit ist den Event-Listener direkt an das HTML Element mittels eines entsprechenden Event Attributs zu binden. So zu sehen in Zeile 1 in Listing \ref{lst:jseventhandler}. 
 
@@ -652,7 +650,7 @@ Die SAP AG definiert ihre momentane \textit{User Experience} Strategie durch den
 SAP UI5 ist ein SDK zur Entwicklung von Desktop- und mobilen Anwendungen die in einem Browser ausgeführt werden. Das Framework bündelt eine vielzahl an Technologien und Bibliotheken um den Entwicklungsprozess solcher Anwendungen bestmöglich zu unterstützen. Grundsätzlich basieren die, mit dem SDK entwickelten, Anwendungen auf den aktuellen Web-Entwicklungsstandards. Dazu gehören HTML 5, CSS 3 und JS. HTML 5 und CSS 3 werden, wie in den vorherigen Kapiteln geschildert, dafür verwendet um Struktur und Aussehen der Applikation zu gestalten. Bei JS hat man sich außerdem dazu entschieden zusätzlich die überaus populäre Erweiterungsbibliothek jQuery zu nutzen.(vgl. \cite{BuiltWith2014}) Das komplette SAP UI5 SDK ist freie Software und kann ohne jegliche SAP Lizenz bezogen und betrieben werden.
 
 \subsubsection{Architektur}
-\glqq Das Model-View-Controller-Architekturmuster strukturiert die Softwareentwicklung in die drei Einheiten: Datenmodell (Model), Präsentation (View) und Steuerung (Controller). Durch diese Kapselung können die einzelnen Komponenten leichter erweitert, ausgetauscht oder wiederverwendet werden. Abbildung [... \ref{fig:mvcarch}] zeigt dieses Architekturmuster.
+\glqq Das Model-View-Controller-Architekturmuster strukturiert die Softwareentwicklung in die drei Einheiten: Datenmodell (Model), Präsentation (View) und Steuerung (Controller). Durch diese Trennung können die einzelnen Komponenten leichter erweitert, ausgetauscht oder wiederverwendet werden. Abbildung [... \ref{fig:mvcarch}] zeigt dieses Architekturmuster.
 	
 \begin{figure}[htb]
   \centering
