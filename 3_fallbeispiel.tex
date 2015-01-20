@@ -1,10 +1,8 @@
 \section{Fallbeispiel SAP UI5 Applikation}\label{fallbeispiel}
-In diesem Kapitel wird das prototypische Fallbeispiel vorgestellt. Eine kurze Beschreibung des Front- und Backends der Applikation wird in der Beschreibung gegeben. Im Unterkapitel 3.2 werden die genutzten Hilfsmittel in ihrer Funktion und Zugehörigkeit zum Fallbeispiel erklärt. Danach folgt die Implementierung selbst in der Anhand von Screendumps und Applikationscode beschrieben wird wie das Fallbeispiel nach dem MVC Muster umgesetzt worden ist.
+In diesem Kapitel wird das prototypische Fallbeispiel vorgestellt. Eine kurze Erläuterung des Front- und Backends der Applikation wird in der Beschreibung gegeben. Im Unterkapitel 3.2 werden die genutzten Hilfsmittel in ihrer Funktion und Zugehörigkeit zum Fallbeispiel erklärt. Danach folgt die Implementierung selbst in der Anhand von Screendumps und Applikationscode beschrieben wird wie das Fallbeispiel nach dem Model-View-Controller Muster umgesetzt worden ist.
 
 \subsection{Beschreibung}
-// Frontend - Browser, Elemente\\
-// Backend - JSON, OData Model\\
-// Analyse der wichtigen Arbeitsschritte\\
+Die prototypische SAP UI5 Applikation ist dazu gedacht im Rahmen eines SAP SCM Systems eine Übersicht über die Produkte zu geben. Das Frontend wird im Browser ausgeführt, wohingegen das Backend von einem ABAP AS repräsentiert wird der zusätzlich noch durch ein SAP Netweaver Gateway geschützt ist. Nach Auswahl eines Produktes sollen weitere Details angezeigt werden. Auf dieser Detail Seite sind Informationen wie Name, Material Nummer, Brutto/Netto Preis und Lagermenge einsehbar. Außerdem können über zwei Reiter Charts angezeigt werden. Die erste Chart soll anhand historischer Absatzdaten eine Prognose über zukünftige Absatzzahlen geben. In der zweiten Chart wird eine Bestellvorschau bereitgestellt.
 
 \subsection{Hilfsmittel}
 Dieses Kapitel soll kurz aufzeigen welche Hilfsmittel zur Realisierung des Prototypen verwendet wurden. Zum einen gehört die Entwicklungsumgebung Eclipse dazu. Weiter wurden die Chrome Developer Tools des Chrome Browser genutzt, sowie das Tool Wireframesketcher. In den folgenden Unterkapitel werden diese Tools kurz vorgestellt.
@@ -18,6 +16,7 @@ Zum Einsatz in der Implementierung des Fallbeispiels ist die quelloffene integri
 	    \item ABAP Development Tools for SAP NetWeaver
 	    \item (SAP HANA Tools)	    
     \end{compactitem}
+	\vspace{1em}
 
 Bezogen werden können diese Plugins mittels der URL \url{https://tools.hana.ondemand.com/luna} und der erwähnten Plugin Funktion von Eclipse. Neben dem reinen Code Editor werden allerdings weitere Tools benötigt um eine SAP UI5 Applikation zu entwickeln.
 
@@ -31,13 +30,11 @@ Die SAP UI5 Dokumentation schlägt vor zum Testen der entwickelten Applikationen
 // Abbildung Wireframesketcher\\
 
 \subsection{Implementierung}
-Es wird die Implementierung des Fallbeispiels beschrieben. Jede Schicht des MVC-Musters hat dabei ihr eigenes Unterkapitel. Damit werden jeweils die wichtigen Schlüsselpunkte der Applikation offen gelegt. Mehrfach verwendeter Code wird in dem Kapitel bewusst nicht gezeigt um keine unnötige Komplexität zu erzeugen. Der vollständige Programmcode ist im Anhang zu finden.
+Es wird die Implementierung des Fallbeispiels beschrieben. Jede Schicht des Model-View-Controller Musters hat dabei ihr eigenes Unterkapitel. Damit werden jeweils die wichtigen Schlüsselpunkte der Applikation offen gelegt. Mehrfach verwendeter Code wird in dem Kapitel bewusst nicht gezeigt um keine unnötige Komplexität zu erzeugen. Der vollständige Programmcode ist im Anhang zu finden.
 
 \subsubsection{View}
-// Auszugsweise Coding bringen um bestimmte Elemente aus der Theorie zu zeigen\\
-// Generellen Aufbau der Views erklären\\
-// Kapselung wird dadurch verdeutlicht\\
-// Bootstrapping der Applikation\\
+Nach dem Anlegen einer neuen SAP UI5 Applikation ohne initial View findet man im Projekt Explorer von Eclipse die generierte Verzeichnisstruktur vor. In dieser Struktur finden sich zu beginn drei Verzeichnisse. Das \textit{META-INF} Verzeichnis wird automatisch von Eclipse erstellt und dient lediglich als Informationsspeicher für den Umgang des Projekt im Zusammenspiel mit einigen Java Tools. Daneben existiert das \textit{WEB-INF} Verzeichnis. In den Dateien dieses Verzeichnisses stehen Anweisungen für das Deployment des Projekts, sowie sind vorkompilierte Klassendateien und Hilfsbibliotheken in Unterordnern hinterlegt. Außerdem enthält das Projekt auch das \textit{WebContent} Verzeichnis, welches als Arbeitsverzeichnis für das gesamte Projekt gilt. Dort sind sämtliche statische Dateien, wie z.B. HTML Dokumente, JavaScript und XML Dateien oder auch andere Ressourcen wie Bilder und Texte abgelegt.
+
 // Listing \ref{lst:app.view.js}
 	\vspace{1em}
 	\begin{lstlisting}[frame=htrbl, caption=Root View der Applikation, label=lst:app.view.js]
@@ -138,3 +135,7 @@ oView.setModel(deviceModel, "device");
 \subsubsection{Backend}
 // ABAP Stack der den RESTful Service bereitstellt zeigen\\
 // Beispielhafte Implementation des HTTP Responses\\
+
+\subsubsection{Deployment}
+// Kurze Step-by-Step Erklärung wie die SAP UI5 Applikation aus Eclipse an den ABAP AS deployed wird\\
+// Den Service zeigen den der deploy Vorgang automatisch generiert und in welchem später (FAZIT) dann die CRUD Operationen auf der Backend Seite implementiert werden\\
