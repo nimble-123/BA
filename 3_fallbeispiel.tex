@@ -293,7 +293,7 @@ Da die Liste auch eine Gruppierungsmöglichkeit bieten soll wurde ein weiterer \
 
 
 \paragraph{Controller Detailseite}$\;$ \\
-Der Controller der Detailseite hat als wichtigste Aufgabe die Charts zu konfigurieren die unter der Kopfzeile angezeigt werden. SAP UI5 bietet dazu einige Chartstyles an. Im Prototyp wurden Bar und Line Charts verwendet. Ein Chart benötigt eine Datenbasis auf die es sich stützt. Diese Datenbasis bildet das globale Model. Da die Detailseite bei einem Aufruf automatisch den Datenkontext der Hauptseite mitbekommt kann in dem \textit{FlattenedDataset} einfach auf einen Pfad innerhalb des JSON Model bezug genommen werden. Daneben werden noch die Achsen entsprechend der Verwendung eingestellt und benannt. Anhand der in der View festgelegten ID wird das Chart Objekt dann referenziert. Es wird ein Titel festgelegt, welcher auch über eine lokalisierte Variante verfügt. Zuletzt wird das erstellte \textit{FlattenedDataset} an das Chart gebunden.
+Der Controller der Detailseite hat als wichtigste Aufgabe die Charts zu konfigurieren, die unter der Kopfzeile angezeigt werden. Im SAP UI5 Framework ist eine eigene Chart Visualisierungs Klasse enthalten, welche einen großen Umfang an verschiedensten Chartstyles besitzt. Im Prototyp wurden zunächst nur Bar- und Line-Charts verwendet. Ein Chart benötigt eine Datenbasis auf die es sich stützt. Diese Datenbasis bildet im Prototyp das globale Model. Da die Detailseite bei einem Aufruf aus der Hauptseite automatisch den Datenkontext des gewählten Listeneintrags mitbekommt kann in der Datenbasis des Charts, \textit{FlattenedDataset}, einfach auf einen Pfad innerhalb des JSON Model bezug genommen werden. Daneben werden noch die Achsen entsprechend der Verwendung eingestellt und benannt. Anhand der in der View festgelegten ID wird das Chart Objekt dann referenziert. Es wird ein Titel festgelegt, welcher auch über eine lokalisierte Variante verfügt. Zuletzt wird das erstellte \textit{FlattenedDataset} an das Chart gebunden.
 
 	\begin{lstlisting}[frame=htrbl, caption=Chart Konfigurierung, label=lst:chartconfig]
 ...
@@ -307,14 +307,14 @@ configForecastChart : function () {
   var oDatasetForecast = new sap.viz.ui5.data.FlattenedDataset({
   dimensions : [{
     axis : 1,
-    name : 'Month', 
+    name : 'Month',
     value : "{Month}"
   }],
   measures : [{
-    name : 'Menge1', // 'name' is used as label in the Legend 
-    value : '{Menge1}' // 'value' defines the binding for the displayed value   
+    name : 'Menge1',
+    value : '{Menge1}'
     },{
-    name : 'Menge2', 
+    name : 'Menge2',
     value : '{Menge2}'
   }],		
   // data comes from model
@@ -330,10 +330,27 @@ configForecastChart : function () {
 },
 	\end{lstlisting}
 
-\subsubsection{Backend}
-// ABAP Stack der den RESTful Service bereitstellt zeigen\\
-// Beispielhafte Implementation des HTTP Responses\\
+%\subsubsection{Backend}
+%// ABAP Stack der den RESTful Service bereitstellt zeigen\\
+%// Beispielhafte Implementation des HTTP Responses\\
 
 \subsubsection{Deployment}
-// Kurze Step-by-Step Erklärung wie die SAP UI5 Applikation aus Eclipse an den ABAP AS deployed wird\\
-// Den Service zeigen den der deploy Vorgang automatisch generiert und in welchem später (FAZIT) dann die CRUD Operationen auf der Backend Seite implementiert werden\\
+Sofern das Backend SAP System entsprechend vorbereitet ist, bedeutet das alle SAP UI5 Addons und Patches eingespielt und aktiviert sind, verläuft das Deployment der SAP UI5 Applikation relativ schnell und einfach. Eclipse bietet dazu eine eigene Funktion an mit der sich ein angelegtes Projekt auf verschiedenste Plattformen deployen lässt. In Abbildung \ref{fig:eclipseshare} ist der entsprechende Menüeintrag zu sehen, welcher über einen Rechtsklick auf das Projekt zu erreichen ist.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{abb/eclipse_share_project}
+  \caption[Eclipse Menüeintrag zum deployen des Projekts]{Eclipse Menüeintrag zum deployen des Projekts}
+  \label{fig:eclipseshare}
+\end{figure}
+
+Durch die SAP UI5 Plugins steht unter dieser Funktion auch ein SAP System als Zielplattform zur Verfügung. Nach der Auswahl des SAPUI5 ABAP Repository erscheint ein weiteres Fenster in welchem die Verbindungsdaten des SAP Systems eingetragen wurden. Nach erfolgreichem Verbindungstest werden noch einige zusätzliche Informationen zu dem SAP System angezeigt. Im nächsten Schritt verlangt Eclipse die Eingabe der SAP Logindaten.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{abb/eclipse_share_project_window}
+  \caption[Remote Repository Auswahl in Eclipse]{Remote Repository Auswahl in Eclipse}
+  \label{fig:eclipsesharewindow}
+\end{figure}
+
+Ist Eclipse vollständig mit dem SAP System verbunden kann das Projekt entweder in eine schon existierende BSP Applikation deployed werden oder es kann auch eine komplett neue BSP Applikation über Eclipse auf dem SAP System angelegt werden. Letztere Möglichkeit wurde mit dem Prototyp verwendet. Name, Beschreibung und ein Paket sind dazu nötig. Der Name und das Paket müssen sich im Z* Namensraum befinden. Die Beschreibung kann frei gewählt werden. Einen Schritt weiter erfolgt die Auswahl eines Transportauftrags, sofern einer vorhanden ist im System. Daraufhin lässt sich über einen erneuten Rechtsklick auf das Projekt selbiges an das zuvor eingestellte SAP System schicken. Auf dem SAP System selbst wird dann nach die BSP Applikation angelegt und der entsprechende Service in der Transaktion \textit{SICF} erstellt und aktiviert. Fortan ist der Prototyp unter der entsprechenden URL im Browser aufrufbar.
