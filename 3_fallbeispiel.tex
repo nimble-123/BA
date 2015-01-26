@@ -25,18 +25,26 @@ Die SAP UI5 Dokumentation schlägt vor zum Testen der entwickelten Applikationen
 
 %\subsubsection{Neptune Application Designer}
 
-\subsubsection{Wireframesketcher}
-// Wireframing als Prototyping\\
-// Abbildung Wireframesketcher\\
+%\subsubsection{Wireframesketcher}
+%// Wireframing als Prototyping\\
+%// Abbildung Wireframesketcher\\
 
 \subsection{Implementierung}
-Es wird die Implementierung des Fallbeispiels beschrieben. Jede Schicht des Model-View-Controller Musters hat dabei ihr eigenes Unterkapitel. Damit werden jeweils die wichtigen Schlüsselpunkte der Applikation offen gelegt. Mehrfach verwendeter Code wird in dem Kapitel bewusst nicht gezeigt um keine unnötige Komplexität zu erzeugen. Der vollständige Programmcode ist im Anhang zu finden.
+Es wird die Implementierung des Fallbeispiels beschrieben. Jede Schicht des Model-View-Controller Musters hat dabei ihr eigenes Unterkapitel. Damit werden jeweils die wichtigen Schlüsselpunkte der Applikation offen gelegt. Mehrfach verwendeter Code wird in dem Kapitel bewusst nicht gezeigt um keine unnötige Komplexität zu erzeugen. Der vollständige Programmcode ist im Anhang zu finden. Abbildung \ref{fig:splitappoverview} zeigt eine schematische Übersicht der SAP UI5 Applikation und ihrer Komponenten.
+
+\vspace{1em}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=1\linewidth]{tmp/splitapp_overview}
+  \caption[Übersicht der SAP UI5 Applikation]{Übersicht der SAP UI5 Applikation \cite{SAPSplitApp}}
+  \label{fig:splitappoverview}
+\end{figure}
 
 \subsubsection{Vorbereitungen}
 In Eclipse wird ein neues Projekt als SAP UI5 Applikation erstellt. Nach dem Anlegen einer neuen SAP UI5 Applikation ohne initial View findet man im Projekt Explorer von Eclipse die generierte Verzeichnisstruktur vor. In dieser Struktur finden sich zu beginn drei Verzeichnisse. Das \textit{META-INF} Verzeichnis wird automatisch von Eclipse erstellt und dient lediglich als Informationsspeicher für den Umgang des Projekt im Zusammenspiel mit einigen Java Tools. Daneben existiert das \textit{WEB-INF} Verzeichnis. In den Dateien dieses Verzeichnisses stehen Anweisungen für das Deployment des Projekts, sowie sind vorkompilierte Klassendateien und Hilfsbibliotheken in Unterordnern hinterlegt. Außerdem enthält das Projekt auch das \textit{WebContent} Verzeichnis, welches als Arbeitsverzeichnis für das gesamte Projekt gilt. Dort sind sämtliche statische Dateien, wie z.B. HTML Dokumente, JavaScript und XML Dateien oder auch andere Ressourcen wie Bilder und Texte abgelegt. Im Arbeitsverzeichnis werden für die spätere ordentliche Struktur Verzeichnisse für die unterschiedlichen Zwecke angelegt -- \textit{i18n}, \textit{model}, \textit{util} und \textit{view}. Im \textit{i18n} Verzeichnis liegen später die Sprachdateien um die Applikation lokalisiert auszuliefern. Das \textit{model} und \textit{view} Verzeichnis sind selbsterklärend. Im \textit{util} Verzeichnis werden Helferskripte hinterlegt wie z.B. \textit{Formatter} oder \textit{Grouper} Skripte. Als nächstes folgt die Implementierung der Views.
 
 \subsubsection{View}
-Zu beginn wird in der Datei \textit{index.html} durch ein \textit{title}-Element direkt unter dem letzten \textit{meta}-Element der Seitentitel festgelegt. Innerhalb des dann folgenden \textit{script}-Block werden Eigenschaften der SAP UI5 Applikation eingestellt. An dieser Stelle müssen die verwendeten SAP UI5 JavaScript Bibliotheken und die Art und Weise der Datenbindung des Modells hinzugefügt werden. In dem leeren \textit{script}-Block wird dann letztendlich die Anweisung gesetzt, welche den \textit{Component Container} lädt und damit das Bootstrapping der Applikation in Gang setzt. Die Datei \textit{index.html} ist in verkürzter Form in Listing \ref{lst:index.html} zu sehen.
+Die Datei \textit{index.html} ist der Startpunkt der SAP UI5 Applikation. In dieser Datei wird mittels eines \textit{title}-Element, direkt unter dem letzten \textit{meta}-Element, der Seitentitel festgelegt. Innerhalb des dann folgenden \textit{script}-Block werden Eigenschaften der SAP UI5 Applikation eingestellt. An dieser Stelle müssen die verwendeten SAP UI5 JavaScript Bibliotheken und die Art und Weise der Datenbindung des Modells hinzugefügt werden. Der Prototyp arbeitet mit der \textit{complex} Datenbindung. In dem leeren \textit{script}-Block wird dann letztendlich die Anweisung gesetzt, welche den \textit{Component Container} lädt und damit das Bootstrapping der Applikation in Gang setzt. Die Datei \textit{index.html} ist in verkürzter Form in Listing \ref{lst:index.html} zu sehen.
 
 	\begin{lstlisting}[frame=htrbl, caption=Bootstrapping der SAP UI5 Applikation, label=lst:index.html]
 ...
@@ -337,6 +345,7 @@ configForecastChart : function () {
 \subsubsection{Deployment}
 Sofern das Backend SAP System entsprechend vorbereitet ist, bedeutet das alle SAP UI5 Addons und Patches eingespielt und aktiviert sind, verläuft das Deployment der SAP UI5 Applikation relativ schnell und einfach. Eclipse bietet dazu eine eigene Funktion an mit der sich ein angelegtes Projekt auf verschiedenste Plattformen deployen lässt. In Abbildung \ref{fig:eclipseshare} ist der entsprechende Menüeintrag zu sehen, welcher über einen Rechtsklick auf das Projekt zu erreichen ist.
 
+\vspace{1em}
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\linewidth]{abb/eclipse_share_project}
@@ -346,6 +355,7 @@ Sofern das Backend SAP System entsprechend vorbereitet ist, bedeutet das alle SA
 
 Durch die SAP UI5 Plugins steht unter dieser Funktion auch ein SAP System als Zielplattform zur Verfügung. Nach der Auswahl des SAPUI5 ABAP Repository erscheint ein weiteres Fenster in welchem die Verbindungsdaten des SAP Systems eingetragen wurden. Nach erfolgreichem Verbindungstest werden noch einige zusätzliche Informationen zu dem SAP System angezeigt. Im nächsten Schritt verlangt Eclipse die Eingabe der SAP Logindaten.
 
+\vspace{1em}
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\linewidth]{abb/eclipse_share_project_window}

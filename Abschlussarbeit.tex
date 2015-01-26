@@ -2,7 +2,6 @@
 \documentclass[a4paper,12pt,headsepline]{scrartcl}
 \input{latex_einstellungen/variablen}
 
-% weitere Pakete
 % Grafiken aus PNG Dateien einbinden
 \usepackage{graphicx}
 
@@ -20,7 +19,6 @@
 
 % Zeichenencoding
 \usepackage[T1]{fontenc}
-
 \usepackage{lmodern}
 \usepackage{fix-cm}
 
@@ -31,8 +29,6 @@
 \usepackage{longtable}
 
 % Unterstützung für Schriftarten
-%\newcommand{\changefont}[3]{ 
-%\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -151,13 +147,13 @@
 % das Tabellenverzeichnis
 %\newpage
 \addcontentsline{toc}{section}{Tabellenverzeichnis}
-% \fancyhead[L]{Abbildungsverzeichnis / Abkürzungsverzeichnis}
+\fancyhead[L]{Abbildungsverzeichnis / Abkürzungsverzeichnis}
 \listoftables
 
 % das Listingverzeichnis
-%\newpage
+\newpage
 \addcontentsline{toc}{section}{Listingverzeichnis}
-\fancyhead[L]{Abbildungs- / Tabellen- / Listingverzeichnis}
+\fancyhead[L]{Listingverzeichnis}
 \renewcommand{\lstlistlistingname}{Listingverzeichnis}
 \lstlistoflistings
 
