@@ -1,1 +1,663 @@
 \subsection*{Anhang}\label{anhang}
+\subsubsection*{index.html}
+\begin{lstlisting}[frame=htrbl, label=lst:index.html]
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+
+<title>abat AG - Mockup Claas</title>
+
+<script id="sap-ui-bootstrap" src="resources/sap-ui-core.js"
+	data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-libs="sap.m, sap.ui.layout"
+	data-sap-ui-preload=""
+	data-sap-ui-xx-bindingSyntax="complex"
+	data-sap-ui-resourceroots='{
+				"abat.Mockup": "./"
+			}'>
+</script>
+
+<script>
+  new sap.ui.core.ComponentContainer({
+    name : "abat.Mockup"
+  }).placeAt("content");
+</script>
+
+</head>
+<body class="sapUiBody" role="application">
+	<div id="content"></div>
+</body>
+</html>
+\end{lstlisting}
+
+\newpage
+\subsubsection*{Component.js}
+\begin{lstlisting}[frame=htrbl, label=lst:Component.js]
+jQuery.sap.declare("abat.Mockup.Component");
+
+sap.ui.core.UIComponent.extend("abat.Mockup.Component", {
+
+  createContent : function() {
+
+    // create root view
+    var oView = sap.ui.view({
+      id : "app",
+      viewName : "abat.Mockup.view.App",
+      type : "JS",
+      viewData : {
+        component : this
+      }
+    });
+
+    // set data model on root view
+    var oModel = new sap.ui.model.json.JSONModel("model/mock.json");
+    oView.setModel(oModel);
+
+    // set i18n model
+    var i18nModel = new sap.ui.model.resource.ResourceModel({
+      bundleUrl : "i18n/messageBundle.properties"
+    });
+    oView.setModel(i18nModel, "i18n");
+
+    // set device model
+    var deviceModel = new sap.ui.model.json.JSONModel({
+      isPhone : jQuery.device.is.phone,
+      listMode : (jQuery.device.is.phone) ? "None" : "SingleSelectMaster",
+      listItemType : (jQuery.device.is.phone) ? "Active" : "Inactive"
+    });
+    deviceModel.setDefaultBindingMode("OneWay");
+    oView.setModel(deviceModel, "device");
+
+    // done
+    return oView;
+  }
+});
+\end{lstlisting}
+
+\newpage
+\subsubsection*{App.view.js}
+\begin{lstlisting}[frame=htrbl, label=lst:App.view.js]
+sap.ui.jsview("abat.Mockup.view.App", {
+
+  getControllerName : function() {
+    return "abat.Mockup.view.App";
+  },
+
+  createContent : function(oController) {
+
+    // to avoid scroll bars on desktop the root view must be set to block
+    // display
+    this.setDisplayBlock(true);
+
+    // create app
+    this.app = new sap.m.SplitApp();
+
+    // load the master page
+    var master = sap.ui.xmlview("Master", "abat.Mockup.view.Master");
+    master.getController().nav = this.getController();
+    this.app.addPage(master, true);
+
+    // load the empty page
+    var empty = sap.ui.xmlview("Empty", "abat.Mockup.view.Empty");
+    this.app.addPage(empty, false);
+
+    // wrap app with shell
+    return new sap.m.Shell("Shell", {
+      title : "{i18n>ShellTitle}",
+      showLogout : false,
+      app : this.app
+    });
+  }
+});
+\end{lstlisting}
+
+\newpage
+\subsubsection*{App.controller.js}
+\begin{lstlisting}[frame=htrbl, label=lst:App.controller.js]
+sap.ui.controller("abat.Mockup.view.App", {
+
+  /**
+   * Navigates to another page
+   * 
+   * @param {string} pageId The id of the next page
+   * @param {sap.ui.model.Context} context The data context
+   */
+  to : function(pageId, context) {
+
+    var app = this.getView().app;
+
+    // load page on demand
+    var master = ("Master" === pageId);
+    if (app.getPage(pageId, master) === null) {
+      var page = sap.ui.view({
+        id : pageId,
+        viewName : "abat.Mockup.view." + pageId,
+        type : "XML"
+      });
+      page.getController().nav = this;
+      app.addPage(page, master);
+      jQuery.sap.log.info("app controller > loaded page: " + pageId);
+    }
+
+    // show the page
+    app.to(pageId);
+
+    // set data context on the page
+    if (context) {
+      var page = app.getPage(pageId);
+      page.setBindingContext(context);
+    }
+  },
+
+  /**
+   * Navigates back to a previous page
+   * 
+   * @param {string} pageId The id of the next page
+   */
+  back : function(pageId) {
+    this.getView().app.backToPage(pageId);
+  }
+});
+\end{lstlisting}
+
+\newpage
+\subsubsection*{Master.view.xml}
+\begin{lstlisting}[frame=htrbl, label=lst:Master.view.xml]
+<core:View controllerName="abat.Mockup.view.Master" xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <Page>
+    <customHeader>
+      <Bar>
+        <contentLeft>
+          <Image src="img/logo.png" width="173px" height="30px"></Image>
+        </contentLeft>
+      </Bar>
+    </customHeader>
+    <subHeader>
+      <Bar>
+        <contentLeft>
+          <SearchField search="handleSearch" width="100%">
+          </SearchField>
+        </contentLeft>
+      </Bar>
+    </subHeader>
+    <List id="list" mode="{device>/listMode}" select="handleListSelect"
+      items="{/Products}">
+      <ObjectListItem type="{device>/listItemType}"
+        press="handleListItemPress"
+        title="{MaterialName}"
+        number="{Quantity}"
+        numberUnit="{i18n&gt;QuantityUnit}"
+        numberState="{parts : [ 'Quantity', 'MinimalQuantity' ],
+          formatter : 'abat.Mockup.util.Formatter.numberState'}">
+        <attributes>
+          <ObjectAttribute text="{MatId}" />
+        </attributes>
+        <firstStatus>
+          <ObjectStatus text="{Status}"
+            state="{path: 'Status',
+              formatter: 'abat.Mockup.util.Formatter.statusState'}" />
+        </firstStatus>
+      </ObjectListItem>
+    </List>
+    <footer>
+      <Bar>
+        <contentRight>
+          <Button icon="sap-icon://group-2" press="handleViewSettings" />
+        </contentRight>
+      </Bar>
+    </footer>
+  </Page>
+</core:View>
+\end{lstlisting}
+
+\newpage
+\subsubsection*{Master.controller.js}
+\begin{lstlisting}[frame=htrbl, label=lst:Master.controller.js]
+jQuery.sap.require("abat.Mockup.util.Formatter");
+jQuery.sap.require("abat.Mockup.util.Grouper");
+
+sap.ui.controller("abat.Mockup.view.Master", {
+
+  onExit : function() {
+    if (this._lineItemViewDialog) {
+      this._lineItemViewDialog.destroy();
+      this._lineItemViewDialog = null;
+    }
+  },
+
+  handleListItemPress : function(evt) {
+    var context = evt.getSource().getBindingContext();
+    this.nav.to("Detail", context);
+  },
+
+  handleSearch : function(evt) {
+    // create model filter
+    var filters = [];
+    var query = evt.getParameter("query");
+    if (query && query.length > 0) {
+      var filter = new sap.ui.model.Filter("MaterialName",
+          sap.ui.model.FilterOperator.Contains, query);
+      filters.push(filter);
+    }
+
+    // update list binding
+    var list = this.getView().byId("list");
+    var binding = list.getBinding("items");
+    binding.filter(filters);
+  },
+
+  handleListSelect : function(evt) {
+    // get binding context and nav to detail page
+    var context = evt.getParameter("listItem").getBindingContext();
+    this.nav.to("Detail", context);
+  },
+
+  handleViewSettings : function(evt) {
+    var that = this;
+    if (!this._lineItemViewDialog) {
+      // create dialog
+      this._lineItemViewDialog = new sap.m.ViewSettingsDialog({
+        groupItems : [ new sap.m.ViewSettingsItem({
+          text : "Price",
+          key : "GrossAmount"
+        }), new sap.m.ViewSettingsItem({
+          text : "Status",
+          key : "Status"
+        }) ],
+        confirm : function(evt) {
+          var aSorters = [];
+          var mParams = evt.getParameters();
+          if (mParams.groupItem) {
+            var sPath = mParams.groupItem.getKey();
+            var bDescending = mParams.groupDescending;
+            var vGroup = abat.Mockup.util.Grouper[sPath];
+            aSorters.push(
+              new sap.ui.model.Sorter(sPath, bDescending, vGroup));
+          }
+          var oBinding = that.getView().byId("list").getBinding("items");
+          oBinding.sort(aSorters);
+        }
+      });
+    }
+
+    // open dialog
+    this._lineItemViewDialog.open();
+  }
+});
+\end{lstlisting}
+
+\newpage
+\subsubsection*{Detail.view.xml}
+\begin{lstlisting}[frame=htrbl, label=lst:Detail.view.xml]
+<core:View controllerName="abat.Mockup.view.Detail" xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <Page title="{i18n>DetailTitle}"
+    class="sapUiFioriObjectPage"
+    showNavButton="{device>/isPhone}" 
+    navButtonPress="handleNavButtonPress">
+    <ObjectHeader title="{MaterialName}" number="{Quantity}"
+      numberUnit="{i18n&gt;QuantityUnit}"
+      numberState="{parts: [ 'Quantity', 'MinimalQuantity' ],
+        formatter: 'abat.Mockup.util.Formatter.numberState'}"
+      icon="img/placeholder.gif">
+      <attributes>
+        <ObjectAttribute 
+          text="{i18n&gt;MatId}: {MatId}" />
+        <ObjectAttribute
+          text="{i18n&gt;GrossAmount}: {GrossAmount} {CurrencyCode}" />
+        <ObjectAttribute
+          text="{i18n&gt;TaxAmount}: {TaxAmount} {CurrencyCode}" />
+        <ObjectAttribute
+          text="{i18n&gt;NetAmount}: {NetAmount} {CurrencyCode}" />
+      </attributes>
+      <firstStatus>
+        <ObjectStatus text="{Status}"
+          state="{path: 'Status',
+                  formatter: 'abat.Mockup.util.Formatter.statusState'}" />
+      </firstStatus>
+    </ObjectHeader>
+    <IconTabBar expanded="{device>/isNoPhone}">
+      <items>
+        <IconTabFilter text="{i18n&gt;IconTab_1}"
+          icon="sap-icon://vertical-bar-chart-2">
+          <content>
+            <core:Fragment type="XML"
+              fragmentName="abat.Mockup.view.ForecastChart"></core:Fragment>
+          </content>
+        </IconTabFilter>
+        <IconTabFilter text="{i18n&gt;IconTab_2}" icon="sap-icon://line-chart">
+          <content>
+            <core:Fragment type="XML"
+              fragmentName="abat.Mockup.view.OrderProposalChart"></core:Fragment>
+          </content>
+        </IconTabFilter>
+      </items>
+    </IconTabBar>
+    <footer>
+      <Bar>
+        <contentRight>
+          <Button text="{i18n>ApproveButtonText}" icon="sap-icon://accept"
+            press="handleApprove" />
+        </contentRight>
+      </Bar>
+    </footer>
+  </Page>
+</core:View>
+\end{lstlisting}
+
+\newpage
+\subsubsection*{Detail.controller.js}
+\begin{lstlisting}[frame=htrbl, label=lst:Detail.controller.js]
+jQuery.sap.require("abat.Mockup.util.Formatter");
+jQuery.sap.require("sap.m.MessageBox");
+jQuery.sap.require("sap.m.MessageToast");
+
+sap.ui.controller("abat.Mockup.view.Detail", {
+
+  onInit : function(evt) {
+    this.configForecastChart();
+    this.configOrderProposalChart();
+  },
+
+  handleForecastDataSelect : function(evt) {
+    var xAxisIndex = (evt.getParameter("data")[0]).data[0].ctx.path.dii_a1;
+    var oContext = this.getView().byId("lineChart").getBindingContext();
+    var oSelectedData = this.getView().getModel().getProperty(
+        oContext.sPath + "/ForecastData/" + xAxisIndex);
+
+    console.log(oSelectedData);
+  },
+
+  handleOrderProposalDataSelect : function(evt) {
+    // TODO write code to make Chart dynamic
+  },
+
+  handleNavButtonPress : function(evt) {
+    this.nav.back("Master");
+  },
+
+  handleApprove : function(evt) {
+    // show confirmation dialog
+    var bundle = this.getView().getModel("i18n").getResourceBundle();
+    sap.m.MessageBox.confirm(bundle.getText("ApproveDialogMsg"), function(
+        oAction) {
+      if (sap.m.MessageBox.Action.OK === oAction) {
+        // notify user
+        var successMsg = bundle.getText("ApproveDialogSuccessMsg");
+        sap.m.MessageToast.show(successMsg);
+        // TODO call proper service method and update model
+      }
+    },
+
+    bundle.getText("ApproveDialogTitle"));
+  },
+
+  configForecastChart : function() {
+    var oDatasetForecast = new sap.viz.ui5.data.FlattenedDataset({
+      dimensions : [ {
+        axis : 1,
+        name : 'Month',
+        value : "{Month}"
+      } ],
+      measures : [ {
+        name : 'Menge1',
+        value : '{Menge1}'
+      }, {
+        name : 'Menge2',
+        value : '{Menge2}'
+      } ],
+      data : {
+        path : "ForecastData"
+      }
+    });
+
+    oLineChart = this.getView().byId("lineChart");
+    oLineChart.setTitle(new sap.viz.ui5.types.Title({
+      visible : true,
+      text : "{i18n>ForecastChartTitle}"
+    }));
+    oLineChart.setDataset(oDatasetForecast);
+  },
+
+  configOrderProposalChart : function() {
+    var oDatasetOrderProposal = new sap.viz.ui5.data.FlattenedDataset({
+      dimensions : [ {
+        axis : 1,
+        name : 'Month',
+        value : "{Month}"
+      } ],
+      measures : [ {
+        name : 'Menge1',
+        value : '{Menge1}'
+      } ],
+      data : {
+        path : "OrderProposalData"
+      }
+    });
+
+    oBarChart = this.getView().byId("barChart");
+    oBarChart.setTitle(new sap.viz.ui5.types.Title({
+      visible : true,
+      text : "{i18n>OrderProposalChartTitle}"
+    }));
+    oBarChart.setDataset(oDatasetOrderProposal);
+  }
+});
+\end{lstlisting}
+
+\newpage
+\subsubsection*{ForecastChart.fragment.xml}
+\begin{lstlisting}[frame=htrbl, label=lst:ForecastChart.fragment.xml]
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc" 
+  xmlns="sap.m" 
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns:viz="sap.viz.ui5" 
+  xmlns:types="sap.viz.ui5.types">
+  <viz:Line id="lineChart" width="100%" height="400px"
+    selectData="handleForecastDataSelect"></viz:Line>
+</core:FragmentDefinition>
+\end{lstlisting}
+
+\subsubsection*{OrderProposalChart.fragment.xml}
+\begin{lstlisting}[frame=htrbl, label=OrderProposalChart.fragment.xml]
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc" 
+  xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns:viz="sap.viz.ui5" 
+  xmlns:types="sap.viz.ui5.types">
+  <viz:Bar id="barChart" width="100%" height="400px"
+    selectData="handleOrderProposalDataSelect"></viz:Bar>
+</core:FragmentDefinition>
+\end{lstlisting}
+
+\subsubsection*{Empty.view.xml}
+\begin{lstlisting}[frame=htrbl, label=lst:Empty.view.xml]
+<core:View xmlns="sap.m" xmlns:core="sap.ui.core">
+  <Page>
+    <footer>
+      <Bar>
+      </Bar>
+    </footer>
+  </Page>
+</core:View>
+\end{lstlisting}
+
+\newpage
+\subsubsection*{Formatter.js}
+\begin{lstlisting}[frame=htrbl, label=lst:Formatter.js]
+jQuery.sap.declare("abat.Mockup.util.Formatter");
+
+jQuery.sap.require("sap.ui.core.format.DateFormat");
+
+abat.Mockup.util.Formatter = {
+
+  _statusStateMap : {
+    "lieferbar" : "Success",
+    "bald lieferbar" : "Warning",
+    "ausverkauft" : "Error"
+  },
+
+  statusState : function(value) {
+    var map = abat.Mockup.util.Formatter._statusStateMap;
+    return (value && map[value]) ? map[value] : "None";
+  },
+
+  numberState : function(stock, minStock) {
+    return (parseInt(stock) <= parseInt(minStock)) ? "Error" : "None";
+  },
+
+  date : function(value) {
+    if (value) {
+      var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({
+        pattern : "yyyy-MM-dd"
+      });
+      return oDateFormat.format(new Date(value));
+    } else {
+      return value;
+    }
+  },
+
+  quantity : function(value) {
+    try {
+      return (value) ? parseFloat(value).toFixed(0) : value;
+    } catch (err) {
+      return "Not-A-Number";
+    }
+  }
+};
+\end{lstlisting}
+
+\newpage
+\subsubsection*{Grouper.js}
+\begin{lstlisting}[frame=htrbl, label=lst:Grouper.js]
+jQuery.sap.declare("abat.Mockup.util.Grouper");
+
+abat.Mockup.util.Grouper = {
+
+  Status : function(oContext) {
+    var status = oContext.getProperty("Status");
+    return {
+      key : status,
+      text : status
+    };
+  },
+
+  GrossAmount : function(oContext) {
+    var price = oContext.getProperty("GrossAmount");
+    var currency = oContext.getProperty("CurrencyCode");
+    var key, text;
+    if (price <= 5000) {
+      key = "A-LE10";
+      text = "< 5000 " + currency;
+    } else if (price <= 10000) {
+      key = "B-LE100";
+      text = "< 10.000  " + currency;
+    } else {
+      key = "C-GT100";
+      text = "> 10.000 " + currency;
+    }
+    return {
+      key : key,
+      text : text
+    };
+  }
+};
+\end{lstlisting}
+
+\newpage
+\subsubsection*{mock.json}
+\begin{lstlisting}[frame=htrbl, label=lst:mock.json]
+{
+    "Products": [
+        {
+            "MatId": "100000000002082980",
+            "MaterialName": "Produkt 1",
+            "Status": "lieferbar",
+            "Quantity": "251",
+            "MinimalQuantity": "100",
+            "GrossAmount": "13224.47",
+            "NetAmount": "11113.00",
+            "TaxAmount": "2111.47",
+            "CurrencyCode": "EUR",
+            "CreatedAt": "2013-05-22T22:00:00",
+            "ChangedAt": "2013-05-22T22:00:00.000Z",
+            "CreatedByBp": "EPM USER",
+            "ChangedByName": "EPM USER",
+            "ForecastData": [
+                {
+                    "Month": "Januar",
+                    "Menge1": "289",
+                    "Menge2": "967"
+                },
+                ...
+                {
+                    "Month": "Dezember",
+                    "Menge1": "719",
+                    "Menge2": "857"
+                }
+            ],
+            "OrderProposalData": [
+                {
+                    "Month": "Januar",
+                    "Menge1": "343",
+                    "Menge2": "837"
+                },
+                ...
+                {
+                    "Month": "Dezember",
+                    "Menge1": "417",
+                    "Menge2": "761"
+                }
+            ]
+        }
+\end{lstlisting}
+
+\newpage
+\subsubsection*{messageBundle.properties}
+\begin{lstlisting}[frame=htrbl, label=lst:messageBundle.properties]
+ShellTitle=Sales Orders App
+MasterTitle=Products
+DetailTitle=Sales Order
+ApproveButtonText=Approve
+ApproveDialogTitle=Approve Sales Order
+ApproveDialogMsg=Do you want to approve this sales order now?
+ApproveDialogSuccessMsg=The sales order has been approved
+LineItemTableHeader=Products
+LineItemTitle=Product
+IconTab_1=Forecast
+IconTab_2=Ordering proposal
+ForecastChartTitle=Forecast
+OrderProposalChartTitle=Ordering Proposal
+QuantityUnit=pc.
+GrossAmount=Gross Amount
+TaxAmount=Tax Amount
+NetAmount=Net Amount
+MatId=Mat. ID
+\end{lstlisting}
+
+\subsubsection*{messageBundle\textunderscore de.properties}
+\begin{lstlisting}[frame=htrbl, label=lst:messageBundleDE.properties]
+ShellTitle=Sales Orders App
+MasterTitle=Produkte
+DetailTitle=Produkt
+ApproveButtonText=Approve
+ApproveDialogTitle=Approve Sales Order
+ApproveDialogMsg=Do you want to approve this sales order now?
+ApproveDialogSuccessMsg=The sales order has been approved
+LineItemTableHeader=Products
+LineItemTitle=Product
+IconTab_1=Prognose
+IconTab_2=Bestellvorschau
+ForecastChartTitle=Prognose
+OrderProposalChartTitle=Bestellvorschau
+QuantityUnit=Stk.
+GrossAmount=Brutto Betrag
+TaxAmount=MwSt.
+NetAmount=Netto Betrag
+MatId=Mat. ID
+
+\end{lstlisting}
