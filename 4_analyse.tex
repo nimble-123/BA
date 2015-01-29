@@ -41,36 +41,36 @@ Um das Sequenzdiagramm mit Metainformationen anzureichern wurde eine Zeitmessung
 
 \vspace{1em}
 \begin{center}
-  \begin{tabular}{ | c | c | c | c | c | }
+  \begin{tabular}{ | c | c | c | c | c | c | }
     \hline
     \textbf{Versuch}
-    & \textbf{Seite} & \textbf{1. Listeneintrag} & \textbf{2. Listeneintrag} & \textbf{3. Listeneintrag}\\
+    & \textbf{Seite} & \textbf{Detail} & \textbf{1. Klick} & \textbf{2. Klick} & \textbf{3. Klick}\\
     \hline \hline
-    1 & 1111ms & 230ms & 222ms & 205ms\\
+    1 & 756ms & 742ms & 382ms & 227ms & 205ms\\
     \hline
-    2 & 1111ms & 230ms & 222ms & 205ms\\
+    2 & 804ms & 877ms & 515ms & 214ms & 205ms\\
     \hline
-    3 & 1111ms & 230ms & 222ms & 205ms\\
+    3 & 691ms & 888ms & 390ms & 219ms & 200ms\\
     \hline
-    4 & 1111ms & 230ms & 222ms & 205ms\\
+    4 & 774ms & 743ms & 384ms & 229ms & 200ms\\
     \hline
-    5 & 1111ms & 230ms & 222ms & 205ms\\
+    5 & 696ms & 736ms & 387ms & 282ms & 206ms\\
     \hline
-    6 & 1111ms & 230ms & 222ms & 205ms\\
+    6 & 727ms & 818ms & 382ms & 215ms & 211ms\\
     \hline
-    7 & 1111ms & 230ms & 222ms & 205ms\\
+    7 & 882ms & 620ms & 378ms & 221ms & 281ms\\
     \hline
-    8 & 1111ms & 230ms & 222ms & 205ms\\
+    8 & 748ms & 729ms & 391ms & 299ms & 210ms\\
     \hline
-    9 & 1111ms & 230ms & 222ms & 205ms\\
+    9 & 698ms & 729ms & 383ms & 241ms & 276ms\\
     \hline
-    10 & 1111ms & 230ms & 222ms & 205ms\\
+    10 & 684ms & 881ms & 389ms & 213ms & 198ms\\
     \hline \hline
-    \O & 1111ms & 230ms & 222ms & 205ms\\
+    \textbf{\O} & \textbf{746ms} & \textbf{776ms} & \textbf{398ms} & \textbf{236ms} & \textbf{199ms}\\
     \hline
   \end{tabular}
 \captionof{table}{Chrome Browser UI Ladezeiten}
 \label{tab:uiloading}
 \end{center}
 
-// Erkenntnis UI lädt ob cached oder uncached beim ersten Laden des UIs in nahezu unter 1,5 Sekunden. Jede weitere Auswahl eines Listeneintrags ist dann in durchschnittlich 233 Millisekunden fertig geladen und gerendert.
+Aus diesen Ergebnissen lässt sich ablesen, dass das UI beim ersten Aufruf der Applikation im Durchschnitt in unter einer Sekunde geladen und für den Anwender sichtbar ist. Dabei ist zu sagen, dass sich selbe Versuchsreihe mit aktiviertem Browser Cache nur minimal bei den Ergebnissen unterscheidet als mit deaktiviertem Browser Cache. Erfolgt dann der Klick vom Anwender auf einen Listeneintrag wird von der Applikation die Detailseite geladen. Dies geschiet durchschnittlich in 776 Millisekunden. Bei dieser Auswahl eines ersten Listeneintrags, ganz gleich seiner Position innerhalb der Liste, dauert das Laden der Informationen innerhalb der Detailseite im Durchschnitt 398 Millisekunden. Das Laden der Daten und Refreshen der Detailseite dauerten beim zweiten und dritten Listeneintrag im Durchschnitt 236 und 199 Millisekunden. Anhand dieser Zahlen lässt sich sagen, dass eine Applikation die mit den SAP UI5 Bibliotheken entwickelt wurde zumindest bei niedriger Komplexität genau so perfomant in der Präsentation zeigt wie eine Standard SAP GUI Transaktion.
