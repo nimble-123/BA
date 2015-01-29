@@ -10,13 +10,13 @@ Dieses Kapitel soll kurz aufzeigen welche Hilfsmittel zur Realisierung des Proto
 \subsubsection{Eclipse}
 Zum Einsatz in der Implementierung des Fallbeispiels ist die quelloffene integrierte Entwicklungsumgebung Eclipse gekommen. Diese IDE wurde von der Eclipse Foundation entwickelt und ist plattformunabhängig. Geschrieben wurde Eclipse in Java. Die aktuelle Version 4.4 ist am 25. Juni 2014 erschienen und trägt den Namen Luna. Eclipse zeichnet sich durch ein Plugin System aus mit welchem eine erhebliche Anzahl an Anwendungsfälle mit dieser IDE abgedeckt werden können.(vgl. \cite{WikiEclipse2014}) So auch die Entwicklung von SAP UI5 Applikationen. Dafür hat die SAP AG ein spezielles SAP UI5 Plugin bereitgestellt. Entsprechende Plugins müssen nicht umständlich über eine Webseite bezogen und installiert werden. Sie können über die integrierte Plugin Funktion installiert und eingerichtet werden. Eine URL zum Plugin ist vollkommen ausreichend. Für die Entwicklung von SAP UI5 Applikationen wurden folgende Plugins benötigt:
 	
-	\vspace{1em}
-    \begin{compactitem}
-	    \item UI Development Toolkit for HTML5
-	    \item ABAP Development Tools for SAP NetWeaver
-	    \item (SAP HANA Tools)	    
-    \end{compactitem}
-	\vspace{1em}
+\vspace{1em}
+\begin{compactitem}
+    \item UI Development Toolkit for HTML5
+    \item ABAP Development Tools for SAP NetWeaver
+    \item (SAP HANA Tools)	    
+\end{compactitem}
+\vspace{1em}
 
 Bezogen werden können diese Plugins mittels der URL \url{https://tools.hana.ondemand.com/luna} und der erwähnten Plugin Funktion von Eclipse. Neben dem reinen Code Editor werden allerdings weitere Tools benötigt um eine SAP UI5 Applikation zu entwickeln.
 
@@ -44,9 +44,10 @@ Es wird die Implementierung des Fallbeispiels beschrieben. Jede Schicht des Mode
 In Eclipse wird ein neues Projekt als SAP UI5 Applikation erstellt. Nach dem Anlegen einer neuen SAP UI5 Applikation ohne initial View findet man im Projekt Explorer von Eclipse die generierte Verzeichnisstruktur vor. In dieser Struktur finden sich zu beginn drei Verzeichnisse. Das \textit{META-INF} Verzeichnis wird automatisch von Eclipse erstellt und dient lediglich als Informationsspeicher für den Umgang des Projekt im Zusammenspiel mit einigen Java Tools. Daneben existiert das \textit{WEB-INF} Verzeichnis. In den Dateien dieses Verzeichnisses stehen Anweisungen für das Deployment des Projekts, sowie sind vorkompilierte Klassendateien und Hilfsbibliotheken in Unterordnern hinterlegt. Außerdem enthält das Projekt auch das \textit{WebContent} Verzeichnis, welches als Arbeitsverzeichnis für das gesamte Projekt gilt. Dort sind sämtliche statische Dateien, wie z.B. HTML Dokumente, JavaScript und XML Dateien oder auch andere Ressourcen wie Bilder und Texte abgelegt. Im Arbeitsverzeichnis werden für die spätere ordentliche Struktur Verzeichnisse für die unterschiedlichen Zwecke angelegt -- \textit{i18n}, \textit{model}, \textit{util} und \textit{view}. Im \textit{i18n} Verzeichnis liegen später die Sprachdateien um die Applikation lokalisiert auszuliefern. Das \textit{model} und \textit{view} Verzeichnis sind selbsterklärend. Im \textit{util} Verzeichnis werden Helferskripte hinterlegt wie z.B. \textit{Formatter} oder \textit{Grouper} Skripte. Als nächstes folgt die Implementierung der Views.
 
 \subsubsection{View}
-Die Datei \textit{index.html} ist der Startpunkt der SAP UI5 Applikation. In dieser Datei wird mittels eines \textit{title}-Element, direkt unter dem letzten \textit{meta}-Element, der Seitentitel festgelegt. Innerhalb des dann folgenden \textit{script}-Block werden Eigenschaften der SAP UI5 Applikation eingestellt. An dieser Stelle müssen die verwendeten SAP UI5 JavaScript Bibliotheken und die Art und Weise der Datenbindung des Modells hinzugefügt werden. Der Prototyp arbeitet mit der \textit{complex} Datenbindung. In dem leeren \textit{script}-Block wird dann letztendlich die Anweisung gesetzt, welche den \textit{Component Container} lädt und damit das Bootstrapping der Applikation in Gang setzt. Die Datei \textit{index.html} ist in verkürzter Form in Listing \ref{lst:index.html} zu sehen.
-
-	\begin{lstlisting}[frame=htrbl, caption=Bootstrapping der SAP UI5 Applikation, label=lst:index.html]
+Die Datei \textit{index.html} ist der Startpunkt der SAP UI5 Applikation. In dieser Datei wird mittels eines \textit{title}-Element, direkt unter dem letzten \textit{meta}-Element, der Seitentitel festgelegt. Innerhalb des dann folgenden \textit{script}-Block werden Eigenschaften der SAP UI5 Applikation eingestellt. An dieser Stelle müssen die verwendeten SAP UI5 JavaScript Bibliotheken und die Art und Weise der Datenbindung des Modells hinzugefügt werden. Der Prototyp arbeitet mit der \textit{complex} Datenbindung. In dem leeren \textit{script}-Block wird dann letztendlich die Anweisung gesetzt, welche den \textit{Component Container} lädt und damit das Bootstrapping der Applikation in Gang setzt. Die Datei \textit{index.html} ist in verkürzter Form in Listing \ref{lst:bootstrapping} zu sehen.
+	
+\vspace{1em}
+\begin{lstlisting}[frame=htrbl, caption=Bootstrapping der SAP UI5 Applikation, label=lst:bootstrapping]
 ...
 	<script
 		id="sap-ui-bootstrap"
@@ -66,36 +67,27 @@ Die Datei \textit{index.html} ist der Startpunkt der SAP UI5 Applikation. In die
 		}).placeAt("content");
 	</script>
 ...
-	\end{lstlisting}
+\end{lstlisting}
 	
 \paragraph{Component Container}$\;$ \\
 Der eben erwähnte \textit{Component Container} wird nach den Änderungen an der Datei \textit{index.html} im Arbeitsverzeichnis als Datei \textit{Component.js} erstellt. Der \textit{Component Container} ist ein Sammelbehälter für die unterschiedlichen SAP UI5 Komponenten. Er beinhaltet neben der Deklaration und Initialisierung der Model auch die Root View. Diese Root View ist die unterste Schicht des View Stacks. In ihr werden sämtliche weiteren Views platziert. Bei der Initialisierung wird auf die Datei \textit{App.view.js} verwiesen. Zu den verwendeten Models sei an dieser Stelle noch nichts näher erläutert da dies im nächsten Kapitel folgt. Als Rückgabewert liefert dieser \textit{Component Container} dann die Root View mit ihren Elementen. Listing \ref{lst:Component.js} zeigt auszugweise die Datei \textit{Component.js} und die Erstellung der Root View.
 
-	\begin{lstlisting}[frame=htrbl, caption=Auszug aus der Component.js, label=lst:Component.js]
-jQuery.sap.declare("abat.Mockup.Component");
-sap.ui.core.UIComponent.extend("abat.Mockup.Component", {
-	createContent : function() {
-
-		// create root view
-		var oView = sap.ui.view({
-			id : "app",
-			viewName : "abat.Mockup.view.App",
-			type : "JS",
-			viewData : { component : this }
-		});
-
-		// model declaration and initialisation goes here
-		...
-
-		return oView;
-	}
-});
-	\end{lstlisting}
+\vspace{1em}
+\begin{lstlisting}[frame=htrbl, caption=Auszug aus der Component.js, label=lst:Component.js]
+	var oView = sap.ui.view({
+		id : "app",
+		viewName : "abat.Mockup.view.App",
+		type : "JS",
+		viewData : { component : this }
+	});
+	return oView;
+\end{lstlisting}
 	
 \paragraph{Root View}$\;$ \\
 Die Datei \textit{App.view.js} repräsentiert die Root View aus dem \textit{Component Container}. Der Rückgabewert ist eine \textit{Shell} genannte SAP UI5 Komponente. Dieser \textit{Shell} wird ein Titel über das Lokalisierungsmodell zugewiesen. Dazu später mehr. Ausdrücke die einen String darstellen können so leicht mit einer lokalen Version des Wertes ersetzt werden. Des Weiteren verlangt die \textit{Shell} eine \textit{App} Komponente. Diese Komponente wird am Anfang der Datei \textit{App.view.js} erzeugt. Es handelt sich bei dem Prototyp um eine \textit{App} Komponente namens \textit{SplitApp}. Eine \textit{SplitApp} besitzt eine Haupt- und Detailseite. Diese werden auch innerhalb der \textit{App.view.js} erzeugt und der \textit{SplitApp} Komponente zugewiesen. Allerdings verweisen die Haupt- und Detailseite auch wieder auf eigene Dateien auf Grund des Kapselungsprinzip zum Zwecke der besseren Wartbarkeit. Listing \ref{lst:App.view.js} zeigt den gerade beschriebenen Vorgang.
 
-	\begin{lstlisting}[frame=htrbl, caption=Root View der Applikation, label=lst:App.view.js]
+\vspace{1em}
+\begin{lstlisting}[frame=htrbl, caption=Root View der Applikation, label=lst:App.view.js]
 ...
     // create app
     this.app = new sap.m.SplitApp();
@@ -112,12 +104,13 @@ Die Datei \textit{App.view.js} repräsentiert die Root View aus dem \textit{Comp
     });
   }
 });
-	\end{lstlisting}
+\end{lstlisting}
 	
 \paragraph{Hauptseite}$\;$ \\
 Die \textit{Master.view.xml} wird nicht, wie der Dateiname schon schließen lässt, gleich der Root View im JavaScript sondern im XML Format erstellt. Sie beinhaltet die Komponenten, die in der \textit{SplitApp} die Hauptseite darstellt. Realisiert wird das über die Komponente \textit{Page}. In der \textit{Page} liegen widerum weitere Komponenten die das Aussehen der Hauptseite definieren. Durch einen \textit{customHeader} inklusive einer \textit{Bar} und einem \textit{Image} wird ein Firmenlogo in die Hauptseite ganz oben eingefügt. Ein \textit{subHeader} mit einer \textit{Bar} und einem \textit{SearchField} sind für eine Suchfunktion innerhalb der Liste gesetzt. Eine \textit{List} implementiert eine vertikale Liste, die mit Komponenten vom Typ \textit{ObjectListItem} befüllt wird. Das \textit{ObjectListItem} dient in dem Fall als Formatvorlage für die tatsächlichen Daten die später aus dem Model bezogen werden. Abgeschlossen wird die Seite mit der \textit{footer} Komponente in der eine \textit{Bar} und ein \textit{Button} eingelassen sind. Der Button soll eine Gruppierungsfunktion für die Liste möglich machen. Listing \ref{lst:Master.view.xml} enthält die erläuterte Struktur der Hauptseite im XML Format.
 
-	\begin{lstlisting}[frame=htrbl, caption=Hauptseite der SplitApp, label=lst:Master.view.xml]
+\vspace{1em}
+\begin{lstlisting}[frame=htrbl, caption=Hauptseite der SplitApp, label=lst:Master.view.xml]
 <core:View
   controllerName="abat.Mockup.view.Master"
   xmlns="sap.m"
@@ -157,7 +150,7 @@ Die \textit{Master.view.xml} wird nicht, wie der Dateiname schon schließen läs
     </footer>
   </Page>
 </core:View>
-	\end{lstlisting}
+\end{lstlisting}
 
 \paragraph{Detailseite}$\;$ \\
 Die Detailseite wird zwar in der Root View nicht direkt deklariert, dies erfolgt innerhalb eines Controllers, aber zur Vollständigkeit wird sie kurz erläutert. Vom generellen Aufbau gleicht sie der \textit{Master.view.xml}. Sie ist auch im XML Format definiert, enthält aber ein paar andere Komponenten. Sämtliche Komponenten liegen wieder in einer \textit{Page}. Begonnen wird mit einem \textit{ObjectHeader}, dieser setzt den Titel des anzuzeigenden Listeneintrags der Hauptseite. Daneben werden noch weitere Information aufgelistet. Unter diesem Kopfteil ist eine \textit{IconTabBar} platziert. Diese Leiste enthält zwei Einträge um so später Zugriff auf die beiden Charts zu erhalten. Um auch hier wieder zu kapseln besitzen die Einträge nur ein Bild und einen verweis auf sogenanntes Fragment. Mit diesem Fragment wird jeweils das Chart definiert. Bedeutet die Art des Diagramms und die jeweils dazu spezifischen Einstellungen. Auf ein Listing wird an dieser Stelle verzichtet.
@@ -165,7 +158,8 @@ Die Detailseite wird zwar in der Root View nicht direkt deklariert, dies erfolgt
 \subsubsection{Model}
 Für die prototypische Implementierung wurde auf ein JSON Model gesetzt. So kann die Applikation ohne eine tatsächliche Anbindung an ein SAP System im Backend getestet werden. Der Aufbau eines JSON Model im Vergleich zu einem OData Model ist überwiegend gleich bis auf die Tatsache, das ein OData Model noch Metadaten beinhaltet zum OData Service selbst. Diese Metadaten sind zum Testen der Applikation jedoch nicht von nöten. Bei einem späteren produktiv Einsatz dieser Applikation kann durch Veränderung einer Zeile Code das JSON Model durch ein OData Model ersetzt werden. Natürlich sollte das OData Model demzufolge die selbe Struktur besitzen wie das JSON Model, da es ansonsten auch zu komplikationen kommen könnte. Des Weiteren wurde bewusst kein OData Model verwendet, da es vom SAP Netweaver Gateway bereitgestellt wird und darauf im Rahmen dieser Arbeit nicht eingegangen werden sollte. Neben dem JSON Model, als eigentliche Datenbasis, kommt noch ein Resource Model und ein weiteres JSON Model zum Einsatz. Das Resource Model repräsentiert die Lokalisierung. Dadurch können Strings in den verschiedenen Views dynamisch gesetzt werden und je nach Spracheinstellung des dahinter liegenden SAP Systems wird dann die lokalisierte Variante des Stringwerts verwendet. Die Lokalisierungsdateien liegen in dem \textit{i18n} Verzeichnis welches zu beginn erstellt wurde. Das zweite JSON Model stellt ein gerätespezifisches Model dar. Das bedeutet es werden Metainformationen gespeichert über das Gerät mit dem die Applikation abgerufen wird. Die dazu nötigen Funktionen werden von der jQuery Bibliothek bereitgestellt. Die Applikation kann mit diesem Model ihr visuelles Erscheinungsbild je nach Situation anpassen. In Listing \ref{lst:modelbinding} sind die unterschiedlichen Modelle zu sehen, welche in der Datei \textit{Component.js} angelegt werden. Jedes Model wird nach der Erzeugung an die Root View registriert damit es im gesamten Applikationskontext zur Verfügung steht.
 
-	\begin{lstlisting}[frame=htrbl, caption=Model an die Root View binden, label=lst:modelbinding]
+\vspace{1em}
+\begin{lstlisting}[frame=htrbl, caption=Model an die Root View binden, label=lst:modelbinding]
 ...
 // JSON Modell an die Root View binden
 var oModel = new sap.ui.model.json.JSONModel("model/mock.json");
@@ -190,15 +184,16 @@ var deviceModel = new sap.ui.model.json.JSONModel({
 deviceModel.setDefaultBindingMode("OneWay");
 oView.setModel(deviceModel, "device");
 ...
-	\end{lstlisting}
+\end{lstlisting}
 
 \subsubsection{Controller}
 Je View wird mindestens ein Controller vorausgesetzt. Durch den Aufbau der Applikation sind drei Controller nötig. Die Root View benötigt einen allgemeinen Controller der auch für die beiden anderen Views zuständig ist. Die Haupt- und Detailseite haben jeweils wieder ihren eigenen Controller der nur auf Benutzeraktionen der jeweiligen View reagiert. Einerseits um Daten aus dem Model zu beziehen, andererseits um Navigationsaktionen an den Root Controller weiterzugeben.
 
 \paragraph{Controller Root View}$\;$ \\
-Der Root Controller implementiert zwei Funktionen zur Navigation. Mit diesen beiden Funktionen lässt sich beispielsweise von der Detailseite zurück auf die Hauptseite navigieren und andersherum. Des Weiteren veranlasst die \textit{to} Funktion die Applikation dazu beim ersten Aufruf direkt die Hauptseite zu laden damit kein leerer Bildschirm angezeigt wird. Dieser Mechanismus ist in Listing \ref{lst:App.controller.js} gezeigt.
+Der Root Controller implementiert zwei Funktionen zur Navigation. Mit diesen beiden Funktionen lässt sich beispielsweise von der Detailseite zurück auf die Hauptseite navigieren und andersherum. Des Weiteren veranlasst die \textit{to} Funktion die Applikation dazu beim ersten Aufruf direkt die Hauptseite zu laden damit kein leerer Bildschirm angezeigt wird. Dieser Mechanismus ist in Listing \ref{lst:navigation} gezeigt.
 
-	\begin{lstlisting}[frame=htrbl, caption=Navigationsmechanismus, label=lst:App.controller.js]
+\vspace{1em}
+\begin{lstlisting}[frame=htrbl, caption=Navigationsmechanismus, label=lst:navigation]
 ...
 to : function (pageId, context) {
   var app = this.getView().app;
@@ -226,12 +221,13 @@ to : function (pageId, context) {
   }
 },
 ...
-	\end{lstlisting}
+\end{lstlisting}
 
 \paragraph{Controller Hauptseite}$\;$ \\
 Im Controller der Hauptseite sind sämtliche \textit{Handler} untergebracht die zu Komponenten der Seite gehören. Ein relativ einfach zu implementierender, aber trotzdem absolut wichtiger \textit{Handler} ist \textit{handleListItemPress}. Dieser \textit{Handler} wird ausgeführt sobald in der Liste der Hauptseite ein Eintrag gedrückt bzw. ausgewählt wird. Bevor direkt die Detailseite aufgerufen wird holt sich die Funktion noch den aktuellen Datenkontext des Eintrags. Diesen Kontext gibt er an die Navigationsfunktion aus dem Root Controller weiter. Dadurch muss der Controller der Detailseite nicht erst die Daten beschaffen sondern die Detail View kann die Informationen direkt aus dem übergebenen Kontext entnehmen und darstellen. Das reduziert den Datentraffic zwischen Controllern und Model und dem entsprechend auch die Verbindungen zum Backend System. Ein weiterer \textit{Handler} ist implementiert um die Suchfunktion der Liste zu realisieren. Sobald eine Suche gestartet wird reagiert diese Funktion darauf und filtert die Liste anhand des eingegeben Suchwortes. Dazu stellt das SAP UI5 Framework ein Filter Objekt zur Verfügung. Diesem Filter Objekt übergibt man die Eigenschaft aus dem Model nach der gefiltert werden soll. Der zweite Parameter ist eine Konstante aus dem SAP UI5 Framework, die den entsprechenden Filter Operator angibt. In diesem Fall wird geprüft ob die Eigenschaft den Suchbegriff enthält. Der letzte Parameter ist das Suchwort selbst. In Listing \ref{lst:navsearch} sind die beschriebenen \textit{Handler} Funktionen abgebildet.
 
-	\begin{lstlisting}[frame=htrbl, caption=Navigation und Suchfunktion der Hauptseite, label=lst:navsearch]
+\vspace{1em}
+\begin{lstlisting}[frame=htrbl, caption=Navigation und Suchfunktion der Hauptseite, label=lst:navsearch]
 ...  
   // Handler Listenelemnte
   handleListItemPress : function (evt) {
@@ -259,11 +255,12 @@ Im Controller der Hauptseite sind sämtliche \textit{Handler} untergebracht die 
     binding.filter(filters);
   },
 ...
-	\end{lstlisting}
+\end{lstlisting}
 
 Da die Liste auch eine Gruppierungsmöglichkeit bieten soll wurde ein weiterer \textit{Handler} implementiert. Dieser \textit{Handler} reagiert sobald auf der Hauptseite der Button unter der Liste gedrückt wird. Die Funktion erzeugt daraufhin ein Dialogfenster und stellt direkt dazu die Eigenschaften ein. So kann anhand des Bruttopreises und des Status gruppiert werden. Außerdem benötigt der Dialog noch eine Funktion, welche die Benutzereingabe entsprechend verarbeitet je nach dem für welche Gruppierung sich der Anwender entschieden hat. Um diese Entscheidung korrekt umzusetzen wurde ein Hilfsskript mit implementiert was im \textit{util} Verzeichnis als Datei \textit{Grouper.js} abgelegt ist. Dieses Hilfsskript liefert je nach Gruppierungskriterium die entsprechenden Werte aus dem Kontext. Da im Dialog auch eine Auswahl bezüglich der Gruppierungsrichtung vorhanden ist wird auch das mit in die Gruppierung einbezogen. SAP UI5 stellt auch dafür eine fertige Funktion zur Verfügung. Listing \ref{lst:listgrouping} zeigt die implementierte Funktion aus dem Controller.
 
-	\begin{lstlisting}[frame=htrbl, caption=Handler der Listengruppierung, label=lst:listgrouping]
+\vspace{1em}
+\begin{lstlisting}[frame=htrbl, caption=Handler der Listengruppierung, label=lst:listgrouping]
 ...
   // Handler Listengruppierung
   handleViewSettings : function (evt) {
@@ -297,13 +294,14 @@ Da die Liste auch eine Gruppierungsmöglichkeit bieten soll wurde ein weiterer \
     this._lineItemViewDialog.open();
   }
 ...
-	\end{lstlisting}
+\end{lstlisting}
 
 
 \paragraph{Controller Detailseite}$\;$ \\
 Der Controller der Detailseite hat als wichtigste Aufgabe die Charts zu konfigurieren, die unter der Kopfzeile angezeigt werden. Im SAP UI5 Framework ist eine eigene Chart Visualisierungs Klasse enthalten, welche einen großen Umfang an verschiedensten Chartstyles besitzt. Im Prototyp wurden zunächst nur Bar- und Line-Charts verwendet. Ein Chart benötigt eine Datenbasis auf die es sich stützt. Diese Datenbasis bildet im Prototyp das globale Model. Da die Detailseite bei einem Aufruf aus der Hauptseite automatisch den Datenkontext des gewählten Listeneintrags mitbekommt kann in der Datenbasis des Charts, \textit{FlattenedDataset}, einfach auf einen Pfad innerhalb des JSON Model bezug genommen werden. Daneben werden noch die Achsen entsprechend der Verwendung eingestellt und benannt. Anhand der in der View festgelegten ID wird das Chart Objekt dann referenziert. Es wird ein Titel festgelegt, welcher auch über eine lokalisierte Variante verfügt. Zuletzt wird das erstellte \textit{FlattenedDataset} an das Chart gebunden.
 
-	\begin{lstlisting}[frame=htrbl, caption=Chart Konfigurierung, label=lst:chartconfig]
+\vspace{1em}
+\begin{lstlisting}[frame=htrbl, caption=Chart Konfigurierung, label=lst:chartconfig]
 ...
 handleNavButtonPress : function (evt) {
   this.nav.back("Master");
@@ -336,7 +334,7 @@ configForecastChart : function () {
         {visible:true, text:"{i18n>ForecastChartTitle}"}));
   oLineChart.setDataset(oDatasetForecast);
 },
-	\end{lstlisting}
+\end{lstlisting}
 
 %\subsubsection{Backend}
 %// ABAP Stack der den RESTful Service bereitstellt zeigen\\
