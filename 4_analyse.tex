@@ -2,47 +2,42 @@
 Im Zuge des Kapitels Analyse wird der Prototyp und das verwendete SAP UI5 Framework analysiert und die Ergebnisse in Form von Diagrammen gezeigt und beschrieben. Beginnend werden die Kombinationsmöglichkeiten zwischen den einzelnen Bibliotheken des SAP UI5 Frameworks aufgezeigt. Im Anschluss kommt eine Verdeutlichung eines Nachrichtenflusses innerhalb der SAP UI5 Applikation.
 
 \subsection{Bibliotheken Beziehungen}
-// Lib Diagramm beschreiben
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+Im Zuge der Analyse des SAP UI5 Frameworks wurde zu erst offengelegt wie die einzelnen Bibliotheken innerhalb des Frameworks mit einander kombinierbar sind. Dadurch konnte festgestellt werden, dass einige Bibliotheken zu Gruppen zusammen gefasst werden können und zwei Bibliotheken außen vor liegen. Das wäre zum Einen die Bibliothek \textit{sap.viz}. Mit ihr wird eine Charting Bibliothek bereit gestellt, die sich mit allen anderen Bibliotheken verwenden lässt. Und zum Anderen die Bibliothek \textit{sap.ui.inbox}, welche eine fertige Inbox darstellt um sie in Applikationen einzubinden. Die Bibliotheken \textit{sap.ui.core}, \textit{sap.ui.layout} und \textit{sap.ui.unified} lassen sich klar als Kernbibliotheken einordnen. Sie stellen das Grundgerüst des Frameworks. Dann gibt es noch eine Gruppe von Bibliotheken die Controls bereitstellen die eher an die Bedürfnisse einer Desktop Applikation geknüpft sind. Die letzte Gruppe beinhaltet Bibliotheken für Mobile Controls. Sämtliche Mobile Controls funktionieren auch in einer Desktop Applikation, sie sind jedoch für die Anzeige auf mobilen Endgeräten optimiert. Mit Abbildung \ref{fig:sapui5libconnections} sollen diese Gruppen und Beziehungen dargestellt werden.
 
 \vspace{1em}
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=1\linewidth]{abb/sapui5_lib_connections}
+  \includegraphics[width=0.95\linewidth]{abb/sapui5_lib_connections}
   \caption[Klassendiagramm: SAP UI5 Bibliotheken Kombinationen]{Klassendiagramm: SAP UI5 Bibliotheken Kombinationen}
   \label{fig:sapui5libconnections}
 \end{figure}
 
 \newpage
 \subsection{Modularität}
-// Paketdiagramm beschreiben und auf die Möglichkeiten des Templatings hinweisen. MVC Muster Stichwort
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+Durch die stringente Verwendung des MVC-Musters können Templates entwickelt werden. Mit diesen Templates lassen sich beispielsweise komplette Geschäftsprozesse abbilden. Geschäftslogik und Präsentation leben in ihrem eigenen Model-View-Controller Verbund. Dadurch kann man sie in den verschiedensten Applikationen wieder verwenden. Der Wartungsaufwand für eine komplexe Applikation lässt sich so verringern. Neben dem MVC-Muster kommt eine zusätzlich Trennung der Präsentationsschicht zu Tragen. Die Struktur wird in JavaScript oder XML definiert, wohingegen die Optik mit CSS beschrieben wird. Dadurch können die Templates schnell und ohne große Hindernisse an ein Corporate Design angepasst werden. Abbildung \ref{fig:sapui5mvctemplates} zeigt diesen denkbaren Einsatz von fertigen UI Templates.
 
 \vspace{1em}
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=1\linewidth]{abb/sapui5_mvc_templates}
+  \includegraphics[width=1\linewidth,angle=90]{abb/sapui5_mvc_templates}
   \caption[Paketdiagramm: MVC-Templates innerhalb einer SAP UI5 Applikation]{Paketdiagramm: MVC-Templates innerhalb einer SAP UI5 Applikation}
-  \label{fig:paketdiagramm}
+  \label{fig:sapui5mvctemplates}
 \end{figure}
 
 \newpage
 \subsection{UI Kaskade}
-// Sequenzdiagramm beschreiben
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+Um ein besseres Verständnis der UI Aufruffolge zu bekommen wurde ein Sequenzdiagramm angefertigt. Mit diesem Diagramm wurde der Aufruf eines Listeneintrags auf der Hauptseite abgebildet. Dieser Klick verursacht die Applikation dazu die ID und den Datenkontext des Eintrags über den Controller an die Detailseite weiterzugeben und dort die vorhandenen Informationen darzustellen. Auf dem Weg dorthin übernimmt der Controller der Detailseite die Aufgabe die beiden verfügbaren Charts zu konfigurieren. Dabei werden die Beschriftung und die Datenherkunft festgelegt.
 
 \vspace{1em}
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.95\linewidth,angle=90]{abb/sapui5_load_list_entry}
   \caption[Sequenzdiagramm: Laden eines Listeneintrags]{Sequenzdiagramm: Laden eines Listeneintrags}
-  \label{fig:sequenzdiagramm}
+  \label{fig:sapui5loadlistentry}
 \end{figure}
 
 \paragraph{Zeitmessung}$\;$ \\
-// UI Zeitmessung kurz erklären wieso grade initial + 3 loads
-// Tabelle \ref{tab:uiloading} zeigt
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+Um das Sequenzdiagramm mit Metainformationen anzureichern wurde eine Zeitmessung vorgenommen. Es wurden 4 Werte gemessen. Alle Versuche wurden mit deaktiviertem Browser Cache gemessen. Die erste Messgröße ist die Dauer vom öffnen bis zur fertig geladenen Seite. Danach wurden 3 Einträge aus der Liste gewählt und jeweils gewartet bis die Detailseite vollständig geladen und das Chart aufgebaut war. Aus den erhobenen Versuchswerten ist noch der arithmetische Durchschnitt gebildet worden. Alle Ergebnisse sind in Tabelle \ref{tab:uiloading} aufgeführt.
 
 \vspace{1em}
 \begin{center}
@@ -79,4 +74,3 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 \end{center}
 
 // Erkenntnis UI lädt ob cached oder uncached beim ersten Laden des UIs in nahezu unter 1,5 Sekunden. Jede weitere Auswahl eines Listeneintrags ist dann in durchschnittlich 233 Millisekunden fertig geladen und gerendert.
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
