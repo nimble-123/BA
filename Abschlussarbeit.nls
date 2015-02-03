@@ -2,43 +2,62 @@
 
  \nomgroup{A}
 
+  \item [{AJAX}]\begingroup Asynchronous JavaScript And XML\nomeqref {0}
+		\nompageref{V}
   \item [{API}]\begingroup Application-Programming-Interface\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
+  \item [{AS}]\begingroup Application Server\nomeqref {0}\nompageref{V}
   \item [{BSP}]\begingroup Business Server Pages\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
   \item [{CSS}]\begingroup Cascading Style Sheets\nomeqref {0}
-		\nompageref{IV}
-  \item [{DOM}]\begingroup Dokument-Objekt-Modell\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
+  \item [{DOM}]\begingroup Document Objekt Model\nomeqref {0}
+		\nompageref{V}
   \item [{ECMA}]\begingroup European Computer Manufacturers Association\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
+  \item [{GUI}]\begingroup Graphical User Interface\nomeqref {0}
+		\nompageref{V}
   \item [{HTML}]\begingroup Hypertext Markup Language\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
+  \item [{HTTP}]\begingroup Hypertext Transfer Protocol\nomeqref {0}
+		\nompageref{V}
   \item [{IDE}]\begingroup Integrated Development Environment\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
+  \item [{IE}]\begingroup Internet Explorer\nomeqref {0}\nompageref{V}
+  \item [{IEEE}]\begingroup Institute of Electrical and Electronics Engineers\nomeqref {0}
+		\nompageref{V}
   \item [{JDBC}]\begingroup Java Database Connectivity\nomeqref {0}
-		\nompageref{IV}
-  \item [{JS}]\begingroup JavaScript\nomeqref {0}\nompageref{IV}
+		\nompageref{V}
+  \item [{JS}]\begingroup JavaScript\nomeqref {0}\nompageref{V}
   \item [{JSON}]\begingroup JavaScript Object Notation\nomeqref {0}
-		\nompageref{IV}
-  \item [{JSP}]\begingroup Java Server Pages\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
+  \item [{MVC}]\begingroup Model View Controller\nomeqref {0}
+		\nompageref{V}
+  \item [{OData}]\begingroup Open Data Protocol\nomeqref {0}
+		\nompageref{V}
   \item [{ODBC}]\begingroup Open Database Connectivity\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
+  \item [{OOP}]\begingroup Objektorientierte Programmierung\nomeqref {0}
+		\nompageref{V}
+  \item [{RSS}]\begingroup Really Simple Syndication\nomeqref {0}
+		\nompageref{V}
+  \item [{SCM}]\begingroup Supply Chain Management\nomeqref {0}
+		\nompageref{V}
   \item [{SDK}]\begingroup Software Development Kit\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
   \item [{SGML}]\begingroup Standard Generalized Markup Language\nomeqref {0}
-		\nompageref{IV}
-  \item [{SPP}]\begingroup Spare Parts Planning\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
+  \item [{URL}]\begingroup Uniform Resource Locator\nomeqref {0}
+		\nompageref{V}
+  \item [{UX}]\begingroup User Experience\nomeqref {0}\nompageref{V}
   \item [{W3C}]\begingroup World Wide Web Consortium\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
   \item [{WHATWG}]\begingroup Web Hypertext Application Technology Working Group\nomeqref {0}
-		\nompageref{IV}
-  \item [{WWW}]\begingroup World Wide Web\nomeqref {0}\nompageref{IV}
+		\nompageref{V}
+  \item [{WWW}]\begingroup World Wide Web\nomeqref {0}\nompageref{V}
   \item [{XHTML}]\begingroup Extensible Hypertext Markup Language\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
   \item [{XML}]\begingroup Extensible Markup Language\nomeqref {0}
-		\nompageref{IV}
+		\nompageref{V}
 
 \end{thenomenclature}
