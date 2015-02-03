@@ -109,7 +109,7 @@ return new sap.m.Shell("Shell", {
 Die \texttt{Master.view.xml} wird nicht, wie der Dateiname schon schließen lässt, gleich der Root View im JavaScript sondern im XML Format erstellt. Sie beinhaltet die Komponenten, die in der \texttt{SplitApp} die Hauptseite darstellt. Realisiert wird das über die Komponente \texttt{Page}. In der \texttt{Page} liegen wiederum weitere Komponenten die das Aussehen der Hauptseite definieren. Durch einen \texttt{customHeader} inklusive einer \texttt{Bar} und einem \texttt{Image} wird ein Firmenlogo in die Hauptseite ganz oben eingefügt. Ein \texttt{subHeader} mit einer \texttt{Bar} und einem \texttt{SearchField} sind für eine Suchfunktion innerhalb der Liste gesetzt. Eine \texttt{List} implementiert eine vertikale Liste, die mit Komponenten vom Typ \texttt{ObjectListItem} befüllt wird. Das \texttt{ObjectListItem} dient in dem Fall als Formatvorlage für die tatsächlichen Daten die später aus dem Model bezogen werden. Abgeschlossen wird die Seite mit der \texttt{footer} Komponente in der eine \texttt{Bar} und ein \texttt{Button} eingelassen sind. Der Button soll eine Gruppierungsfunktion für die Liste möglich machen. Listing \ref{lst:Master.view.xml} enthält die erläuterte Struktur der Hauptseite im XML Format.
 
 \vspace{1em}
-\begin{lstlisting}[language=XML, caption=Hauptseite der SplitApp, label=lst:Master.view.xml]
+\begin{lstlisting}[language=HTML5, caption=Hauptseite der SplitApp, label=lst:Master.view.xml]
 <core:View
   controllerName="abat.Mockup.view.Master"
   xmlns="sap.m"
