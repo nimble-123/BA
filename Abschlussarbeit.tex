@@ -44,10 +44,10 @@
 
 % Paket für Textfarben
 \usepackage{color}
-    \definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
-    \definecolor{editorGray}{rgb}{1, 1, 1}
-    \definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
-    \definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0) 
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+\definecolor{editorGray}{rgb}{1, 1, 1}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0}
+\definecolor{editorGreen}{rgb}{0, 0.5, 0}
 
 % Mathematische Symbole importieren
 \usepackage{amssymb}
@@ -56,9 +56,15 @@
 \usepackage{paralist}
 
 % erzeugt Inhaltsverzeichnis mit Querverweisen zu den Kapiteln (PDF Version)
-\usepackage[bookmarksnumbered,pdftitle={\titleDocument},hyperfootnotes=false]{hyperref} 
+\usepackage[bookmarksnumbered,hyperfootnotes=false]{hyperref} 
 %\hypersetup{colorlinks, citecolor=red, linkcolor=blue, urlcolor=black}
-\hypersetup{colorlinks, citecolor=black, linkcolor= black, urlcolor=black}
+\hypersetup{colorlinks, citecolor=black, linkcolor= black, urlcolor=black,
+  pdftitle={\titleDocument},
+  pdfauthor={Nils Lutz},
+  pdfcreator={Nils Lutz},
+  pdfkeywords={SAP UI5},
+  pdfsubject={Prototypische Implementierung einer SAP UI5-Applikation im SAP Umfeld und Analyse eines effizienten Einsatz von UI-Objekten}}
+\pdfinfo{/CreationDate (D:20141022133700)}
 
 % neue Kopfzeilen mit fancypaket
 \usepackage{fancyhdr} %Paket laden
@@ -116,6 +122,8 @@
 % Disable single lines at the end of a paragraph (Hurenkinder)
 \widowpenalty = 10000
 \displaywidowpenalty = 10000
+% Keine Einrückung von neuen Absätzen
+\setlength{\parindent}{0pt}
 
 \begin{document}
 % hier werden die Trennvorschläge inkludiert
