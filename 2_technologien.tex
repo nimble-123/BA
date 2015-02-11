@@ -213,7 +213,7 @@ Innerhalb von CSS-Dateien kann man wiederum mit der Anweisung \texttt{@import} d
 \subsubsection{Syntax} Die Syntax von CSS ist denkbar einfach. Sie besteht im Wesentlichen aus dem Selektor und dem Deklarationsblock. Ein Selektor entspricht in den häufigsten Fällen dem gleichnamigen HTML-Element. Der Deklarationsblock besteht wiederum aus mindestens einer Deklaration.(vgl. \cite[S.26]{MeyeCasc2005}) \glqq Eine Deklaration besteht dabei immer aus einer Eigenschaft, die mit einem Wert durch einen Doppelpunkt verbunden ist. Abgeschlossen wird die Deklaration durch ein nachgestelltes Semikolon. Auf den Doppelpunkt und das Semikolon kann eine beliebige Anzahl von Leerzeichen (also auch keines) folgen. Fast immer besteht der Wert aus einem einzelnen Schlüsselwort oder einer durch Leerzeichen getrennten Liste aus mehreren Schlüsselwörtern, die für die genannte Eigenschaft zulässig sind.\grqq{}\cite[S.28]{MeyeCasc2005} Verwendet man in der Deklaration ungültige Eigenschaften oder Werte werden diese einfach ignoriert. Listing \ref{lst:css3syntax} zeigt die Syntax beispielhaft.
 
 \vspace{1em}
-\begin{lstlisting}[language=CSS, caption=CSS3 Syntax Beispiel, label=lst:css3syntax]
+\begin{lstlisting}[language=HTML5, caption=CSS3 Syntax Beispiel, label=lst:css3syntax]
 Selektor [, Selektor2, ...] {
   Eigenschaft1: Wert1;
   ...
@@ -224,7 +224,7 @@ Selektor [, Selektor2, ...] {
 Um sich wiederholende Designregeln zusammenfassen zu können, lassen sich Selektoren in CSS gruppieren. Dabei werden die zu gruppierenden Selektoren durch ein Komma voneinander getrennt und dann die zu gestaltenden Eigenschaften mit den entsprechenden Werten genannt, wie in Listing \ref{lst:css3group} zu sehen.
 
 \vspace{1em}
-\begin{lstlisting}[language=CSS, caption=CSS3 Gruppierung, label=lst:css3group]
+\begin{lstlisting}[language=HTML5, caption=CSS3 Gruppierung, label=lst:css3group]
 h1, h2, p {
   color: black;
 }
@@ -233,7 +233,7 @@ h1, h2, p {
 \subsubsection{Selektoren} CSS arbeitet wie HTML auch mit dem DOM. \glqq Der erste Vorteil, der sich aus dem Verständnis dieses Modells ergibt, ist die Möglichkeit, Selektoren für Nachfahren (auch als Kontext-Selektoren bezeichnet) zu definieren. Die Definition von Selektoren für Nachfahren besteht aus dem Festlegen von Regeln, die nur für bestimmte hierarchische Strukturen gelten.\grqq{}\cite[S.48]{MeyeCasc2005} Der erstgenannte Selektor ist das Elternelement. Mittels eines Leerzeichens wird das Nachfahrenelement vom Elternelement getrennt. In Listing \ref{lst:css3kids} wird angegeben, dass jedes \texttt{strong}-Element innerhalb eines \texttt{h1}-Elements eine besondere Formatierung erhält. Konkret bedeutet das in diesem Fall, dass die Schriftgröße 14pt und die Schriftgewichtung, welche die Dicke und Stärke festlegt, \texttt{bold} sein soll. Zu beachten ist, dass so sämtliche Nachfahren des \texttt{h1}-Elements entsprechend formatiert werden. Es gibt auch die Möglichkeit die Formatierung nur auf einen direkten Nachfahren, ein sogenanntes Kindelement, zu beschränken. Um dies zu erreichen werden Eltern- und Kindelement nicht durch ein Leerzeichen voneinander getrennt, sondern durch das Größer-als-Zeichen (\textgreater).
 
 \vspace{1em}
-\begin{lstlisting}[language=CSS, caption=CSS3 Selektoren für Nachfahren, label=lst:css3kids]
+\begin{lstlisting}[language=HTML5, caption=CSS3 Selektoren für Nachfahren, label=lst:css3kids]
 h1 strong {
   font-size:   14pt;
   font-weight: bold;
@@ -243,7 +243,7 @@ h1 strong {
 Das gleiche Verfahren kann auch auf Nachbarelemente angewandt werden. Nur wird hierbei ein anderes Kombinatorenzeichen benötigt, nämlich das Plus (+).\par \glqq Zusätzlich zu den rohen Dokument-Elementen gibt es noch zwei weitere Arten von Selektoren: Klassenselektoren und ID-Selektoren, mit denen sich Stildefinitionen unabhhängig von den Elementen eines Dokuments zuweisen lassen. Diese Selektoren können eigenständig oder zusammen mit Elementselektoren verwendet werden. Allerdings ist es hierfür notwendig, die Dokumentteile entsprechend zu markieren. Die Benutzung dieser neuen Selektoren erfordert daher [...] Voraussicht und Planung.\grqq{}\cite[S.34ff]{MeyeCasc2005} Des Weiteren muss die HTML-Auszeichnung angepasst werden sollten Klassen- und/oder ID-Selektoren verwendet werden. Konkret bedeutet dies, dass jedem HTML-Element ein \texttt{class}- und/oder \texttt{id}-Attribut hinzugefügt werden muss, sofern es von den CSS Regeln beachtet werden soll. Zu beachten ist, dass eine vergebene ID im gesamten HTML-Dokument einzigartig sein muss, wohingegen eine vergebene Klasse auf mehrere HTML-Elemente und auf ein HTML-Element auch mehrere Klassen angewandt werden können. (vgl. \cite{W3ScCss2014}) Listing \ref{lst:css3idclass} zeigt einen solchen ID-Selektor, einen Klassenselektor und einen Klassenselektor der nur bei \texttt{p}-Elementen gilt, die das \texttt{class}-Attribut besitzen.
 
 \vspace{1em}
-\begin{lstlisting}[language=CSS, caption=CSS3 Klassen- und ID-Selektoren, label=lst:css3idclass]
+\begin{lstlisting}[language=HTML5, caption=CSS3 Klassen- und ID-Selektoren, label=lst:css3idclass]
 <div id="ID">
   <p class="Klasse"></p>
 </div>
@@ -265,7 +265,7 @@ p.Klasse {
 \subsubsection{Pseudoklassen} Neben den genannten Selektoren gibt es noch einen weiteren Typ von Selektoren. Die sogenannten Pseudoselektoren für die Pseudoklassen. \glqq Mit diesen Selektoren [... lassen sich] Stildefinitionen auf Strukturen zuweisen, die nicht unbedingt im Dokument vorkommen müssen, oder auch [... Pseudo]klassen, die vom Zustand bestimmter Elemente oder sogar vom Zustand des Dokuments selbst abhängen. Anders gesagt, werden die Stile, basierend auf etwas anderem als der Struktur des Dokuments, auf Teile des Dokuments angewendet.\grqq{}\cite[S.53ff]{MeyeCasc2005} Um beispielsweise einen Link in einem Dokument farblich zu markieren, sobald er besucht wurde, wäre eigentlich für jeden Zustand des Links eine eigene Klasse nötig. Diese Klasse müsste sich ständig ändern je nachdem ob der Nutzer den Link schon besucht hat oder nicht. Um diesen Umstand zu verhindern, existieren die Pseudoselektoren und Pseudoklassen. Im Fall eines \texttt{a}-Elements werden die Pseudoklassen \texttt{link} und \texttt{visited} bereitgestellt, um den Effekt zu erzeugen. Diese Klassen werden dem \texttt{a}-Element durch CSS selber hinzugefügt bzw. wird ein \texttt{a}-Element, das ein \texttt{href}-Attribut besitzt und noch nicht besucht wurde mit der Pseudoklasse \texttt{link} versehen. Die Pseudoklasse \texttt{visited} bezieht sich auf \texttt{a}-Elemente mit \texttt{href}-Attribut die schon besucht wurden. Listing \ref{lst:css3pseudo} zeigt ein solches \texttt{a}-Element und die beiden Pseudoselektoren.
 
 \vspace{1em}
-\begin{lstlisting}[language=CSS, caption=CSS3 Pseudoklassen und -selektoren, label=lst:css3pseudo]
+\begin{lstlisting}[language=HTML5, caption=CSS3 Pseudoklassen und -selektoren, label=lst:css3pseudo]
 <a href="http://www.example.com">Example.com</a>
 
 /* unvisited link */
@@ -299,7 +299,7 @@ a:visited {
 Ein vorhandenes Stylesheet ohne Medieninformationen gilt für alle Medien. Ferner lassen sich die Medien auch näher beschreiben innerhalb des Stylesheets durch den \texttt{@media}-Block. Diesen \texttt{@media}-Blöcken können, neben den Medientypen, auch noch weitere Bedingungen hinzugefügt werden. In Listing \ref{lst:css3mediaquery} wird das Element mit der ID \texttt{inhalt} auf eine Breite von \texttt{800px} festgelegt. Ist das verwendete Ausgabemedium jedoch ein Bildschirm und hat nur eine Gesamtbreite von \texttt{1024px} wird das Element mit der ID \texttt{inhalt} auf eine Breite von nur noch \texttt{600px} und das \texttt{aside}-Element gar nicht mehr angezeigt.
 
 \vspace{1em}
-\begin{lstlisting}[language=CSS, caption=CSS3 eigenschaftsspezifisches Stylesheet, label=lst:css3mediaquery]
+\begin{lstlisting}[language=HTML5, caption=CSS3 eigenschaftsspezifisches Stylesheet, label=lst:css3mediaquery]
 #inhalt {
 	width: 800px;
 }
